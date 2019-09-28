@@ -9,7 +9,6 @@ public class PrintRainMessage : MonoBehaviour
     {
         print("Hello, World!");
         print("Some message");
-        print("It is raining");
+        print("Is it raining?");
     }
-
 }
