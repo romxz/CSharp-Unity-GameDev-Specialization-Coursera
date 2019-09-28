@@ -2,9 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Prints a message
+/// </summary>
 public class PrintRainMessage : MonoBehaviour
 {
-    // Start is called before the first frame update
+    /// <summary>
+    /// Start is called before the first frame update, use it for initialization
+    /// </summary>
     void Start()
     {
         print("Hello, World!");
