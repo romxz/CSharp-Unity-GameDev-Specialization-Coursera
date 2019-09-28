@@ -338,5 +338,16 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
-Intro_C#_and_Unity/Intro to C# Programming and Unity-Visual-Studio-Entire-Course - Shortcut.lnk
-Intro_C#_and_Unity/Week_1/FirstUnityScript/Temp/*
+*.lnk
+
+# Unity3D specific
+**/Library/*
+**/Temp/*
+**/*.csproj
+**/*.unityproj
+**/*.sln
+**/*.userprefs
+**/*.pidb
+
+# include meta files
+!*.*.meta
