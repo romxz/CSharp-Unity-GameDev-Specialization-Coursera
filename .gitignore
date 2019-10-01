@@ -353,4 +353,4 @@ healthchecksdb
 *.meta
 # But not source file with postfix. which is everything but a folder
 !*.*.meta
-Intro_C#_and_Unity/Week_1/ProgrammingAssignment1/Program.cs
+**/Assignments/
