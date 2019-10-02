@@ -3,13 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Exercise9
-{
+namespace Exercise9 {
     /// <summary>
     /// A deck of cards
     /// </summary>
-    public class Deck
-    {
+    public class Deck {
         #region Fields
 
         List<Card> cards = new List<Card>();
@@ -21,13 +19,10 @@ namespace Exercise9
         /// <summary>
         /// Constructor
         /// </summary>
-        public Deck()
-        {
+        public Deck() {
             // fill the deck with cards
-            foreach (Suit suit in Enum.GetValues(typeof(Suit)))
-            {
-                foreach (Rank rank in Enum.GetValues(typeof(Rank)))
-                {
+            foreach (Suit suit in Enum.GetValues(typeof(Suit))) {
+                foreach (Rank rank in Enum.GetValues(typeof(Rank))) {
                     cards.Add(new Card(rank.ToString(), suit.ToString()));
                 }
             }
@@ -40,8 +35,7 @@ namespace Exercise9
         /// <summary>
         /// Gets whether the deck is empty
         /// </summary>
-        public bool Empty
-        {
+        public bool Empty {
             get { return cards.Count == 0; }
         }
 
@@ -53,8 +47,7 @@ namespace Exercise9
         /// Cuts the deck of cards at the given location
         /// </summary>
         /// <param name="location">the location at which to cut the deck</param>
-        public void Cut(int location)
-        {
+        public void Cut(int location) {
             int cutIndex = cards.Count - location;
             Card[] newCards = new Card[cards.Count];
             cards.CopyTo(cutIndex, newCards, 0, location);
@@ -68,11 +61,9 @@ namespace Exercise9
         /// 
         /// Reference: http://download.oracle.com/javase/1.5.0/docs/api/java/util/Collections.html#shuffle%28java.util.List%29
         /// </summary>
-        public void Shuffle()
-        {
+        public void Shuffle() {
             Random rand = new Random();
-            for (int i = cards.Count - 1; i > 0; i--)
-            {
+            for (int i = cards.Count - 1; i > 0; i--) {
                 int randomIndex = rand.Next(i + 1);
                 Card tempCard = cards[i];
                 cards[i] = cards[randomIndex];
@@ -84,16 +75,12 @@ namespace Exercise9
         /// Takes the top card from the deck. If the deck is empty, returns null
         /// </summary>
         /// <returns>the top card</returns>
-        public Card TakeTopCard()
-        {
-            if (!Empty)
-            {
+        public Card TakeTopCard() {
+            if (!Empty) {
                 Card topCard = cards[cards.Count - 1];
                 cards.RemoveAt(cards.Count - 1);
                 return topCard;
-            }
-            else
-            {
+            } else {
                 return null;
             }
         }
@@ -101,10 +88,8 @@ namespace Exercise9
         /// <summary>
         /// Prints the contents of the deck
         /// </summary>
-        public void Print()
-        {
-            foreach (Card card in cards)
-            {
+        public void Print() {
+            foreach (Card card in cards) {
                 Console.WriteLine(card.Rank + " of " + card.Suit);
             }
         }

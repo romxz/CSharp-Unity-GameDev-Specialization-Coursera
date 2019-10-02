@@ -3,13 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Exercise9
-{
+namespace Exercise9 {
     /// <summary>
     /// An enumeration for card ranks
     /// </summary>
-    public enum Rank
-    {
+    public enum Rank {
         Ace,
         Two,
         Three,

@@ -3,13 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Exercise9
-{
+namespace Exercise9 {
     /// <summary>
     /// A playing card
     /// </summary>
-    public class Card
-    {
+    public class Card {
         #region Fields
 
         string rank;
@@ -25,8 +23,7 @@ namespace Exercise9
         /// </summary>
         /// <param name="rank">the rank</param>
         /// <param name="suit">the suit</param>
-        public Card(string rank, string suit)
-        {
+        public Card(string rank, string suit) {
             this.rank = rank;
             this.suit = suit;
             faceUp = false;
@@ -39,24 +36,21 @@ namespace Exercise9
         /// <summary>
         /// Gets the card rank
         /// </summary>
-        public string Rank 
-        {
+        public string Rank {
             get { return rank; }
         }
 
         /// <summary>
         /// Gets the card suit
         /// </summary>
-        public string Suit 
-        {
+        public string Suit {
             get { return suit; }
         }
 
         /// <summary>
         /// Gets whether or not the card is face up
         /// </summary>
-        public bool FaceUp 
-        {
+        public bool FaceUp {
             get { return faceUp; }
         }
 
@@ -67,8 +61,7 @@ namespace Exercise9
         /// <summary>
         /// Flips the card over
         /// </summary>
-        public void FlipOver() 
-        {
+        public void FlipOver() {
             faceUp = !faceUp;
         }
 
