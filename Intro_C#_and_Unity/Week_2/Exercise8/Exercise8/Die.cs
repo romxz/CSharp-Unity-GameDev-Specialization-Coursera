@@ -3,13 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Exercise8
-{
+namespace Exercise8 {
     /// <summary>
     /// A die
     /// </summary>
-    public class Die
-    {
+    public class Die {
         #region Fields
 
         int topSide;
@@ -22,16 +20,14 @@ namespace Exercise8
         /// <summary>
         /// Constructor for six-sided die
         /// </summary>
-        public Die() : this(6)
-        {
+        public Die() : this(6) {
         }
 
         /// <summary>
         /// Constructor for a die with the given number of sides
         /// </summary>
         /// <param name="numSides">the number of sides</param>
-        public Die(int numSides)
-        {
+        public Die(int numSides) {
             this.numSides = numSides;
             topSide = 1;
         }
@@ -43,16 +39,14 @@ namespace Exercise8
         /// <summary>
         /// Gets the current top side of the die
         /// </summary>
-        public int TopSide
-        {
+        public int TopSide {
             get { return topSide; }
         }
 
         /// <summary>
         /// Gets the number of sides the die has
         /// </summary>
-        public int NumSides
-        {
+        public int NumSides {
             get { return numSides; }
         }
 
@@ -63,8 +57,7 @@ namespace Exercise8
         /// <summary>
         /// Rolls the die
         /// </summary>
-        public void Roll()
-        {
+        public void Roll() {
             topSide = RandomNumberGenerator.Next(numSides) + 1;
         }
 
