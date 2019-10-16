@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 343958728}
   - component: {fileID: 343958729}
   m_Layer: 0
-  m_Name: teddybear0
+  m_Name: TeddyBear0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
