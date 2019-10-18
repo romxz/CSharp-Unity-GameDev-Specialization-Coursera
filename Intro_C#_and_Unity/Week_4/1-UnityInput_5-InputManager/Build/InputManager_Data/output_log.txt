@@ -1,0 +1,26 @@
+Initialize engine version: 5.6.0f3 (497a0f351392)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: NVIDIA GeForce 940MX (ID=0x134d)
+    Vendor:   NVIDIA
+    VRAM:     2010 MB
+    Driver:   25.21.14.2545
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\andre\Documents\GameDev\Unity-GameDev-Tutorials\Intro_C#_and_Unity\Week_4\1-UnityInput_5-InputManager\Build\InputManager_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\andre\Documents\GameDev\Unity-GameDev-Tutorials\Intro_C#_and_Unity\Week_4\1-UnityInput_5-InputManager\Build\InputManager_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\andre\Documents\GameDev\Unity-GameDev-Tutorials\Intro_C#_and_Unity\Week_4\1-UnityInput_5-InputManager\Build\InputManager_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\andre\Documents\GameDev\Unity-GameDev-Tutorials\Intro_C#_and_Unity\Week_4\1-UnityInput_5-InputManager\Build\InputManager_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\andre\Documents\GameDev\Unity-GameDev-Tutorials\Intro_C#_and_Unity\Week_4\1-UnityInput_5-InputManager\Build\InputManager_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\andre\Documents\GameDev\Unity-GameDev-Tutorials\Intro_C#_and_Unity\Week_4\1-UnityInput_5-InputManager\Build\InputManager_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+- Completed reload, in  0.153 seconds
+Platform assembly: C:\Users\andre\Documents\GameDev\Unity-GameDev-Tutorials\Intro_C#_and_Unity\Week_4\1-UnityInput_5-InputManager\Build\InputManager_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\andre\Documents\GameDev\Unity-GameDev-Tutorials\Intro_C#_and_Unity\Week_4\1-UnityInput_5-InputManager\Build\InputManager_Data\Managed\System.dll (this message is harmless)
+desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 1.479100 ms
+Setting up 2 worker threads for Enlighten.
+  Thread -> id: 6e74 -> priority: 1 
+  Thread -> id: 21d0 -> priority: 1 
