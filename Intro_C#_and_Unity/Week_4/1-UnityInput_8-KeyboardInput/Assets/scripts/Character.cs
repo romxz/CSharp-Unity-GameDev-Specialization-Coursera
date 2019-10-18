@@ -5,59 +5,63 @@ using UnityEngine;
 /// <summary>
 /// A character
 /// </summary>
-public class Character : MonoBehaviour
-{
+public class Character : MonoBehaviour {
     // saved for efficiency
     float colliderHalfWidth;
     float colliderHalfHeight;
 
-	/// <summary>
-	/// Use this for initialization
-	/// </summary>
-	void Start()
-	{
+    // movement support
+    const float MoveUnitsPerSec = 5;
+
+    /// <summary>
+    /// Use this for initialization
+    /// </summary>
+    void Start() {
         // save for efficiency
         BoxCollider2D collider = GetComponent<BoxCollider2D>();
         colliderHalfWidth = collider.size.x / 2;
         colliderHalfHeight = collider.size.y / 2;
-	}
-	
-	/// <summary>
-	/// Update is called once per frame
-	/// </summary>
-	void Update()
-	{
-        // convert mouse position to world position
+    }
+
+    /// <summary>
+    /// Update is called once per frame
+    /// </summary>
+    void Update() {
+        /*// convert mouse position to world position
         Vector3 position = Input.mousePosition;
         position.z = -Camera.main.transform.position.z;
-        position = Camera.main.ScreenToWorldPoint(position);
+        position = Camera.main.ScreenToWorldPoint(position);*/
+        // move based on input
+        Vector3 position = transform.position;
+        float horizontalInput = Input.GetAxis("Horizontal");
+        float verticalInput = Input.GetAxis("Vertical");
+        float deltaTime = Time.deltaTime;
+        if (horizontalInput != 0) {
+            position.x += horizontalInput * MoveUnitsPerSec * deltaTime;
+        }
+        if (verticalInput != 0) {
+            position.y += verticalInput * MoveUnitsPerSec * deltaTime;
+        }
 
-        // move character to mouse position and clamp in screen
+        // move character to new position and clamp in screen
         transform.position = position;
         ClampInScreen();
-	}
+    }
 
     /// <summary>
     /// Clamps the character in the screen
     /// </summary>
-    void ClampInScreen()
-    {
+    void ClampInScreen() {
         // clamp position as necessary
         Vector3 position = transform.position;
-        if (position.x - colliderHalfWidth < ScreenUtils.ScreenLeft)
-        {
+        if (position.x - colliderHalfWidth < ScreenUtils.ScreenLeft) {
             position.x = ScreenUtils.ScreenLeft + colliderHalfWidth;
-        }
-        else if (position.x + colliderHalfWidth > ScreenUtils.ScreenRight)
-        {
+        } else if (position.x + colliderHalfWidth > ScreenUtils.ScreenRight) {
             position.x = ScreenUtils.ScreenRight - colliderHalfWidth;
         }
-        if (position.y + colliderHalfHeight > ScreenUtils.ScreenTop)
-        {
+        if (position.y + colliderHalfHeight > ScreenUtils.ScreenTop) {
             position.y = ScreenUtils.ScreenTop - colliderHalfHeight;
-        }
-        else if (position.y - colliderHalfHeight < ScreenUtils.ScreenBottom)
-        {
+        } else if (position.y - colliderHalfHeight < ScreenUtils.ScreenBottom) {
             position.y = ScreenUtils.ScreenBottom + colliderHalfHeight;
         }
         transform.position = position;
