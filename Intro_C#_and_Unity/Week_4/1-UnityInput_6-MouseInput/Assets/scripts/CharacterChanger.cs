@@ -5,8 +5,7 @@ using UnityEngine;
 /// <summary>
 /// Changes character on left mouse button
 /// </summary>
-public class CharacterChanger : MonoBehaviour
-{
+public class CharacterChanger : MonoBehaviour {
     [SerializeField]
     GameObject prefabCharacter0;
     [SerializeField]
@@ -22,8 +21,7 @@ public class CharacterChanger : MonoBehaviour
     /// <summary>
     /// Use this for initialization
     /// </summary>
-    void Start()
-    {
+    void Start() {
         currentCharacter = Instantiate<GameObject>(
             prefabCharacter0, Vector3.zero,
             Quaternion.identity);
@@ -32,35 +30,26 @@ public class CharacterChanger : MonoBehaviour
     /// <summary>
     /// Update is called once per frame
     /// </summary>
-    void Update()
-    {
+    void Update() {
         // change character on left mouse button
-        if (Input.GetMouseButtonDown(0))
-        {
+        if (Input.GetAxis("ChangeCharacter") > 0) {
             // save current position and destroy current character
             Vector3 position = currentCharacter.transform.position;
             Destroy(currentCharacter);
 
             // instantiate a new random character
             int prefabNumber = Random.Range(0, 4);
-            if (prefabNumber == 0)
-            {
-                currentCharacter = Instantiate(prefabCharacter0, 
+            if (prefabNumber == 0) {
+                currentCharacter = Instantiate(prefabCharacter0,
                     position, Quaternion.identity);
-            }
-            else if (prefabNumber == 1)
-            {
-                currentCharacter = Instantiate(prefabCharacter1, 
+            } else if (prefabNumber == 1) {
+                currentCharacter = Instantiate(prefabCharacter1,
                     position, Quaternion.identity);
-            }
-            else if (prefabNumber == 2)
-            {
-                currentCharacter = Instantiate(prefabCharacter2, 
+            } else if (prefabNumber == 2) {
+                currentCharacter = Instantiate(prefabCharacter2,
                     position, Quaternion.identity);
-            }
-            else
-            {
-                currentCharacter = Instantiate(prefabCharacter3, 
+            } else {
+                currentCharacter = Instantiate(prefabCharacter3,
                     position, Quaternion.identity);
             }
         }
