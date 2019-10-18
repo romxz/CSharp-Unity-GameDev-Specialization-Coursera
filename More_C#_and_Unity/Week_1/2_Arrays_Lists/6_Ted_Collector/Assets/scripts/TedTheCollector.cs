@@ -5,36 +5,30 @@ using UnityEngine;
 /// <summary>
 /// Game manager
 /// </summary>
-public class TedTheCollector : MonoBehaviour
-{
-	#region Fields
+public class TedTheCollector : MonoBehaviour {
+    #region Fields
 
-	[SerializeField]
-	GameObject prefabPickup;
-	List<GameObject> pickups = new List<GameObject>();
+    [SerializeField]
+    GameObject prefabPickup;
+    List<GameObject> pickups = new List<GameObject>();
 
-	#endregion
+    #endregion
 
-	#region Properties
+    #region Properties
 
-	/// <summary>
-	/// Gets the next target pickup for the teddy bear to collect
-	/// </summary>
-	/// <value>target pickup</value>
-	public GameObject TargetPickup
-    {
-		get 
-		{
-			if (pickups.Count > 0)
-            {
-				return pickups[0]; 
-			}
-            else
-            {
-				return null;
-			}
-		}
-	}
+    /// <summary>
+    /// Gets the next target pickup for the teddy bear to collect
+    /// </summary>
+    /// <value>target pickup</value>
+    public GameObject TargetPickup {
+        get {
+            if (pickups.Count > 0) {
+                return pickups[0];
+            } else {
+                return null;
+            }
+        }
+    }
 
     #endregion
 
@@ -43,32 +37,29 @@ public class TedTheCollector : MonoBehaviour
     /// <summary>
     /// Update is called once per frame
     /// </summary>
-    void Update()
-    {
-		// add pickup on right click
-		if (Input.GetMouseButtonDown(1))
-        {
-			// calculate world position of mouse click
-			Vector3 mousePosition = Input.mousePosition;
-			mousePosition.z = -Camera.main.transform.position.z;
-			Vector3 worldPosition = Camera.main.ScreenToWorldPoint(mousePosition);
+    void Update() {
+        // add pickup on right click
+        if (Input.GetMouseButtonDown(1)) {
+            // calculate world position of mouse click
+            Vector3 mousePosition = Input.mousePosition;
+            mousePosition.z = -Camera.main.transform.position.z;
+            Vector3 worldPosition = Camera.main.ScreenToWorldPoint(mousePosition);
 
-			// create pickup and add to list
-			GameObject pickup = Instantiate<GameObject>(prefabPickup);
-			pickup.transform.position = worldPosition;
-			pickups.Add(pickup);
-		}
-	}
+            // create pickup and add to list
+            GameObject pickup = Instantiate<GameObject>(prefabPickup);
+            pickup.transform.position = worldPosition;
+            pickups.Add(pickup);
+        }
+    }
 
-	/// <summary>
-	/// Removes the given pickup from the game
-	/// </summary>
-	/// <param name="pickup">the pickup to remove</param>
-	public void RemovePickup(GameObject pickup)
-    {
-		pickups.Remove(pickup);
-		Destroy(pickup);
-	}
+    /// <summary>
+    /// Removes the given pickup from the game
+    /// </summary>
+    /// <param name="pickup">the pickup to remove</param>
+    public void RemovePickup(GameObject pickup) {
+        pickups.Remove(pickup);
+        Destroy(pickup);
+    }
 
-	#endregion
+    #endregion
 }

@@ -5,9 +5,8 @@ using UnityEngine;
 /// <summary>
 /// An enumeration of the teddy bear colors
 /// </summary>
-public enum TeddyColor
-{
-	Green,
-	Purple,
-	Yellow
+public enum TeddyColor {
+    Green,
+    Purple,
+    Yellow
 }
