@@ -4,17 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DieExample
-{
+namespace DieExample {
     /// <summary>
     /// A die
     /// </summary>
-    public class Die
-    {
+    public class Die {
         #region Fields
 
         int numSides;
         int topSide;
+        Random rand = new Random();
 
         #endregion
 
@@ -23,16 +22,14 @@ namespace DieExample
         /// <summary>
         /// Constructor for six-sided die
         /// </summary>
-        public Die() : this(6)
-        {
+        public Die() : this(6) {
         }
 
         /// <summary>
         /// Constructor for die with numSides sides
         /// </summary>
         /// <param name="numSides">number of sides</param>
-        public Die(int numSides)
-        {
+        public Die(int numSides) {
             this.numSides = numSides;
             topSide = 1;
         }
@@ -45,8 +42,7 @@ namespace DieExample
         /// Gets the number of sides
         /// </summary>
         /// <value>number of sides</value>
-        public int NumSides
-        {
+        public int NumSides {
             get { return numSides; }
         }
 
@@ -54,13 +50,19 @@ namespace DieExample
         /// Gets the top side
         /// </summary>
         /// <value>top side</value>
-        public int TopSide
-        {
+        public int TopSide {
             get { return topSide; }
         }
 
         #endregion
 
+        #region Methods
+
+        public void Roll() {
+            topSide = rand.Next(1, this.numSides + 1);
+        }
+
+        #endregion
     }
 }
 
