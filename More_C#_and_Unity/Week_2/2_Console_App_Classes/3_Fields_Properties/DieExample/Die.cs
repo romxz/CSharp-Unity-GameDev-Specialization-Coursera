@@ -4,13 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DieExample
-{
+namespace DieExample {
     /// <summary>
     /// A die
     /// </summary>
-    public class Die
-    {
+    public class Die {
         #region Fields
 
         int numSides;
@@ -24,8 +22,7 @@ namespace DieExample
         /// Gets the number of sides
         /// </summary>
         /// <value>number of sides</value>
-        public int NumSides
-        {
+        public int NumSides {
             get { return numSides; }
         }
 
@@ -33,8 +30,7 @@ namespace DieExample
         /// Gets the top side
         /// </summary>
         /// <value>top side</value>
-        public int TopSide
-        {
+        public int TopSide {
             get { return topSide; }
         }
 
