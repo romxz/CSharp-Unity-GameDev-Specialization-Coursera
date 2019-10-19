@@ -4,13 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Methods
-{
+namespace Methods {
     /// <summary>
     /// An enumeration for card suits
     /// </summary>
-    enum Suit
-    {
+    enum Suit {
         Clubs,
         Diamonds,
         Hearts,

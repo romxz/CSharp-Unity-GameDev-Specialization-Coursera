@@ -4,19 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Methods
-{
+namespace Methods {
     /// <summary>
     /// A Closer Look at Methods code
     /// </summary>
-    class Program
-    {
+    class Program {
         /// <summary>
         /// Demonstrates passing an object as an argument
         /// </summary>
         /// <param name="args">command-line arguments</param>
-        static void Main(string[] args)
-        {
+        static void Main(string[] args) {
             // build a hand of cards
             List<Card> hand = new List<Card>();
             hand.Add(new Card(Rank.Two, Suit.Clubs));
@@ -27,14 +24,12 @@ namespace Methods
 
             // cheat
             CardChanger cardChanger = new CardChanger();
-            foreach (Card card in hand)
-            {
+            foreach (Card card in hand) {
                 cardChanger.ChangeCard(card);
             }
 
             // print cheating results
-            foreach (Card card in hand)
-            {
+            foreach (Card card in hand) {
                 card.FlipOver();
                 card.Print();
             }

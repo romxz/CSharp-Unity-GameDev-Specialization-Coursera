@@ -4,13 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Methods
-{
+namespace Methods {
     /// <summary>
     /// A deck of cards
     /// </summary>
-    class Deck
-    {
+    class Deck {
         #region Fields
 
         List<Card> cards = new List<Card>();
@@ -22,13 +20,10 @@ namespace Methods
         /// <summary>
         /// Constructor
         /// </summary>
-        public Deck()
-        {
+        public Deck() {
             // fill the deck with cards
-            foreach (Suit suit in Enum.GetValues(typeof(Suit)))
-            {
-                foreach (Rank rank in Enum.GetValues(typeof(Rank)))
-                {
+            foreach (Suit suit in Enum.GetValues(typeof(Suit))) {
+                foreach (Rank rank in Enum.GetValues(typeof(Rank))) {
                     cards.Add(new Card(rank, suit));
                 }
             }
@@ -41,8 +36,7 @@ namespace Methods
         /// <summary>
         /// Gets whether the deck is empty
         /// </summary>
-        public bool Empty
-        {
+        public bool Empty {
             get { return cards.Count == 0; }
         }
 
@@ -50,8 +44,7 @@ namespace Methods
         /// Gets the number of cards in the deck
         /// </summary>
         /// <value>number of cards in the deck</value>
-        public int Count
-        {
+        public int Count {
             get { return cards.Count; }
         }
 
@@ -63,8 +56,7 @@ namespace Methods
         /// Cuts the deck of cards at the given location
         /// </summary>
         /// <param name="location">the location at which to cut the deck</param>
-        public void Cut(int location)
-        {
+        public void Cut(int location) {
             Card[] newCards = new Card[cards.Count];
             cards.CopyTo(location, newCards, 0, cards.Count - location);
             cards.CopyTo(0, newCards, location, location);
@@ -76,11 +68,9 @@ namespace Methods
         /// 
         /// Reference: http://download.oracle.com/javase/1.5.0/docs/api/java/util/Collections.html#shuffle%28java.util.List%29
         /// </summary>
-        public void Shuffle()
-        {
+        public void Shuffle() {
             Random rand = new Random();
-            for (int i = cards.Count - 1; i > 0; i--)
-            {
+            for (int i = cards.Count - 1; i > 0; i--) {
                 int randomIndex = rand.Next(i + 1);
                 Card tempCard = cards[i];
                 cards[i] = cards[randomIndex];
@@ -92,16 +82,12 @@ namespace Methods
         /// Takes the top card from the deck. If the deck is empty, returns null
         /// </summary>
         /// <returns>the top card</returns>
-        public Card TakeTopCard()
-        {
-            if (!Empty)
-            {
+        public Card TakeTopCard() {
+            if (!Empty) {
                 Card topCard = cards[cards.Count - 1];
                 cards.RemoveAt(cards.Count - 1);
                 return topCard;
-            }
-            else
-            {
+            } else {
                 return null;
             }
         }
@@ -111,20 +97,16 @@ namespace Methods
         /// or the location is invalid based on the size of the deck, returns null
         /// </summary>
         /// <returns>the card at the given location</returns>
-        public Card TakeCard(int location)
-        {
+        public Card TakeCard(int location) {
             // demonstration output
             Console.WriteLine("Inside the method, the parameter is " +
                 location);
 
             if (Empty ||
                 location < 0 ||
-                location > cards.Count - 1)
-            {
+                location > cards.Count - 1) {
                 return null;
-            }
-            else
-            {
+            } else {
                 Card card = cards[location];
                 cards.RemoveAt(location);
                 return card;
@@ -134,10 +116,8 @@ namespace Methods
         /// <summary>
         /// Prints the cards in the deck
         /// </summary>
-        public void Print()
-        {
-            foreach (Card card in cards)
-            {
+        public void Print() {
+            foreach (Card card in cards) {
                 Console.WriteLine(card.Rank + " of " + card.Suit);
             }
         }

@@ -4,13 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Methods
-{
+namespace Methods {
     /// <summary>
     /// A playing card
     /// </summary>
-    class Card
-    {
+    class Card {
         #region Fields
 
         Rank rank;
@@ -26,8 +24,7 @@ namespace Methods
         /// </summary>
         /// <param name="rank">the rank</param>
         /// <param name="suit">the suit</param>
-        public Card(Rank rank, Suit suit)
-        {
+        public Card(Rank rank, Suit suit) {
             this.rank = rank;
             this.suit = suit;
             faceUp = false;
@@ -40,24 +37,21 @@ namespace Methods
         /// <summary>
         /// Gets the card rank
         /// </summary>
-        public Rank Rank
-        {
+        public Rank Rank {
             get { return rank; }
         }
 
         /// <summary>
         /// Gets the card suit
         /// </summary>
-        public Suit Suit
-        {
+        public Suit Suit {
             get { return suit; }
         }
 
         /// <summary>
         /// Gets whether or not the card is face up
         /// </summary>
-        public bool FaceUp
-        {
+        public bool FaceUp {
             get { return faceUp; }
         }
 
@@ -68,22 +62,17 @@ namespace Methods
         /// <summary>
         /// Flips the card over
         /// </summary>
-        public void FlipOver()
-        {
+        public void FlipOver() {
             faceUp = !faceUp;
         }
 
         /// <summary>
         /// Prints the card
         /// </summary>
-        public void Print()
-        {
-            if (faceUp)
-            {
+        public void Print() {
+            if (faceUp) {
                 Console.WriteLine(rank + " of " + suit);
-            }
-            else
-            {
+            } else {
                 Console.WriteLine("Card is face down");
             }
         }

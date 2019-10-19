@@ -4,13 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Methods
-{
+namespace Methods {
     /// <summary>
     /// An enumeration for card ranks
     /// </summary>
-    enum Rank
-    {
+    enum Rank {
         Ace,
         Two,
         Three,

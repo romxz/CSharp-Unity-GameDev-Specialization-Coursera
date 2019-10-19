@@ -5,8 +5,7 @@ using UnityEngine;
 /// <summary>
 /// A fish squadron
 /// </summary>
-public class FishSquadron : MonoBehaviour
-{
+public class FishSquadron : MonoBehaviour {
     [SerializeField]
     GameObject prefabFish;
 
@@ -19,11 +18,10 @@ public class FishSquadron : MonoBehaviour
     int numFish;
     Vector2 fishLocation = Vector2.zero;
 
-	/// <summary>
-	/// Use this for initialization
-	/// </summary>
-	void Start()
-    {
+    /// <summary>
+    /// Use this for initialization
+    /// </summary>
+    void Start() {
         // retrieve fish size
         GameObject tempFish = Instantiate<GameObject>(prefabFish);
         BoxCollider2D collider = tempFish.GetComponent<BoxCollider2D>();
@@ -47,30 +45,26 @@ public class FishSquadron : MonoBehaviour
         // add row of fish
         fishLocation = new Vector2(leftFishOffset, baseY);
         int fishIndex = 0;
-        for (int column = 0; column < numFish; column++)
-        {
-            fish[fishIndex] = Instantiate<GameObject>(prefabFish, 
+        for (int column = 0; column < numFish; column++) {
+            fish[fishIndex] = Instantiate<GameObject>(prefabFish,
                 fishLocation, Quaternion.identity);
             xPositions[fishIndex] = fishLocation.x;
             fishLocation.x += fishWidth;
             fishIndex++;
         }
     }
-	
-	/// <summary>
-	/// Update is called once per frame
-	/// </summary>
-	void Update()
-	{
-		// replace any fish that have been killed
-        for (int i = 0; i < numFish; i++)
-        {
-            if (fish[i] == null)
-            {
+
+    /// <summary>
+    /// Update is called once per frame
+    /// </summary>
+    void Update() {
+        // replace any fish that have been killed
+        for (int i = 0; i < numFish; i++) {
+            if (fish[i] == null) {
                 fishLocation.x = xPositions[i];
-                fish[i] = Instantiate<GameObject>(prefabFish, 
+                fish[i] = Instantiate<GameObject>(prefabFish,
                     fishLocation, Quaternion.identity);
             }
         }
-	}
+    }
 }

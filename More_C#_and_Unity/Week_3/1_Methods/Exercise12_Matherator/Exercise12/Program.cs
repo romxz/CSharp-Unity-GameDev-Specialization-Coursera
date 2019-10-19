@@ -4,19 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Exercise12
-{
+namespace Exercise12 {
     /// <summary>
     /// Exercise 12 solution
     /// </summary>
-    class Program
-    {
+    class Program {
         /// <summary>
         /// Tests the Matherator methods
         /// </summary>
         /// <param name="args">command-line arguments</param>
-        static void Main(string[] args)
-        {
+        static void Main(string[] args) {
             Matherator math = new Matherator();
 
             // method with no return value, no parameters

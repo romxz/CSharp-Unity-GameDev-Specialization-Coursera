@@ -5,8 +5,7 @@ using UnityEngine;
 /// <summary>
 /// A fish
 /// </summary>
-public class Fish : MonoBehaviour
-{
+public class Fish : MonoBehaviour {
     #region Fields
 
     [SerializeField]
@@ -23,8 +22,7 @@ public class Fish : MonoBehaviour
     /// Gets how much damage the fish causes
     /// </summary>
     /// <value>damage</value>
-    public int Damage
-    {
+    public int Damage {
         get { return damage; }
     }
 
@@ -35,8 +33,7 @@ public class Fish : MonoBehaviour
     /// <summary>
     /// Fires the fish
     /// </summary>
-    void OnMouseUpAsButton()
-    {
+    void OnMouseUpAsButton() {
         // apply impulse force to fire the fish
         Rigidbody2D rb2d = GetComponent<Rigidbody2D>();
         rb2d.AddForce(new Vector2(0, 5000),
@@ -46,17 +43,15 @@ public class Fish : MonoBehaviour
     /// <summary>
     /// Destroy when leave game
     /// </summary>
-    void OnBecameInvisible()
-    {
+    void OnBecameInvisible() {
         Destroy(gameObject);
     }
 
     /// <summary>
     /// Destroys the fish
     /// </summary>
-    public void Destroy()
-    {
-        Instantiate(prefabExplosion, transform.position, 
+    public void Destroy() {
+        Instantiate(prefabExplosion, transform.position,
             Quaternion.identity);
         Destroy(gameObject);
     }

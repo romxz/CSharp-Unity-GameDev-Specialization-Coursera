@@ -4,19 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Methods
-{
+namespace Methods {
     /// <summary>
     /// A Closer Look at Methods code
     /// </summary>
-    class Program
-    {
+    class Program {
         /// <summary>
         /// Demonstrates various methods
         /// </summary>
         /// <param name="args">command-line arguments</param>
-        static void Main(string[] args)
-        {
+        static void Main(string[] args) {
             Deck deck = new Deck();
 
             // method with no return value, no parameters

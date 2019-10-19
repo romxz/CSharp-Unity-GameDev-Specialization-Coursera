@@ -4,20 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Methods
-{
+namespace Methods {
     /// <summary>
     /// Changes cards into Aces
     /// </summary>
-    class CardChanger
-    {
+    class CardChanger {
         #region Constructor
 
         /// <summary>
         /// Constructor
         /// </summary>
-        public CardChanger()
-        {
+        public CardChanger() {
         }
 
         #endregion
@@ -28,8 +25,7 @@ namespace Methods
         /// Changes the given card to be an Ace
         /// </summary>
         /// <param name="card">card to change</param>
-        public void ChangeCard(Card card)
-        {
+        public void ChangeCard(Card card) {
             card.Rank = Rank.Ace;
         }
 
