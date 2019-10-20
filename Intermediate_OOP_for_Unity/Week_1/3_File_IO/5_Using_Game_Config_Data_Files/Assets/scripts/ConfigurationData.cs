@@ -7,8 +7,7 @@ using UnityEngine;
 /// <summary>
 /// A container for the configuration data
 /// </summary>
-public class ConfigurationData
-{
+public class ConfigurationData {
     #region Fields
 
     const string ConfigurationDataFileName = "ConfigurationData.csv";
@@ -39,8 +38,7 @@ public class ConfigurationData
     /// Gets the teddy bear projectile impulse force
     /// </summary>
     /// <value>teddy bear projectile impulse force</value>
-    public float TeddyBearProjectileImpulseForce
-    {
+    public float TeddyBearProjectileImpulseForce {
         get { return teddyBearProjectileImpulseForce; }
     }
 
@@ -48,26 +46,23 @@ public class ConfigurationData
     /// Gets the teddy bear projectile damage
     /// </summary>
     /// <value>teddy bear projectile damage</value>
-    public int TeddyBearProjectileDamage
-    {
-        get { return teddyBearProjectileDamage; }    
+    public int TeddyBearProjectileDamage {
+        get { return teddyBearProjectileDamage; }
     }
 
     /// <summary>
     /// Gets the french fries projectile impulse force
     /// </summary>
     /// <value>french fries projectile impulse force</value>
-    public float FrenchFriesProjectileImpulseForce
-    {
-        get { return frenchFriesProjectileImpulseForce; }    
+    public float FrenchFriesProjectileImpulseForce {
+        get { return frenchFriesProjectileImpulseForce; }
     }
 
     /// <summary>
     /// Gets the french fries projectile damage
     /// </summary>
     /// <value>french fries projectile damage</value>
-    public int FrenchFriesProjectileDamage
-    {
+    public int FrenchFriesProjectileDamage {
         get { return frenchFriesProjectileDamage; }
     }
 
@@ -79,26 +74,23 @@ public class ConfigurationData
     /// Gets the max number of bears in the game
     /// </summary>
     /// <value>max bears</value>
-    public int MaxBears
-    {
-        get { return maxBears; }    
+    public int MaxBears {
+        get { return maxBears; }
     }
 
     /// <summary>
     /// Gets the number of points each bear is worth
     /// </summary>
     /// <value>bear points</value>
-    public int BearPoints
-    {
-        get { return bearPoints; }    
+    public int BearPoints {
+        get { return bearPoints; }
     }
 
     /// <summary>
     /// Gets the amount of damage each bear inflicts
     /// </summary>
     /// <value>bear damage</value>
-    public int BearDamage
-    {
+    public int BearDamage {
         get { return bearDamage; }
     }
 
@@ -106,8 +98,7 @@ public class ConfigurationData
     /// Gets the bear max impulse force
     /// </summary>
     /// <value>bear max impulse force</value>
-    public float BearMaxImpulseForce
-    {
+    public float BearMaxImpulseForce {
         get { return bearMaxImpulseForce; }
     }
 
@@ -115,17 +106,15 @@ public class ConfigurationData
     /// Gets the bear minimum firing delay
     /// </summary>
     /// <value>bear minimum firing delay</value>
-    public float BearMinFiringDelay
-    {
-        get { return bearMinFiringDelay; }    
+    public float BearMinFiringDelay {
+        get { return bearMinFiringDelay; }
     }
 
     /// <summary>
     /// Gets the bear firing rate range
     /// </summary>
     /// <value>bear firing rate range</value>
-    public float BearFiringRateRange
-    {
+    public float BearFiringRateRange {
         get { return bearFiringRateRange; }
     }
 
@@ -137,17 +126,15 @@ public class ConfigurationData
     /// Gets the burger move units per second
     /// </summary>
     /// <value>burger move units per second</value>
-    public float BurgerMoveUnitsPerSecond
-    {
-        get { return burgerMoveUnitsPerSecond; }    
+    public float BurgerMoveUnitsPerSecond {
+        get { return burgerMoveUnitsPerSecond; }
     }
 
     /// <summary>
     /// Gets the burger cooldown seconds
     /// </summary>
     /// <value>burger cooldown seconds</value>
-    public float BurgerCooldownSeconds
-    {
+    public float BurgerCooldownSeconds {
         get { return burgerCooldownSeconds; }
     }
 
@@ -161,12 +148,10 @@ public class ConfigurationData
     /// read fails, the object contains default values for
     /// the configuration data
     /// </summary>
-    public ConfigurationData()
-    {
+    public ConfigurationData() {
         // read and save configuration data from file
         StreamReader input = null;
-        try
-        {
+        try {
             // create stream reader object
             input = File.OpenText(Path.Combine(
                 Application.streamingAssetsPath, ConfigurationDataFileName));
@@ -177,15 +162,10 @@ public class ConfigurationData
 
             // set configuration data fields
             SetConfigurationDataFields(values);
-        }
-        catch (Exception e)
-        {
-        }
-        finally
-        {               
+        } catch (Exception e) {
+        } finally {
             // always close input file
-            if (input != null)
-            {
+            if (input != null) {
                 input.Close();
             }
         }
@@ -197,13 +177,12 @@ public class ConfigurationData
     /// csv string
     /// </summary>
     /// <param name="csvValues">csv string of values</param>
-    void SetConfigurationDataFields(string csvValues)
-    {
+    void SetConfigurationDataFields(string csvValues) {
         // the code below assumes we know the order in which the
         // values appear in the string. We could do something more
         // complicated with the names and values, but that's not
         // necessary here
-        string[] values = csvValues.Split(','); 
+        string[] values = csvValues.Split(',');
 
         // projectile characteristics
         teddyBearProjectileImpulseForce = float.Parse(values[0]);

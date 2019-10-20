@@ -6,8 +6,7 @@ using UnityEngine.UI;
 /// <summary>
 /// Retrieves and saves gamertag
 /// </summary>
-public class GamertagProcessing : MonoBehaviour
-{
+public class GamertagProcessing : MonoBehaviour {
     // make visible in Inspector
     [SerializeField]
     Text gamertagText;
@@ -15,12 +14,10 @@ public class GamertagProcessing : MonoBehaviour
     /// <summary>
     /// Use this for initialization
     /// </summary>
-    void Start()
-    {
+    void Start() {
         // set text to saved gamertag value or prompt
         string gamertag = PlayerPrefs.GetString("Gamertag");
-        if (string.IsNullOrEmpty(gamertag))
-        {
+        if (string.IsNullOrEmpty(gamertag)) {
             gamertag = "Enter Gamertag ...";
         }
         InputField gamertagInputField = gamertagText.GetComponent<InputField>();
@@ -34,8 +31,7 @@ public class GamertagProcessing : MonoBehaviour
     /// Saves the gamertag
     /// </summary>
     /// <param name="gamertag">gamertag</param>
-    void SaveGamertag(string gamertag)
-    {
+    void SaveGamertag(string gamertag) {
         PlayerPrefs.SetString("Gamertag", gamertag);
         PlayerPrefs.Save();
     }

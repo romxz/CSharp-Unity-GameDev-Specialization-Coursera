@@ -20,7 +20,7 @@ namespace Exercise2 {
             // read from and echo the file
             StreamReader input = null;
             try {
-                input = File.OpenText("WaitingForTheEnd.txt");
+                input = File.OpenText("Lines.txt");
 
                 // read and echo lines until end of file
                 string line = input.ReadLine();

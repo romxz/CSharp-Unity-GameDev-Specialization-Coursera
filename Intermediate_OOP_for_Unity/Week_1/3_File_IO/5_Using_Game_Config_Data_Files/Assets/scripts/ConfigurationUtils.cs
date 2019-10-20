@@ -4,8 +4,7 @@ using System.Collections;
 /// <summary>
 /// Configuration utilities
 /// </summary>
-public static class ConfigurationUtils
-{
+public static class ConfigurationUtils {
     static ConfigurationData configurationData;
 
     #region Projectile properties
@@ -14,8 +13,7 @@ public static class ConfigurationUtils
     /// Gets the teddy bear projectile impulse force
     /// </summary>
     /// <value>teddy bear projectile impulse force</value>
-    public static float TeddyBearProjectileImpulseForce
-    {
+    public static float TeddyBearProjectileImpulseForce {
         get { return configurationData.TeddyBearProjectileImpulseForce; }
     }
 
@@ -23,26 +21,23 @@ public static class ConfigurationUtils
     /// Gets the teddy bear projectile damage
     /// </summary>
     /// <value>teddy bear projectile damage</value>
-    public static int TeddyBearProjectileDamage
-    {
-        get { return configurationData.TeddyBearProjectileDamage; }    
+    public static int TeddyBearProjectileDamage {
+        get { return configurationData.TeddyBearProjectileDamage; }
     }
 
     /// <summary>
     /// Gets the french fries projectile impulse force
     /// </summary>
     /// <value>french fries projectile impulse force</value>
-    public static float FrenchFriesProjectileImpulseForce
-    {
-        get { return configurationData.FrenchFriesProjectileImpulseForce; }    
+    public static float FrenchFriesProjectileImpulseForce {
+        get { return configurationData.FrenchFriesProjectileImpulseForce; }
     }
 
     /// <summary>
     /// Gets the french fries projectile damage
     /// </summary>
     /// <value>french fries projectile damage</value>
-    public static int FrenchFriesProjectileDamage
-    {
+    public static int FrenchFriesProjectileDamage {
         get { return configurationData.FrenchFriesProjectileDamage; }
     }
 
@@ -54,26 +49,23 @@ public static class ConfigurationUtils
     /// Gets the max number of bears in the game
     /// </summary>
     /// <value>max bears</value>
-    public static int MaxBears
-    {
-        get { return configurationData.MaxBears; }    
+    public static int MaxBears {
+        get { return configurationData.MaxBears; }
     }
 
     /// <summary>
     /// Gets the number of points each bear is worth
     /// </summary>
     /// <value>bear points</value>
-    public static int BearPoints
-    {
-        get { return configurationData.BearPoints; }    
+    public static int BearPoints {
+        get { return configurationData.BearPoints; }
     }
 
     /// <summary>
     /// Gets the amount of damage each bear inflicts
     /// </summary>
     /// <value>bear damage</value>
-    public static int BearDamage
-    {
+    public static int BearDamage {
         get { return configurationData.BearDamage; }
     }
 
@@ -81,8 +73,7 @@ public static class ConfigurationUtils
     /// Gets the bear max impulse force
     /// </summary>
     /// <value>bear max impulse force</value>
-    public static float BearMaxImpulseForce
-    {
+    public static float BearMaxImpulseForce {
         get { return configurationData.BearMaxImpulseForce; }
     }
 
@@ -90,17 +81,15 @@ public static class ConfigurationUtils
     /// Gets the bear minimum firing delay
     /// </summary>
     /// <value>bear minimum firing delay</value>
-    public static float BearMinFiringDelay
-    {
-        get { return configurationData.BearMinFiringDelay; }    
+    public static float BearMinFiringDelay {
+        get { return configurationData.BearMinFiringDelay; }
     }
 
     /// <summary>
     /// Gets the bear firing rate range
     /// </summary>
     /// <value>bear firing rate range</value>
-    public static float BearFiringRateRange
-    {
+    public static float BearFiringRateRange {
         get { return configurationData.BearFiringRateRange; }
     }
 
@@ -112,17 +101,15 @@ public static class ConfigurationUtils
     /// Gets the burger move units per second
     /// </summary>
     /// <value>burger move units per second</value>
-    public static float BurgerMoveUnitsPerSecond
-    {
-        get { return configurationData.BurgerMoveUnitsPerSecond; }    
+    public static float BurgerMoveUnitsPerSecond {
+        get { return configurationData.BurgerMoveUnitsPerSecond; }
     }
 
     /// <summary>
     /// Gets the burger cooldown seconds
     /// </summary>
     /// <value>burger cooldown seconds</value>
-    public static float BurgerCooldownSeconds
-    {
+    public static float BurgerCooldownSeconds {
         get { return configurationData.BurgerCooldownSeconds; }
     }
 
@@ -133,8 +120,7 @@ public static class ConfigurationUtils
     /// <summary>
     /// Initialize the configuration utils
     /// </summary>
-    public static void Initialize()
-    {
+    public static void Initialize() {
         configurationData = new ConfigurationData();
     }
 }

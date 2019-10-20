@@ -1,19 +1,20 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
+using System.IO;
 using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
 /// A container for the configuration data
 /// </summary>
-public class ConfigurationData
-{
+public class ConfigurationData {
     #region Fields
 
     const string ConfigurationDataFileName = "ConfigurationData.csv";
 
     // configuration data with default values
-    static float teddyBearMoveUnitsPerSecond = 5;
-    static float cooldownSeconds = 1;
+    static float teddyBearMoveUnitsPerSecond = 5;//20;
+    static float cooldownSeconds = 1;//.1;
 
     #endregion
 
@@ -23,18 +24,16 @@ public class ConfigurationData
     /// Gets the teddy bear move units per second
     /// </summary>
     /// <value>teddy bear move units per second</value>
-    public float TeddyBearMoveUnitsPerSecond
-    {
+    public float TeddyBearMoveUnitsPerSecond {
         get { return teddyBearMoveUnitsPerSecond; }
     }
-        
+
     /// <summary>
     /// Gets the cooldown seconds for shooting
     /// </summary>
     /// <value>cooldown seconds</value>
-    public float CooldownSeconds
-    {
-        get { return cooldownSeconds; }    
+    public float CooldownSeconds {
+        get { return cooldownSeconds; }
     }
 
     #endregion
@@ -47,10 +46,26 @@ public class ConfigurationData
     /// read fails, the object contains default values for
     /// the configuration data
     /// </summary>
-    public ConfigurationData()
-    {
+    public ConfigurationData() {
         // read and save configuration data from file
+        StreamReader configFile = null;
+        try {
+            configFile = File.OpenText(Path.Combine(
+                Application.streamingAssetsPath, ConfigurationDataFileName));
 
+            string names = configFile.ReadLine();
+            Debug.Log("names: " + names);
+            string values = configFile.ReadLine();
+            Debug.Log("values: " + values);
+
+            // Set the fields
+            SetConfigurationDataFields(values);
+        } catch (Exception e) {
+            Debug.Log(e.Message);
+            Debug.Log("configFile: " + configFile);
+        } finally {
+            if (configFile != null) configFile.Close();
+        }
     }
 
 
@@ -59,9 +74,12 @@ public class ConfigurationData
     /// csv string
     /// </summary>
     /// <param name="csvValues">csv string of values</param>
-    static void SetConfigurationDataFields(string csvValues)
-    {
+    static void SetConfigurationDataFields(string csvValues) {
+        string[] values = csvValues.Split(',');
 
+        teddyBearMoveUnitsPerSecond = float.Parse(values[0]);
+        cooldownSeconds = float.Parse(values[1]);
+        Debug.Log("Successfully loaded csv");
     }
 
     #endregion
