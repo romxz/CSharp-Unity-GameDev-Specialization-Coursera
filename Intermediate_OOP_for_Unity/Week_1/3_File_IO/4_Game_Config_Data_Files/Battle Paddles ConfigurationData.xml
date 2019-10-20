@@ -1,0 +1,344 @@
+<ConfigurationData xmlns="http://schemas.datacontract.org/2004/07/PeakGameStudios.BattlePaddles.Util" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+	<!-- This file contains configuration data for the Battle Paddles game.
+		 Some of the data is for setting audio properties because we didn't
+		 get to implementing a standard options menu as we'd typically
+		 do for a commercial game.
+		 Some of the data is for setting what capabilities the player will have
+		 when playing the game. The "full functionality" configuration has a fairly complex
+		 control scheme, so some of the functionality can be removed to simplify the
+		 game.
+		 The bulk of the data is for tuning the game. We shut down Peak Game Studios
+		 before we got to the absolutely critical tuning phase, so we've structured
+		 the game to use the values in this file. That way, anyone can modify this
+		 file to tune the way the game plays. -->
+	
+	<!-- How many points there are in a game 
+		 Valid range is 1 to 100 (which would be crazy!) -->
+	<pointsPerGame>5</pointsPerGame>
+	
+	<!-- Audio properties control the volume of background music and game sound effects
+		 Valid range is integers from 0 (no volume) to 10 (full volume) -->
+		 
+	<!-- Background music volume -->
+	<backgroundMusicVolume>3</backgroundMusicVolume>
+
+	<!-- Sound effect volume -->
+	<soundEffectVolume>3</soundEffectVolume>
+	
+	<!-- Player action settings determine what capabilities the player (and AI) will have
+		 when playing the game. The "full functionality" configuration has a fairly complex
+		 control scheme, so some of the functionality can be removed to simplify the
+		 game. The only valid values for the player action settings are true or false. -->
+		 
+	<!-- Whether or not the player can change the selected launcher -->
+	<changeSelectedLauncherEnabled>true</changeSelectedLauncherEnabled>
+	
+	<!-- Whether or not the player can change the launcher angle for the 
+		 currently-selected launcher. If this is set to false, the launcher
+		 automatically aims at the center of the opponent's paddle -->
+	<changeLauncherAngleEnabled>true</changeLauncherAngleEnabled>
+		 
+	<!-- Whether or not the player can remove the currently-selected launcher.
+		 If this is set to false, the only way the player can remove a launcher
+		 is by expending all its ammo -->
+	<removeLauncherEnabled>true</removeLauncherEnabled>
+	
+	<!-- Whether or not the player can toggle launcher linking -->
+	<toggleLauncherLinkingEnabled>true</toggleLauncherLinkingEnabled>
+	
+	<!-- Spawn control values control the spawn rate and how the spawner
+		 determines whether or not to spawn a new object based on the
+		 number of non-projectile objects already in the game -->
+	
+	<!-- The initial milliseconds between spawns controls the time between
+		 spawns when a point for a game starts. This is in milliseconds, so
+		 a value of 1000 is 1 second between spawns.
+		 Note that there's a limit in the maximum number of non-projectile objects
+		 that can be in the game based in difficulty, so sometimes the spawner
+		 doesn't spawn because that limit is in effect
+		 Valid range is integers 100 to 5000 -->
+	<initialMillisecondsBetweenSpawns>1000</initialMillisecondsBetweenSpawns>
+	
+	<!-- On the first point of an easy difficulty game, the value below tells
+		 the maximum number of non-projectile objects that can be in the game
+		 for the spawner to be enabled to spawn a new object. For example, if
+		 the value below is 3 and there are 3 non-projectile objects already in
+		 the game, the spawner won't spawn a new object even when the spawn
+		 timer expires
+		 Valid range is integers 1 to 20 -->
+    <easyFirstPointMaxNonProjectileObjectsForSpawnEnabled>3</easyFirstPointMaxNonProjectileObjectsForSpawnEnabled>
+
+ 	<!-- On the last point of an easy difficulty game, the value below tells
+		 the maximum number of non-projectile objects that can be in the game
+		 for the spawner to be enabled to spawn a new object. For example, if
+		 the value below is 4 and there are 4 non-projectile objects already in
+		 the game, the spawner won't spawn a new object even when the spawn
+		 timer expires
+		 The game builds an approximately linear progression in this value
+		 from the value above to the value below across the points in the game.
+		 Our design idea was to grow this value as the game progresses, but
+		 you can certainly shrink the value instead if you prefer
+		 Valid range is integers 1 to 20 -->
+    <easyLastPointMaxNonProjectileObjectsForSpawnEnabled>4</easyLastPointMaxNonProjectileObjectsForSpawnEnabled>
+
+	<!-- On the first point of a medium difficulty game, the value below tells
+		 the maximum number of non-projectile objects that can be in the game
+		 for the spawner to be enabled to spawn a new object. For example, if
+		 the value below is 3 and there are 3 non-projectile objects already in
+		 the game, the spawner won't spawn a new object even when the spawn
+		 timer expires
+		 Valid range is integers 1 to 20 -->
+    <mediumFirstPointMaxNonProjectileObjectsForSpawnEnabled>3</mediumFirstPointMaxNonProjectileObjectsForSpawnEnabled>
+
+ 	<!-- On the last point of a medium difficulty game, the value below tells
+		 the maximum number of non-projectile objects that can be in the game
+		 for the spawner to be enabled to spawn a new object. For example, if
+		 the value below is 5 and there are 5 non-projectile objects already in
+		 the game, the spawner won't spawn a new object even when the spawn
+		 timer expires
+		 The game builds an approximately linear progression in this value
+		 from the value above to the value below across the points in the game.
+		 Our design idea was to grow this value as the game progresses, but
+		 you can certainly shrink the value instead if you prefer
+		 Valid range is integers 1 to 20 -->
+    <mediumLastPointMaxNonProjectileObjectsForSpawnEnabled>5</mediumLastPointMaxNonProjectileObjectsForSpawnEnabled>
+
+	<!-- On the first point of a hard difficulty game, the value below tells
+		 the maximum number of non-projectile objects that can be in the game
+		 for the spawner to be enabled to spawn a new object. For example, if
+		 the value below is 4 and there are 4 non-projectile objects already in
+		 the game, the spawner won't spawn a new object even when the spawn
+		 timer expires
+		 Valid range is integers 1 to 20 -->
+    <hardFirstPointMaxNonProjectileObjectsForSpawnEnabled>4</hardFirstPointMaxNonProjectileObjectsForSpawnEnabled>
+
+ 	<!-- On the last point of a hard difficulty game, the value below tells
+		 the maximum number of non-projectile objects that can be in the game
+		 for the spawner to be enabled to spawn a new object. For example, if
+		 the value below is 6 and there are 6 non-projectile objects already in
+		 the game, the spawner won't spawn a new object even when the spawn
+		 timer expires
+		 The game builds an approximately linear progression in this value
+		 from the value above to the value below across the points in the game.
+		 Our design idea was to grow this value as the game progresses, but
+		 you can certainly shrink the value instead if you prefer
+		 Valid range is integers 1 to 20 -->
+    <hardLastPointMaxNonProjectileObjectsForSpawnEnabled>6</hardLastPointMaxNonProjectileObjectsForSpawnEnabled>
+	
+	<!-- Spawn probabilities control the probability with which the spawner spawns
+		 each object type. The probabilities provided below should add up to 100. If
+		 the probabilities exceed 100, the game works from the top down and stops 
+		 at a total of 100, with all remaining probabilities set to 0. If the probabilities
+		 are less than 100, the damage weapon launcher spawn probability is increased so 
+		 that the probabilities add up to 100. Invalid probabilities (less
+		 than 0 or greater than 100) are set to 0 in the game. Be sure to use
+		 integers (whole numbers) for these values. -->
+		 
+	<!-- Damage weapons: Chainsaw, Electric, Rocket-Propelled Baby, Stuffed Animal -->
+	<damageWeaponLauncherSpawnProbability>29</damageWeaponLauncherSpawnProbability>
+	
+	<!-- Theme weapons: Ninja, Pirate, Zombie -->
+	<themeWeaponLauncherSpawnProbability>22</themeWeaponLauncherSpawnProbability>
+	
+	<!-- Speed weapons: Glue, Slimer -->
+	<speedWeaponLauncherSpawnProbability>14</speedWeaponLauncherSpawnProbability>
+	
+	<!-- Defenses: Phase Shifter, Shield -->	
+	<defensiveWeaponLauncherSpawnProbability>20</defensiveWeaponLauncherSpawnProbability>
+	
+	<!-- Health packs restore some paddle health -->
+	<healthPackSpawnProbability>10</healthPackSpawnProbability>
+	
+	<!-- Screen effect objects: Brick, Sleep, Speed Up -->
+	<screenEffectObjectSpawnProbability>5</screenEffectObjectSpawnProbability>
+
+	<!-- Weapon characteristics determine how the different weapons work
+		 in the game -->
+		 
+	<!-- Default multiplier used to determine how quickly weapon crates move 
+		 when they're spawned 
+		 Valid range is floating point numbers from 0.1 to 1.0 -->
+	<defaultWeaponSpawnSpeedMultiplier>0.3</defaultWeaponSpawnSpeedMultiplier>
+	
+	<!-- The amount of ammo each launcher starts with
+		 Valid range is integers from 1 to 100 -->
+	<launcherInitialAmmo>5</launcherInitialAmmo>
+	
+	<!-- The strength of the magnet 
+		 Valid range is integers from 1 to 100 -->
+	<magnetStrength>35</magnetStrength>
+	
+	<!-- Caution: The values you pick below for projectile speeds and
+		 firing rates can lead to strange behavior. For example, if you
+		 leave the fast projectile speed multiplier at 0.5 and set the
+		 medium firing rate to 100, the Rocket-Propelled Doll projectiles
+		 will explode as you shoot them because they're running into each
+		 other! It's up to you to tune these values appropriately
+		 We actually use the firing animation completion for a launcher as
+		 the trigger to say it's okay to fire the launcher again, so 
+		 setting longer firing rates makes the animations play more slowly
+		 -->
+	
+	<!-- Default multiplier used to determine how quickly fast projectiles move 
+		 Valid range is floating point numbers from 0.1 to 1.0 -->
+	<defaultFastProjectileSpeedMultiplier>0.5</defaultFastProjectileSpeedMultiplier>
+
+	<!-- Default multiplier used to determine how quickly medium projectiles move 
+		 Valid range is floating point numbers from 0.1 to 1.0 -->
+	<defaultMediumProjectileSpeedMultiplier>0.4</defaultMediumProjectileSpeedMultiplier>
+	
+	<!-- Default multiplier used to determine how quickly slow projectiles move 
+		 Valid range is floating point numbers from 0.1 to 1.0 -->
+	<defaultSlowProjectileSpeedMultiplier>0.3</defaultSlowProjectileSpeedMultiplier>
+
+	<!-- Number of milliseconds that need to elapse between shots for a 
+		 fast firing rate weapon 
+		 Valid range is integers from 100 to 2000 -->
+	<fastFiringRateMilliseconds>300</fastFiringRateMilliseconds>
+	
+	<!-- Number of milliseconds that need to elapse between shots for a 
+		 medium firing rate weapon 
+		 Valid range is integers from 100 to 2000 -->
+	<mediumFiringRateMilliseconds>650</mediumFiringRateMilliseconds>
+	
+	<!-- Number of milliseconds that need to elapse between shots for a 
+		 slow firing rate weapon 
+		 Valid range is integers from 100 to 2000 -->
+	<slowFiringRateMilliseconds>1000</slowFiringRateMilliseconds>
+	
+	<!-- The factor by which the glue weapon changes the speed
+		 of a paddle. For example, 0.5 makes the paddle move at half
+		 its normal speed
+		 Valid range is floating point numbers from 0.2 to 10.0 -->
+	<glueSpeedChangeFactor>0.5</glueSpeedChangeFactor>
+	
+	<!-- How many milliseconds the glue speed change affects a paddle.
+		 Note that hitting a paddle again with glue while the paddle
+		 is currently affected by glue adds the milliseconds below
+		 to the milliseconds that still remain from the previous glue hit
+		 Valid range is integers from 100 to 10000 -->
+	<glueSpeedChangeMilliseconds>3000</glueSpeedChangeMilliseconds>
+		 
+	<!-- The factor by which the slime weapon changes the speed
+		 of launcher rotation. For example, 2 makes the launcher rotate
+		 at twice its normal speed
+		 Valid range is floating point numbers from 0.2 to 10.0 -->
+	<slimeSpeedChangeFactor>2</slimeSpeedChangeFactor>
+	
+	<!-- How many milliseconds the slime speed change affects a paddle.
+		 Note that hitting a paddle again with slime while the paddle
+		 is currently affected by slime adds the milliseconds below
+		 to the milliseconds that still remain from the previous slime hit
+		 Valid range is integers from 100 to 10000 -->
+	<slimeSpeedChangeMilliseconds>3000</slimeSpeedChangeMilliseconds>
+	
+	<!-- How many milliseconds the phase shift effect lasts
+		 Valid range is integers from 100 to 10000 -->
+	<phaseShiftEffectMilliseconds>1500</phaseShiftEffectMilliseconds>
+	
+	<!-- How many milliseconds the shield effect lasts
+		 Valid range is integers from 100 to 10000 -->
+	<shieldEffectMilliseconds>1500</shieldEffectMilliseconds>	
+	
+	<!-- Weapon damage values. Note that these values are in pixels and assume
+		 a 1280 by 720 resolution. Use negative numbers to shrink the paddle
+		 as it takes damage (the way the game was designed to work); positive 
+		 numbers will be set to 0 in the game
+		 If the weapon projectile hits a stretchable paddle section, the damage
+		 is cut in half because stretchable paddle sections behave differently
+		 from "normal" paddle sections -->
+		 
+	<!-- Amount (in pixels) a high damage weapon shrinks a paddle 
+		 Valid range is integers from 0 to -650 -->
+	<unscaledHighDamagePixels>-80</unscaledHighDamagePixels>
+	
+	<!-- Amount (in pixels) a medium damage weapon shrinks a paddle 
+		 Valid range is integers from 0 to -650 -->
+	<unscaledMediumDamagePixels>-50</unscaledMediumDamagePixels>
+	
+	<!-- Amount (in pixels) a low damage weapon shrinks a paddle 
+		 Valid range is integers from 0 to -650 -->
+	<unscaledLowDamagePixels>-20</unscaledLowDamagePixels>
+	
+	<!-- Amount (in pixels) a theme weapon shrinks a paddle 
+		 Valid range is integers from 0 to -650 -->
+	<unscaledThemeDamagePixels>-50</unscaledThemeDamagePixels>
+	
+	<!-- Amount (in pixels) a speed weapon shrinks a paddle 
+		 Valid range is integers from 0 to -650 -->
+	<unscaledSpeedDamagePixels>-20</unscaledSpeedDamagePixels>
+	
+	<!-- The screen effect milliseconds values tell how long each screen
+		 effect (brick wall, speedup, sleep) is active in the game.
+		 Note that milliseconds are additive, so if a brick wall has 1000
+		 milliseconds left to stay active and another brick wall pickup 
+		 (of 3000 milliseconds, for example) hits a paddle, the brick wall
+		 stays active for another 4000 milliseconds
+		 Valid ranges for all screen effects is integers from 500 to 10000 -->
+	
+	<!-- How many milliseconds the brick wall is active -->
+    <brickWallEffectMilliseconds>3000</brickWallEffectMilliseconds>
+
+	<!-- How many milliseconds the speedup effect is active -->
+    <speedupEffectMilliseconds>4500</speedupEffectMilliseconds>
+
+	<!-- How many milliseconds the sleep effect is active -->
+    <sleepEffectMilliseconds>3000</sleepEffectMilliseconds>
+		
+	<!-- How long in milliseconds the respawner effect (the period of 
+		 time each player's paddle is invulnerable at the beginning of 
+		 each point) lasts
+		 Valid range is integers from 500 to 5000 -->
+	<respawnerEffectMilliseconds>3000</respawnerEffectMilliseconds>	 
+		 
+	<!-- The planning intervals determine how often the AI formulates a
+		 new plan based on the current game environment (for example, deciding
+		 whether to dodge the object closest to the AI paddle or how to
+		 fire the launchers currently mounted on the AI paddle based on the 
+		 status of the opponent's paddle). All the planning intervals are in 
+		 milliseconds, so a value of 1000 makes the AI develop a new plan every 
+		 second. Making the planning interval smaller makes the AI harder to beat.
+		 Negative values are replaced with 0 in the game. The planning intervals 
+		 below are for the three difficulty levels available in the game. Be sure 
+		 to use integers (whole numbers) for these values. 
+		 Valid range is integers from 100 to 5000 -->
+	<easyPlanningIntervalMilliseconds>1500</easyPlanningIntervalMilliseconds>
+	<mediumPlanningIntervalMilliseconds>750</mediumPlanningIntervalMilliseconds>
+	<hardPlanningIntervalMilliseconds>500</hardPlanningIntervalMilliseconds>
+		
+	<!-- The aim slop values determine the accuracy with which the AI
+		 fires its weapons. When the AI decides to fire a weapon, it selects
+		 a point on the opponent paddle to shoot at, then the aim slop is
+		 applied to the original aim point based on the current difficulty level.
+		 The actual aim point is calculated using:
+		 
+		 slop range = aim slop value * current opponent paddle height (using
+			the current opponent paddle height in the calculation avoids
+			lots of misses as the opponent paddle gets smaller)
+		 slop offset = random number between 0 and slop range - 
+			slop range / 2 (subtract half of slop range so misses go 
+			both above and below original aim point)
+		 actual aim point = original aim point + slop offset
+		 
+		 Making the aim slop smaller makes the AI aim more accurate. The aim 
+		 slop values below are for the three difficulty levels available in 
+		 the game. Be sure to use floating point (decimal) numbers for these values. 
+		 Valid range is floats from 0 to 1.5 -->
+	<easyAimSlop>1.2</easyAimSlop>
+	<mediumAimSlop>0.8</mediumAimSlop>
+	<hardAimSlop>0.5</hardAimSlop>
+
+	<!-- The probability that the AI player will fire a launcher
+		 Invalid probabilities (less than 0 or greater than 100) 
+		 are set to 0 in the game.
+		 Valid range is integers from 0 to 100 -->
+	<fireLauncherProbability>75</fireLauncherProbability>
+	
+	<!-- The probability that the AI player will toggle launcher
+		 linking. Invalid probabilities (less than 0 or greater 
+		 than 100) are set to 0 in the game.
+		 Valid range is integers from 0 to 100 -->
+	<toggleLauncherLinkingProbability>10</toggleLauncherLinkingProbability>
+
+	
+</ConfigurationData>
