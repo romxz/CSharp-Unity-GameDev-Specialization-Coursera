@@ -4,19 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CharDataType
-{
+namespace CharDataType {
     /// <summary>
     /// The Char Data Type lecture code
     /// </summary>
-    class Program
-    {
+    class Program {
         /// <summary>
         /// Gets user menu choice and prints message
         /// </summary>
         /// <param name="args">command-line arguments</param>
-        static void Main(string[] args)
-        {
+        static void Main(string[] args) {
             // print menu
             Console.WriteLine("**************");
             Console.WriteLine("Menu:");
@@ -33,24 +30,15 @@ namespace CharDataType
             Console.WriteLine();
 
             // print message
-            if (choice == 'N')
-            {
+            if (choice == 'N') {
                 Console.WriteLine("Creating new game ...");
-            }
-            else if (choice == 'L')
-            {
+            } else if (choice == 'L') {
                 Console.WriteLine("Loading game ...");
-            }
-            else if (choice == 'O')
-            {
+            } else if (choice == 'O') {
                 Console.WriteLine("Setting options ...");
-            }
-            else if (choice == 'Q')
-            {
+            } else if (choice == 'Q') {
                 Console.WriteLine("Quitting ...");
-            }
-            else
-            {
+            } else {
                 Console.WriteLine("That's not a valid menu choice!");
             }
 

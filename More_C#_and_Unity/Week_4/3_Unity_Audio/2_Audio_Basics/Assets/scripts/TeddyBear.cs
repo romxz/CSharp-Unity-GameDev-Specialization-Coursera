@@ -5,19 +5,21 @@ using UnityEngine;
 /// <summary>
 /// A teddy bear
 /// </summary>
-public class TeddyBear : MonoBehaviour
-{
+public class TeddyBear : MonoBehaviour {
+    // audio support
+    AudioSource audioSource;
+
     /// <summary>
     /// Use this for initialization
     /// </summary>
-    void Start()
-    {
+    void Start() {
+        audioSource = GetComponent<AudioSource>();
     }
 
     /// <summary>
     /// Play sound when mouse enters collider
     /// </summary>
-    void OnMouseEnter()
-    {
+    void OnMouseEnter() {
+        audioSource.Play();
     }
 }

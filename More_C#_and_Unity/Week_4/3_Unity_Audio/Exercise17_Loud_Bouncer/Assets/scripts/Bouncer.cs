@@ -5,35 +5,32 @@ using UnityEngine;
 /// <summary>
 /// A bouncer
 /// </summary>
-public class Bouncer : MonoBehaviour
-{
+public class Bouncer : MonoBehaviour {
     // saved for efficiency
     HUD hud;
 
     // audio support
     AudioSource audioSource;
 
-	/// <summary>
-	/// Use this for initialization
-	/// </summary>
-	void Start()
-	{
+    /// <summary>
+    /// Use this for initialization
+    /// </summary>
+    void Start() {
         // save for efficiency
         GameObject hudGameObject = GameObject.FindGameObjectWithTag("HUD");
         hud = hudGameObject.GetComponent<HUD>();
         audioSource = GetComponent<AudioSource>();
 
-		// get the bouncer moving
+        // get the bouncer moving
         GetComponent<Rigidbody2D>().AddForce(
             new Vector2(3, 2), ForceMode2D.Impulse);
-	}
+    }
 
     /// <summary>
     /// Update bounce count
     /// </summary>
     /// <param name="coll">collision info</param>
-    void OnCollisionEnter2D(Collision2D coll)
-    {
+    void OnCollisionEnter2D(Collision2D coll) {
         hud.AddBounce();
         audioSource.Play();
     }

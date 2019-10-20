@@ -4,21 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Exercise15
-{
+namespace Exercise15 {
     /// <summary>
     /// Exercise 15 solution
     /// </summary>
-    class Program
-    {
+    class Program {
         /// <summary>
         /// Extracts and prints block information
         /// </summary>
         /// <param name="args">command-line arguments</param>
-        static void Main(string[] args)
-        {
+        static void Main(string[] args) {
             // prompt for and read in string
-            Console.Write("Enter <pyramid slot>,<block letter>,<true or false for block lit>: ");
+            Console.Write("Enter <pyramid slot number>,<block letter>,<whether or not the block should be lit (true/false)>: ");
             string input = Console.ReadLine();
             Console.WriteLine();
 

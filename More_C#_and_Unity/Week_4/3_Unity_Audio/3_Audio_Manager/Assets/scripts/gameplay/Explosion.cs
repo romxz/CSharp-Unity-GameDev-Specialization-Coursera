@@ -5,29 +5,25 @@ using UnityEngine;
 /// <summary>
 /// An explosion
 /// </summary>
-public class Explosion : MonoBehaviour
-{
-	// cached for efficiency
-	Animator anim;
+public class Explosion : MonoBehaviour {
+    // cached for efficiency
+    Animator anim;
 
     /// <summary>
     /// Use for initialization
     /// </summary>
-    void Start()
-    {		
-		anim = GetComponent<Animator>();
+    void Start() {
+        anim = GetComponent<Animator>();
         AudioManager.Play(AudioClipName.Explosion);
-	}
+    }
 
     /// <summary>
     /// Update is called once per frame
     /// </summary>
-    void Update()
-    {
-		// destroy the game object if the explosion has finished its animation
-		if (anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1)
-        {
-			Destroy(gameObject);
-		}
-	}
+    void Update() {
+        // destroy the game object if the explosion has finished its animation
+        if (anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1) {
+            Destroy(gameObject);
+        }
+    }
 }

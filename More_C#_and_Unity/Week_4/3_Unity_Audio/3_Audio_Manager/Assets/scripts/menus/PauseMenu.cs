@@ -6,39 +6,35 @@ using UnityEngine;
 /// Pauses and unpauses the game. Listens for the OnClick 
 /// events for the pause menu buttons
 /// </summary>
-public class PauseMenu : MonoBehaviour
-{
+public class PauseMenu : MonoBehaviour {
     /// <summary>
     /// Use this for initialization
     /// </summary>
-    void Start()
-    {	
-		// pause the game when added to the scene
-		Time.timeScale = 0;
-	}
+    void Start() {
+        // pause the game when added to the scene
+        Time.timeScale = 0;
+    }
 
-	/// <summary>
-	/// Handles the on click event from the Resume button
-	/// </summary>
-	public void HandleResumeButtonOnClickEvent()
-    {
+    /// <summary>
+    /// Handles the on click event from the Resume button
+    /// </summary>
+    public void HandleResumeButtonOnClickEvent() {
         AudioManager.Play(AudioClipName.MenuButtonClick);
 
         // unpause game and destroy menu
         Time.timeScale = 1;
-		Destroy(gameObject);
-	}
+        Destroy(gameObject);
+    }
 
-	/// <summary>
-	/// Handles the on click event from the Quit button
-	/// </summary>
-	public void HandleQuitButtonOnClickEvent()
-    {
+    /// <summary>
+    /// Handles the on click event from the Quit button
+    /// </summary>
+    public void HandleQuitButtonOnClickEvent() {
         AudioManager.Play(AudioClipName.MenuButtonClick);
 
         // unpause game, destroy menu, and go to main menu
         Time.timeScale = 1;
-		Destroy(gameObject);
-		MenuManager.GoToMenu(MenuName.Main);
-	}
+        Destroy(gameObject);
+        MenuManager.GoToMenu(MenuName.Main);
+    }
 }

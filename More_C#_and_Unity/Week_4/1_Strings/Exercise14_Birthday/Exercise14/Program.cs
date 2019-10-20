@@ -4,23 +4,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Exercise14
-{
+namespace Exercise14 {
     /// <summary>
     /// Exercise 14 solution
     /// </summary>
-    class Program
-    {
+    class Program {
         /// <summary>
         /// Gets birthday and prints reminder
         /// </summary>
         /// <param name="args">command-line arguments</param>
-        static void Main(string[] args)
-        {
+        static void Main(string[] args) {
             // get birth month and day
-            Console.Write("In what month were you born? ");
+            Console.Write("Type in the month you were born: ");
             string birthMonth = Console.ReadLine();
-            Console.Write("On what day were you born? ");
+            Console.Write("Type in the day you were born: ");
             int birthDay = int.Parse(Console.ReadLine());
 
             // print birthday
