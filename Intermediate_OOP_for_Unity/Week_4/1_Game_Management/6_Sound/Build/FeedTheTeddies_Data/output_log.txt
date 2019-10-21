@@ -1,0 +1,53 @@
+Initialize engine version: 5.5.0f3 (38b4efef76f0)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: NVIDIA GeForce 940M (ID=0x1347)
+    Vendor:   NVIDIA
+    VRAM:     2019 MB
+    Driver:   20.19.15.4531
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\Albert\Dropbox\Books\Book C# Unity\Chapter 20 Putting It All Together\Chapter20Code\Feed the Teddies Sounds\Build\FeedTheTeddies_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\Albert\Dropbox\Books\Book C# Unity\Chapter 20 Putting It All Together\Chapter20Code\Feed the Teddies Sounds\Build\FeedTheTeddies_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\Albert\Dropbox\Books\Book C# Unity\Chapter 20 Putting It All Together\Chapter20Code\Feed the Teddies Sounds\Build\FeedTheTeddies_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\Albert\Dropbox\Books\Book C# Unity\Chapter 20 Putting It All Together\Chapter20Code\Feed the Teddies Sounds\Build\FeedTheTeddies_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\Albert\Dropbox\Books\Book C# Unity\Chapter 20 Putting It All Together\Chapter20Code\Feed the Teddies Sounds\Build\FeedTheTeddies_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\Albert\Dropbox\Books\Book C# Unity\Chapter 20 Putting It All Together\Chapter20Code\Feed the Teddies Sounds\Build\FeedTheTeddies_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\Albert\Dropbox\Books\Book C# Unity\Chapter 20 Putting It All Together\Chapter20Code\Feed the Teddies Sounds\Build\FeedTheTeddies_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\Albert\Dropbox\Books\Book C# Unity\Chapter 20 Putting It All Together\Chapter20Code\Feed the Teddies Sounds\Build\FeedTheTeddies_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\Users\Albert\Dropbox\Books\Book C# Unity\Chapter 20 Putting It All Together\Chapter20Code\Feed the Teddies Sounds\Build\FeedTheTeddies_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll (this message is harmless)
+Loading C:\Users\Albert\Dropbox\Books\Book C# Unity\Chapter 20 Putting It All Together\Chapter20Code\Feed the Teddies Sounds\Build\FeedTheTeddies_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll into Unity Child Domain
+- Completed reload, in  0.194 seconds
+Platform assembly: C:\Users\Albert\Dropbox\Books\Book C# Unity\Chapter 20 Putting It All Together\Chapter20Code\Feed the Teddies Sounds\Build\FeedTheTeddies_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\Albert\Dropbox\Books\Book C# Unity\Chapter 20 Putting It All Together\Chapter20Code\Feed the Teddies Sounds\Build\FeedTheTeddies_Data\Managed\System.dll (this message is harmless)
+desktop: 1920x1080 59Hz; virtual: 1920x1080 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 2.681294 ms
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 3.195893 ms
+
+Unloading 25 unused Assets to reduce memory usage. Loaded Objects now: 288.
+Total: 0.244912 ms (FindLiveObjects: 0.023358 ms CreateObjectMapping: 0.015218 ms MarkObjects: 0.189700 ms  DeleteObjects: 0.015926 ms)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.314280 ms
+
+Unloading 10 unused Assets to reduce memory usage. Loaded Objects now: 287.
+Total: 0.252698 ms (FindLiveObjects: 0.022650 ms CreateObjectMapping: 0.014864 ms MarkObjects: 0.185453 ms  DeleteObjects: 0.029375 ms)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.293045 ms
+
+Unloading 10 unused Assets to reduce memory usage. Loaded Objects now: 354.
+Total: 0.290214 ms (FindLiveObjects: 0.026190 ms CreateObjectMapping: 0.016280 ms MarkObjects: 0.235710 ms  DeleteObjects: 0.011679 ms)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.414439 ms
+
+Unloading 53 unused Assets to reduce memory usage. Loaded Objects now: 317.
+Total: 0.331268 ms (FindLiveObjects: 0.021943 ms CreateObjectMapping: 0.016634 ms MarkObjects: 0.213059 ms  DeleteObjects: 0.078924 ms)
+
+Setting up 1 worker threads for Enlighten.
+  Thread -> id: 42b8 -> priority: 1 

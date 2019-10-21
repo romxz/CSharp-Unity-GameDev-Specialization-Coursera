@@ -1,0 +1,26 @@
+Initialize engine version: 5.1.1f1 (2046fc06d4d8)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: Intel(R) HD Graphics 4600 (ID=0x416)
+    Vendor:   Intel
+    VRAM:     896 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\Albert\Dropbox\Books\Book C# Unity\Chapter 6 Unity 2D Basics\Chapter6Code\MovingTeddyBears\MovingTeddyBears_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\Albert\Dropbox\Books\Book C# Unity\Chapter 6 Unity 2D Basics\Chapter6Code\MovingTeddyBears\MovingTeddyBears_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\Albert\Dropbox\Books\Book C# Unity\Chapter 6 Unity 2D Basics\Chapter6Code\MovingTeddyBears\MovingTeddyBears_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\Albert\Dropbox\Books\Book C# Unity\Chapter 6 Unity 2D Basics\Chapter6Code\MovingTeddyBears\MovingTeddyBears_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\Albert\Dropbox\Books\Book C# Unity\Chapter 6 Unity 2D Basics\Chapter6Code\MovingTeddyBears\MovingTeddyBears_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\Albert\Dropbox\Books\Book C# Unity\Chapter 6 Unity 2D Basics\Chapter6Code\MovingTeddyBears\MovingTeddyBears_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\Albert\Dropbox\Books\Book C# Unity\Chapter 6 Unity 2D Basics\Chapter6Code\MovingTeddyBears\MovingTeddyBears_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\Albert\Dropbox\Books\Book C# Unity\Chapter 6 Unity 2D Basics\Chapter6Code\MovingTeddyBears\MovingTeddyBears_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\Users\Albert\Dropbox\Books\Book C# Unity\Chapter 6 Unity 2D Basics\Chapter6Code\MovingTeddyBears\MovingTeddyBears_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
+Loading C:\Users\Albert\Dropbox\Books\Book C# Unity\Chapter 6 Unity 2D Basics\Chapter6Code\MovingTeddyBears\MovingTeddyBears_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
+- Completed reload, in  0.080 seconds
+desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
+<RI> Initializing input.
+XInput1_3.dll not found. Trying XInput9_1_0.dll instead...
+<RI> Input initialized.
+<RI> Initialized touch support.
+Platform assembly: C:\Users\Albert\Dropbox\Books\Book C# Unity\Chapter 6 Unity 2D Basics\Chapter6Code\MovingTeddyBears\MovingTeddyBears_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\Albert\Dropbox\Books\Book C# Unity\Chapter 6 Unity 2D Basics\Chapter6Code\MovingTeddyBears\MovingTeddyBears_Data\Managed\System.dll (this message is harmless)
