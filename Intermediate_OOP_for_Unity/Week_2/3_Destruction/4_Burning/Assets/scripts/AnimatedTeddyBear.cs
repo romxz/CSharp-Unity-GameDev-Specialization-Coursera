@@ -5,12 +5,11 @@ using UnityEngine;
 /// <summary>
 /// A teddy bear with an animation
 /// </summary>
-public abstract class AnimatedTeddyBear : TeddyBear
-{	
-	#region Fields
+public abstract class AnimatedTeddyBear : TeddyBear {
+    #region Fields
 
-	[SerializeField]
-	protected GameObject prefabAnimation;
+    [SerializeField]
+    protected GameObject prefabAnimation;
 
-	#endregion
+    #endregion
 }

@@ -4,19 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BankAccounts
-{
+namespace BankAccounts {
     /// <summary>
     /// Demonstrates inheritance
     /// </summary>
-    class Program
-    {
+    class Program {
         /// <summary>
         /// Demonstrates inheritance
         /// </summary>
         /// <param name="args">command-line arguments</param>
-        static void Main(string[] args)
-        {
+        static void Main(string[] args) {
             // create accounts
             BankAccount checkingAccount = new CheckingAccount(100.00m);
             BankAccount savingsAccount = new SavingsAccount(50.00m, 0.02m);

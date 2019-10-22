@@ -4,25 +4,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Exercise4
-{
+namespace Exercise4 {
     /// <summary>
     /// A kid
     /// </summary>
-    class Kid
-    {
+    class Kid {
         /// <summary>
         /// Constructor
         /// </summary>
-        public Kid()
-        {
+        public Kid() {
         }
 
         /// <summary>
         /// Prints a message
         /// </summary>
-        public virtual void PrintMessage()
-        {
+        public virtual void PrintMessage() {
             Console.WriteLine("Sometimes, I feel I gotta get away");
         }
     }

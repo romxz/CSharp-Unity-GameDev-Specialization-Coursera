@@ -5,13 +5,12 @@ using UnityEngine;
 /// <summary>
 /// A burning teddy bear
 /// </summary>
-public class BurningTeddyBear : AnimatedTeddyBear
-{	
-	#region Fields
+public class BurningTeddyBear : AnimatedTeddyBear {
+    #region Fields
 
-	// burn support
-	Timer burnTimer;
-	const float BurnSeconds = 2f;
+    // burn support
+    Timer burnTimer;
+    const float BurnSeconds = 2f;
 
     #endregion
 
@@ -20,49 +19,44 @@ public class BurningTeddyBear : AnimatedTeddyBear
     /// <summary>
     /// Use this for initialization
     /// </summary>
-    override protected void Start()
-    {
-		// create burn timer
-		burnTimer = gameObject.AddComponent<Timer>();
-		burnTimer.Duration = BurnSeconds;
+    override protected void Start() {
+        // create burn timer
+        burnTimer = gameObject.AddComponent<Timer>();
+        burnTimer.Duration = BurnSeconds;
 
-		// start teddy bear moving
-		base.Start();
-	}
+        // start teddy bear moving
+        base.Start();
+    }
 
     /// <summary>
     /// Update is called once per frame
     /// </summary>
-    void Update()
-    {
-		// check for burn complete
-		if (burnTimer.Finished)
-        {
-			Destroy(gameObject);
-		}
-	}
+    void Update() {
+        // check for burn complete
+        if (burnTimer.Finished) {
+            Destroy(gameObject);
+        }
+    }
 
-	#endregion
+    #endregion
 
-	#region Protected methods
+    #region Protected methods
 
-	/// <summary>
-	/// Burns the teddy bear
-	/// </summary>
-	protected override void ProcessMouseOver()
-    {
-		if (!burnTimer.Running)
-        {
-			teddyBearDestruction.AddPoints (pointValue);
+    /// <summary>
+    /// Burns the teddy bear
+    /// </summary>
+    protected override void ProcessMouseOver() {
+        if (!burnTimer.Running) {
+            teddyBearDestruction.AddPoints(pointValue);
 
-			// make fire animation visible
-			SpriteRenderer fireRenderer = prefabAnimation.GetComponent<SpriteRenderer>();
-			fireRenderer.enabled = true;
+            // make fire animation visible
+            SpriteRenderer fireRenderer = prefabAnimation.GetComponent<SpriteRenderer>();
+            fireRenderer.enabled = true;
 
-			// start burn timer
-			burnTimer.Run();
-		}
-	}
+            // start burn timer
+            burnTimer.Run();
+        }
+    }
 
-	#endregion
+    #endregion
 }

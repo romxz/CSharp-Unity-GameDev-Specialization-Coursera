@@ -4,19 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FamilyMemberExample
-{
+namespace FamilyMemberExample {
     /// <summary>
     /// Demonstrates polymorphism
     /// </summary>
-    class Program
-    {
+    class Program {
         /// <summary>
         /// Demonstrates polymorphism
         /// </summary>
         /// <param name="args">command-line args</param>
-        static void Main(string[] args)
-        {
+        static void Main(string[] args) {
             List<FamilyMember> familyMembers = new List<FamilyMember>();
 
             // add family members
@@ -25,8 +22,7 @@ namespace FamilyMemberExample
             familyMembers.Add(new Geek(71, 165));
 
             // everybody have fun
-            foreach (FamilyMember familyMember in familyMembers)
-            {
+            foreach (FamilyMember familyMember in familyMembers) {
                 familyMember.HaveFun();
             }
 

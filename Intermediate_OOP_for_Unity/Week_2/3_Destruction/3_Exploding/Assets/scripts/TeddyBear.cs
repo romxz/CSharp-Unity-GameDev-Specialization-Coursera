@@ -5,24 +5,22 @@ using UnityEngine;
 /// <summary>
 /// An abstract class for a teddy bear
 /// </summary>
-public abstract class TeddyBear : MonoBehaviour
-{	
-	#region Fields
+public abstract class TeddyBear : MonoBehaviour {
+    #region Fields
 
-	[SerializeField]
-	protected int pointValue;
+    [SerializeField]
+    protected int pointValue;
 
-	// score support
-	protected TeddyBearDestruction teddyBearDestruction;
+    // score support
+    protected TeddyBearDestruction teddyBearDestruction;
 
     #endregion
 
     /// <summary>
     /// Use this for initialization
     /// </summary>
-    virtual protected void Start()
-    {		
-		// apply impulse force to get teddy bear moving
+    virtual protected void Start() {
+        // apply impulse force to get teddy bear moving
         const float MinImpulseForce = 3f;
         const float MaxImpulseForce = 5f;
         float angle = Random.Range(0, 2 * Mathf.PI);
@@ -33,24 +31,23 @@ public abstract class TeddyBear : MonoBehaviour
             direction * magnitude,
             ForceMode2D.Impulse);
 
-		// score support
-		teddyBearDestruction = Camera.main.GetComponent<TeddyBearDestruction>();
-	}
+        // score support
+        teddyBearDestruction = Camera.main.GetComponent<TeddyBearDestruction>();
+    }
 
     /// <summary>
     /// Called when the mouse enters the collider
     /// </summary>
-    void OnMouseEnter()
-    {
-		ProcessMouseOver();
-	}
+    void OnMouseEnter() {
+        ProcessMouseOver();
+    }
 
-	#region Protected methods
+    #region Protected methods
 
-	/// <summary>
-	/// Processing for when the mouse is over the teddy bear
-	/// </summary>
-	protected abstract void ProcessMouseOver();
+    /// <summary>
+    /// Processing for when the mouse is over the teddy bear
+    /// </summary>
+    protected abstract void ProcessMouseOver();
 
-	#endregion
+    #endregion
 }
