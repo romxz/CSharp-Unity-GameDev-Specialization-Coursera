@@ -2,15 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-/// <summary>
-/// A chainsaw launcher
-/// </summary>
-public class ChainsawLauncher : Launcher {
+namespace Assets.scripts {
+
     /// <summary>
-    /// Use this for initialization
+    /// A chainsaw launcher
     /// </summary>
-    override protected void Start() {
-        cooldownSeconds = 2f;
-        base.Start();
+    public class ChainsawLauncher : Launcher {
+        /// <summary>
+        /// Use this for initialization
+        /// </summary>
+        override protected void Start() {
+            cooldownSeconds = 2f;
+            base.Start();
+        }
     }
 }

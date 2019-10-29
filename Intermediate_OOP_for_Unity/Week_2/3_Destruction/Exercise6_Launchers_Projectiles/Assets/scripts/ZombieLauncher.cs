@@ -5,14 +5,14 @@ using UnityEngine;
 namespace Assets.scripts {
 
     /// <summary>
-    /// A chainsaw projectile
+    /// A chainsaw launcher
     /// </summary>
-    public class ChainsawProjectile : Projectile {
+    public class ZombieLauncher : Launcher {
         /// <summary>
         /// Use this for initialization
         /// </summary>
         override protected void Start() {
-            impulseForce.x = 1f;
+            cooldownSeconds = 0.5f;
             base.Start();
         }
     }

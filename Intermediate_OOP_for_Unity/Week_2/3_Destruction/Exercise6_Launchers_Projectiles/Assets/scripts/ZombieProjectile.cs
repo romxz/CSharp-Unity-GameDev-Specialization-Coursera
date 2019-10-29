@@ -7,12 +7,12 @@ namespace Assets.scripts {
     /// <summary>
     /// A chainsaw projectile
     /// </summary>
-    public class ChainsawProjectile : Projectile {
+    public class ZombieProjectile : Projectile {
         /// <summary>
         /// Use this for initialization
         /// </summary>
         override protected void Start() {
-            impulseForce.x = 1f;
+            impulseForce.x = 9f;
             base.Start();
         }
     }
