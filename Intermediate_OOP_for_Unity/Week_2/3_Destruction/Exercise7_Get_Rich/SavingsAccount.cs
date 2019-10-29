@@ -13,11 +13,11 @@ namespace Exercise7 {
         }
 
         public override string ToString() {
-            return base.ToString();
+            return "Savings Account";
         }
 
         public override void UpdateBalance() {
-            throw new NotImplementedException();
+            balance += balance * interestRate;
         }
     }
 }

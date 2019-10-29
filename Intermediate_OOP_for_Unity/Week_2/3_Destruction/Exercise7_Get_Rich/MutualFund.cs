@@ -7,13 +7,14 @@ using System.Threading.Tasks;
 namespace Exercise7 {
     class MutualFund : InvestmentAccount {
 
-        const float ServiceChargePercent = 0.01f;
+        protected const float ServiceChargePercent = 0.01f;
+        const float GrowthPercent = 0.01f;
 
         public MutualFund() : base() {
         }
 
         public override void AddMoney(float amount) {
-            base.AddMoney(amount);
+            base.AddMoney(amount * (1 - ServiceChargePercent));
         }
 
         public override string ToString() {
@@ -21,7 +22,7 @@ namespace Exercise7 {
         }
 
         public override void UpdateBalance() {
-            throw new NotImplementedException();
+            balance *= 1 + GrowthPercent;
         }
     }
 }
