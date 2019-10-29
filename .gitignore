@@ -355,3 +355,10 @@ healthchecksdb
 !*.*.meta
 **/Assignments/
 *.zip
+Intermediate_OOP_for_Unity/Week_2/3_Destruction/Exercise7_Get_Rich/Exercise7_Old/App.config
+Intermediate_OOP_for_Unity/Week_2/3_Destruction/Exercise7_Get_Rich/Exercise7_Old/EmployerSponsoredAccount.cs
+Intermediate_OOP_for_Unity/Week_2/3_Destruction/Exercise7_Get_Rich/Exercise7_Old/InvestmentAccount.cs
+Intermediate_OOP_for_Unity/Week_2/3_Destruction/Exercise7_Get_Rich/Exercise7_Old/MutualFund.cs
+Intermediate_OOP_for_Unity/Week_2/3_Destruction/Exercise7_Get_Rich/Exercise7_Old/Program.cs
+Intermediate_OOP_for_Unity/Week_2/3_Destruction/Exercise7_Get_Rich/Exercise7_Old/SavingsAccount.cs
+Intermediate_OOP_for_Unity/Week_2/3_Destruction/Exercise7_Get_Rich/Exercise7_Old/Properties/AssemblyInfo.cs
