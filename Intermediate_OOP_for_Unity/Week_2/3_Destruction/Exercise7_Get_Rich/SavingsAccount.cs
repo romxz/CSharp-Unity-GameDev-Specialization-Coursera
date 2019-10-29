@@ -8,12 +8,12 @@ namespace Exercise7 {
     class SavingsAccount : InvestmentAccount {
         protected float interestRate;
 
-        public SavingsAccount(float interestRate) : base() {
+        public SavingsAccount(float deposit, float interestRate) : base(deposit) {
             this.interestRate = interestRate;          
         }
 
         public override string ToString() {
-            return "Savings Account";
+            return "Savings Account. Balance: " + balance;
         }
 
         public override void UpdateBalance() {

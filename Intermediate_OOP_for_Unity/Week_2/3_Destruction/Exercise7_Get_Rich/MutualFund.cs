@@ -10,7 +10,7 @@ namespace Exercise7 {
         protected const float ServiceChargePercent = 0.01f;
         const float GrowthPercent = 0.01f;
 
-        public MutualFund() : base() {
+        public MutualFund(float deposit = 0) : base(deposit) {
         }
 
         public override void AddMoney(float amount) {
@@ -18,7 +18,7 @@ namespace Exercise7 {
         }
 
         public override string ToString() {
-            return base.ToString();
+            return "Mutual Fund. Balance: " + balance;
         }
 
         public override void UpdateBalance() {

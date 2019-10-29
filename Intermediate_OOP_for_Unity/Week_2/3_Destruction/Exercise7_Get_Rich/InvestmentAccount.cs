@@ -11,8 +11,8 @@ namespace Exercise7 {
         #endregion
 
         #region Constructor
-        public InvestmentAccount () {
-            balance = 0;
+        public InvestmentAccount (float deposit = 0) {
+            balance = deposit;
         }
         #endregion
 

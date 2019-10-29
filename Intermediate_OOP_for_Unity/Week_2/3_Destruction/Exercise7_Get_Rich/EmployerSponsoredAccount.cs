@@ -7,15 +7,16 @@ using System.Threading.Tasks;
 namespace Exercise7 {
     class EmployerSponsoredAccount : MutualFund {
 
-        public EmployerSponsoredAccount() : base() { 
+        public EmployerSponsoredAccount(float deposit) : base(deposit) {
+            
         }
 
         public override void AddMoney(float amount) {
-            base.AddMoney(amount);
+            base.AddMoney(amount * 2);
         }
 
         public override string ToString() {
-            return base.ToString();
+            return "Employer Sponsored Account. Balance: " + balance;
         }
     }
 }
