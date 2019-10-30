@@ -6,6 +6,5 @@ using UnityEngine.Events;
 /// <summary>
 /// A no argument event
 /// </summary>
-public class MessageEvent : UnityEvent
-{
+public class MessageEvent : UnityEvent {
 }

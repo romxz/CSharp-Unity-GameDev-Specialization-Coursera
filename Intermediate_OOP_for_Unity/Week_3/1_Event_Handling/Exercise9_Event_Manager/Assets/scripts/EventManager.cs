@@ -6,8 +6,7 @@ using UnityEngine.Events;
 /// <summary>
 /// The event manager
 /// </summary>
-public static class EventManager
-{
+public static class EventManager {
     // no argument event support
     static Invoker noArgumentInvoker;
     static UnityAction noArgumentListener;
@@ -20,11 +19,9 @@ public static class EventManager
     /// Adds the invoker for the no argument event
     /// </summary>
     /// <param name="invoker">invoker</param>
-    public static void AddNoArgumentInvoker(Invoker invoker)
-    {
+    public static void AddNoArgumentInvoker(Invoker invoker) {
         noArgumentInvoker = invoker;
-        if (noArgumentListener != null)
-        {
+        if (noArgumentListener != null) {
             noArgumentInvoker.AddNoArgumentListener(noArgumentListener);
         }
     }
@@ -33,11 +30,9 @@ public static class EventManager
     /// Adds the listener for the no argument event
     /// </summary>
     /// <param name="listener">listener</param>
-    public static void AddNoArgumentListener(UnityAction listener)
-    {
+    public static void AddNoArgumentListener(UnityAction listener) {
         noArgumentListener = listener;
-        if (noArgumentInvoker != null)
-        {
+        if (noArgumentInvoker != null) {
             noArgumentInvoker.AddNoArgumentListener(listener);
         }
     }
@@ -46,11 +41,9 @@ public static class EventManager
     /// Adds the invoker for the int argument event
     /// </summary>
     /// <param name="invoker">invoker</param>
-    public static void AddIntArgumentInvoker(Invoker invoker)
-    {
+    public static void AddIntArgumentInvoker(Invoker invoker) {
         intArgumentInvoker = invoker;
-        if (intArgumentListener != null)
-        {
+        if (intArgumentListener != null) {
             intArgumentInvoker.AddOneArgumentListener(intArgumentListener);
         }
     }
@@ -59,11 +52,9 @@ public static class EventManager
     /// Adds the listener for the int argument event
     /// </summary>
     /// <param name="listener">listener</param>
-    public static void AddIntArgumentListener(UnityAction<int> listener)
-    {
+    public static void AddIntArgumentListener(UnityAction<int> listener) {
         intArgumentListener = listener;
-        if (intArgumentInvoker != null)
-        {
+        if (intArgumentInvoker != null) {
             intArgumentInvoker.AddOneArgumentListener(listener);
         }
     }

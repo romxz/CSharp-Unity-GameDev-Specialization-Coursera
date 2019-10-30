@@ -6,6 +6,5 @@ using UnityEngine.Events;
 /// <summary>
 /// A one argument event
 /// </summary>
-public class CountMessageEvent : UnityEvent<int>
-{
+public class CountMessageEvent : UnityEvent<int> {
 }

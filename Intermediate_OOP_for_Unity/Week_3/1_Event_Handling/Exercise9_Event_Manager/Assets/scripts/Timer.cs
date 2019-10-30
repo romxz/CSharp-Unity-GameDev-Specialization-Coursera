@@ -5,8 +5,7 @@ using UnityEngine;
 /// <summary>
 /// A timer
 /// </summary>
-public class Timer : MonoBehaviour
-{
+public class Timer : MonoBehaviour {
     #region Fields
 
     // timer duration
@@ -28,12 +27,9 @@ public class Timer : MonoBehaviour
     /// The duration can only be set if the timer isn't currently running
     /// </summary>
     /// <value>duration</value>
-    public float Duration
-    {
-        set
-        {
-            if (!running)
-            {
+    public float Duration {
+        set {
+            if (!running) {
                 totalSeconds = value;
             }
         }
@@ -44,17 +40,15 @@ public class Timer : MonoBehaviour
     /// This property returns false if the timer has never been started
     /// </summary>
     /// <value>true if finished; otherwise, false.</value>
-    public bool Finished
-    {
-        get { return started && !running; } 
+    public bool Finished {
+        get { return started && !running; }
     }
 
     /// <summary>
     /// Gets whether or not the timer is currently running
     /// </summary>
     /// <value>true if running; otherwise, false.</value>
-    public bool Running
-    {
+    public bool Running {
         get { return running; }
     }
 
@@ -62,16 +56,11 @@ public class Timer : MonoBehaviour
     /// Gets ho wmany seconds are left on the timer
     /// </summary>
     /// <value>seconds left</value>
-    public float SecondsLeft
-    {
-        get 
-        {
-            if (running)
-            {
-                return totalSeconds - elapsedSeconds; 
-            }
-            else
-            {
+    public float SecondsLeft {
+        get {
+            if (running) {
+                return totalSeconds - elapsedSeconds;
+            } else {
                 return 0;
             }
         }
@@ -84,14 +73,11 @@ public class Timer : MonoBehaviour
     /// <summary>
     /// Update is called once per frame
     /// </summary>
-    void Update()
-    {   
+    void Update() {
         // update timer and check for finished
-        if (running)
-        {
+        if (running) {
             elapsedSeconds += Time.deltaTime;
-            if (elapsedSeconds >= totalSeconds)
-            {
+            if (elapsedSeconds >= totalSeconds) {
                 running = false;
             }
         }
@@ -104,11 +90,9 @@ public class Timer : MonoBehaviour
     /// This also makes sure the consumer of the class has actually 
     /// set the duration to something higher than 0
     /// </summary>
-    public void Run()
-    {   
+    public void Run() {
         // only run with valid duration
-        if (totalSeconds > 0)
-        {
+        if (totalSeconds > 0) {
             started = true;
             running = true;
             elapsedSeconds = 0;
@@ -118,8 +102,7 @@ public class Timer : MonoBehaviour
     /// <summary>
     /// Stops the timer
     /// </summary>
-    public void Stop()
-    {
+    public void Stop() {
         started = false;
         running = false;
     }
@@ -128,8 +111,7 @@ public class Timer : MonoBehaviour
     /// Adds the given number of seconds to the timer
     /// </summary>
     /// <param name="seconds">time to add</param>
-    public void AddTime(float seconds)
-    {
+    public void AddTime(float seconds) {
         totalSeconds += seconds;
     }
 
