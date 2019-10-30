@@ -6,78 +6,70 @@ using UnityEngine.Events;
 /// <summary>
 /// An event invoker
 /// </summary>
-public class Invoker : MonoBehaviour
-{
+public class Invoker : MonoBehaviour {
     // no argument event support
-    Timer messageTimer;
-    MessageEvent messageEvent;
+    Timer timerNull;
+    EventNull eventNull;
 
     // one argument event support
-    Timer countMessageTimer;
-    CountMessageEvent countMessageEvent;
+    Timer timerOne;
+    EventOne eventOne;
     int count = 1;
 
     /// <summary>
     /// Awake is called before Start
     /// </summary>
-    void Awake()
-    {
-        messageEvent = new MessageEvent();
-        countMessageEvent = new CountMessageEvent();
+    void Awake() {
+        eventNull = new EventNull();
+        eventOne = new EventOne();
     }
 
-	/// <summary>
-	/// Use this for initialization
-	/// </summary>
-	void Start()
-	{
-	    // no argument event
-        messageTimer = gameObject.AddComponent<Timer>();
-        messageTimer.Duration = 1;
-        messageTimer.Run();
-
-        // one argument event
-        countMessageTimer = gameObject.AddComponent<Timer>();
-        countMessageTimer.Duration = 1;
-        countMessageTimer.Run();
-	}
-	
-	/// <summary>
-	/// Update is called once per frame
-	/// </summary>
-	void Update()
-	{
+    /// <summary>
+    /// Use this for initialization
+    /// </summary>
+    void Start() {
         // no argument event
-        if (messageTimer.Finished)
-        {
-            messageEvent.Invoke();
-            messageTimer.Run();
+        timerNull = gameObject.AddComponent<Timer>();
+        timerNull.Duration = 1;
+        timerNull.Run();
+
+        // one argument event
+        timerOne = gameObject.AddComponent<Timer>();
+        timerOne.Duration = 1;
+        timerOne.Run();
+    }
+
+    /// <summary>
+    /// Update is called once per frame
+    /// </summary>
+    void Update() {
+        // no argument event
+        if (timerNull.Finished) {
+            eventNull.Invoke();
+            timerNull.Run();
         }
 
         // one argument event
-        if (countMessageTimer.Finished)
-        {
-            countMessageEvent.Invoke(count);
+        if (timerOne.Finished) {
+            eventOne.Invoke(count);
             count++;
-            countMessageTimer.Run();
+            timerOne.Run();
         }
-	}
+    }
 
     /// <summary>
     /// Adds the given listener to the no argument event
     /// </summary>
     /// <param name="listener">listener</param>
-    public void AddNoArgumentListener(UnityAction listener)
-    {
-        messageEvent.AddListener(listener);
+    public void AddNoArgumentListener(UnityAction listener) {
+        eventNull.AddListener(listener);
     }
 
     /// <summary>
     /// Adds the given listener to the one argument event
     /// </summary>
     /// <param name="listener">listener</param>
-    public void AddOneArgumentListener(UnityAction<int> listener)
-    {
-        countMessageEvent.AddListener(listener);
+    public void AddOneArgumentListener(UnityAction<int> listener) {
+        eventOne.AddListener(listener);
     }
 }

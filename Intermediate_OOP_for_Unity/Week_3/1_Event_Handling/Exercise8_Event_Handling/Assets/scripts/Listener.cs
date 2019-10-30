@@ -5,35 +5,31 @@ using UnityEngine;
 /// <summary>
 /// An event listener
 /// </summary>
-public class Listener : MonoBehaviour
-{
-	/// <summary>
-	/// Use this for initialization
-	/// </summary>
-	void Start()
-	{
-		// add listener for no argument event
+public class Listener : MonoBehaviour {
+    /// <summary>
+    /// Use this for initialization
+    /// </summary>
+    void Start() {
+        // add listener for no argument event
         Invoker invoker = Camera.main.GetComponent<Invoker>();
-        invoker.AddNoArgumentListener(HandleMessageEvent);
+        invoker.AddNoArgumentListener(NoArgumentHandler);
 
         // add listener for one argument event
-        invoker.AddOneArgumentListener(HandleCountMessageEvent);
-	}
-	
+        invoker.AddOneArgumentListener(OneArgumentHandler);
+    }
+
     /// <summary>
     /// Handles the no argument event
     /// </summary>
-    void HandleMessageEvent()
-    {
-        print("I heard the message event");
+    void NoArgumentHandler() {
+        print("No Argument Event");
     }
 
     /// <summary>
     /// Handles the one argument event
     /// </summary>
     /// <param name="number">number</number>
-    void HandleCountMessageEvent(int number)
-    {
-        print("The event passed " + number);
+    void OneArgumentHandler(int number) {
+        print("Single Argument Event: " + number);
     }
 }
