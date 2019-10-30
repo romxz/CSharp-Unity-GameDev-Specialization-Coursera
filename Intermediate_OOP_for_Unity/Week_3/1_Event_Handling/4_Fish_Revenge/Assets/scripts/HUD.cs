@@ -8,8 +8,8 @@ using UnityEngine.UI;
 /// </summary>
 public class HUD : MonoBehaviour {
     // score support
-    static Text scoreText;
-    static int score = 0;
+    Text scoreText;
+    int score = 0;
     const string ScorePrefix = "Score: ";
 
     /// <summary>
@@ -19,13 +19,17 @@ public class HUD : MonoBehaviour {
         // initialize score text
         scoreText = GameObject.FindGameObjectWithTag("ScoreText").GetComponent<Text>();
         scoreText.text = ScorePrefix + score;
+
+        // add listener for points added events
+        Fish fishScript = GameObject.FindGameObjectWithTag("Fish").GetComponent<Fish>();
+        fishScript.AddPointsAddedEventListener(AddPoints);
     }
 
     /// <summary>
     /// Updates the score
     /// </summary>
     /// <param name="points">points to add</param>
-    public static void AddPoints(int points) {
+    public void AddPoints(int points) {
         score += points;
         scoreText.text = ScorePrefix + score;
     }

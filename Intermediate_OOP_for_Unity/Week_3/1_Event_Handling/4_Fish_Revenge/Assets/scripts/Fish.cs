@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 /// <summary>
 /// A fish
@@ -38,6 +39,7 @@ public class Fish : MonoBehaviour {
     // score support
     [SerializeField]
     int bearPoints;
+    PointsAddedEvent pointsAddedEvent = new PointsAddedEvent();
 
     /// <summary>
     /// Use this for initialization
@@ -131,7 +133,8 @@ public class Fish : MonoBehaviour {
             Destroy(coll.gameObject);
 
             // update score
-            HUD.AddPoints(bearPoints);
+            //HUD.AddPoints(bearPoints);
+            pointsAddedEvent.Invoke(bearPoints);
         }
     }
 
@@ -154,5 +157,13 @@ public class Fish : MonoBehaviour {
             position.y = screenBottom + colliderHalfHeight;
         }
         transform.position = position;
+    }
+
+    /// <summary>
+    /// Adds a listener for the PointsAddedEvent
+    /// </summary>
+    /// <param name="listener"></param>
+    public void AddPointsAddedEventListener(UnityAction<int> listener) {
+        pointsAddedEvent.AddListener(listener);
     }
 }
