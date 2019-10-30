@@ -6,8 +6,7 @@ using UnityEngine.Events;
 /// <summary>
 /// An event manager
 /// </summary>
-public static class EventManager 
-{
+public static class EventManager {
     static Fish invoker;
     static UnityAction<int> listener;
 
@@ -15,11 +14,9 @@ public static class EventManager
     /// Adds the invoker
     /// </summary>
     /// <param name="script">fish script</param>
-    public static void AddInvoker(Fish script)
-    {
+    public static void AddInvoker(Fish script) {
         invoker = script;
-        if (listener != null)
-        {
+        if (listener != null) {
             invoker.AddPointsAddedEventListener(listener);
         }
     }
@@ -28,12 +25,10 @@ public static class EventManager
     /// Adds the listener
     /// </summary>
     /// <param name="handler">event handler</param>
-    public static void AddListener(UnityAction<int> handler)
-    {
+    public static void AddListener(UnityAction<int> handler) {
         listener = handler;
-        if (invoker != null)
-        {
-            invoker.AddPointsAddedEventListener(listener);            
+        if (invoker != null) {
+            invoker.AddPointsAddedEventListener(listener);
         }
     }
 }
