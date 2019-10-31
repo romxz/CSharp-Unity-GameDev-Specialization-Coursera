@@ -5,9 +5,8 @@ using UnityEngine;
 /// <summary>
 /// The different difficulties in the game
 /// </summary>
-public enum Difficulty
-{
-	Easy,
-	Medium,
-	Hard
+public enum Difficulty {
+    Easy,
+    Medium,
+    Hard
 }

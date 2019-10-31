@@ -6,87 +6,81 @@ using UnityEngine.UI;
 /// <summary>
 /// The HUD for the game
 /// </summary>
-public class HUD : MonoBehaviour
-{
-	#region Fields
+public class HUD : MonoBehaviour {
+    #region Fields
 
-	// score support
-	[SerializeField]
-	Text scoreText;
-	int score = 0;
+    // score support
+    [SerializeField]
+    Text scoreText;
+    int score = 0;
 
-	// health support
-	[SerializeField]
-	Slider healthBar;
+    // health support
+    [SerializeField]
+    Slider healthBar;
 
-	// timer support
-	[SerializeField]
-	Text timerText;
+    // timer support
+    [SerializeField]
+    Text timerText;
 
     #endregion
 
     /// <summary>
     /// Use this for initialization
     /// </summary>
-    void Start()
-    {
-		// add listener for PointsAddedEvent
-		EventManager.AddListener(EventName.PointsAddedEvent, HandlePointsAddedEvent);
+    void Start() {
+        // add listener for PointsAddedEvent
+        EventManager.AddListener(EventName.PointsAddedEvent, HandlePointsAddedEvent);
 
-		// initialize score text
-		scoreText.text = "Score: " + score;
+        // initialize score text
+        scoreText.text = "Score: " + score;
 
-		// add listener for HealthChangedEvent
-		EventManager.AddListener(EventName.HealthChangedEvent, HandleHealthChangedEvent);
+        // add listener for HealthChangedEvent
+        EventManager.AddListener(EventName.HealthChangedEvent, HandleHealthChangedEvent);
 
-		// add listener for TimerChangedEvent and initialize timer text
-		EventManager.AddListener(EventName.TimerChangedEvent, HandleTimerChangedEvent);
-		timerText.text = ConfigurationUtils.TotalGameSeconds.ToString();
-	}
+        // add listener for TimerChangedEvent and initialize timer text
+        EventManager.AddListener(EventName.TimerChangedEvent, HandleTimerChangedEvent);
+        timerText.text = ConfigurationUtils.TotalGameSeconds.ToString();
+    }
 
-	#region Properties
+    #region Properties
 
-	/// <summary>
-	/// Gets the score
-	/// </summary>
-	/// <value>the score</value>
-	public int Score
-    {
-		get { return score; }
-	}
+    /// <summary>
+    /// Gets the score
+    /// </summary>
+    /// <value>the score</value>
+    public int Score {
+        get { return score; }
+    }
 
-	#endregion
+    #endregion
 
-	#region Private methods
+    #region Private methods
 
-	/// <summary>
-	/// Handles the points added event by updating the displayed score
-	/// </summary>
-	/// <param name="points">points to add</param>
-	private void HandlePointsAddedEvent(int points)
-    {
-		score += points;
-		scoreText.text = "Score: " + score;
-	}
+    /// <summary>
+    /// Handles the points added event by updating the displayed score
+    /// </summary>
+    /// <param name="points">points to add</param>
+    private void HandlePointsAddedEvent(int points) {
+        score += points;
+        scoreText.text = "Score: " + score;
+    }
 
-	/// <summary>
-	/// Handles the health changed event by changing
-	/// the health bar value
-	/// </summary>
-	/// <param name="value">health value</param>
-	void HandleHealthChangedEvent(int value)
-    {
-		healthBar.value = value;
-	}
+    /// <summary>
+    /// Handles the health changed event by changing
+    /// the health bar value
+    /// </summary>
+    /// <param name="value">health value</param>
+    void HandleHealthChangedEvent(int value) {
+        healthBar.value = value;
+    }
 
-	/// <summary>
-	/// Handles the timer changed event by updating the displayed timer
-	/// </summary>
-	/// <param name="value">timer value</param>
-	void HandleTimerChangedEvent(int value)
-    {
-		timerText.text = value.ToString();
-	}
-		
-	#endregion
+    /// <summary>
+    /// Handles the timer changed event by updating the displayed timer
+    /// </summary>
+    /// <param name="value">timer value</param>
+    void HandleTimerChangedEvent(int value) {
+        timerText.text = value.ToString();
+    }
+
+    #endregion
 }

@@ -5,8 +5,7 @@ using UnityEngine;
 /// <summary>
 /// Enumeration of the valid configuration data value names
 /// </summary>
-public enum ConfigurationDataValueName
-{
+public enum ConfigurationDataValueName {
     TotalGameSeconds,
     BurgerMoveUnitsPerSecond,
     BearDamage,

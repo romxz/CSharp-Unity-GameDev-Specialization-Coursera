@@ -6,16 +6,13 @@ using UnityEngine.SceneManagement;
 /// <summary>
 /// Manages navigation through the menu system
 /// </summary>
-public static class MenuManager
-{
-	/// <summary>
-	/// Goes to the menu with the given name
-	/// </summary>
-	/// <param name="name">name of the menu to go to</param>
-	public static void GoToMenu(MenuName name)
-    {
-        switch (name)
-        {
+public static class MenuManager {
+    /// <summary>
+    /// Goes to the menu with the given name
+    /// </summary>
+    /// <param name="name">name of the menu to go to</param>
+    public static void GoToMenu(MenuName name) {
+        switch (name) {
             case MenuName.Difficulty:
 
                 // go to DifficultyMenu scene
@@ -25,8 +22,7 @@ public static class MenuManager
 
                 // deactivate MainMenuCanvas and instantiate prefab
                 GameObject mainMenuCanvas = GameObject.Find("MainMenuCanvas");
-                if (mainMenuCanvas != null)
-                {
+                if (mainMenuCanvas != null) {
                     mainMenuCanvas.SetActive(false);
                 }
                 Object.Instantiate(Resources.Load("HighScoreMenu"));
@@ -42,5 +38,5 @@ public static class MenuManager
                 Object.Instantiate(Resources.Load("PauseMenu"));
                 break;
         }
-	}
+    }
 }
