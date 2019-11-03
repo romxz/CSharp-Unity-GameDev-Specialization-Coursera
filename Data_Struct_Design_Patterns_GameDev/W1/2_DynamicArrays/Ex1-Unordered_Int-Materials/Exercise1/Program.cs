@@ -4,19 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Exercise1
-{
+namespace Exercise1 {
     /// <summary>
     /// Exercise 1 solution
     /// </summary>
-    class Program
-    {
+    class Program {
         /// <summary>
         /// Tests LastIndexOf and AllIndexesOf methods
         /// </summary>
         /// <param name="args">command-line arguments</param>
-        static void Main(string[] args)
-        {
+        static void Main(string[] args) {
             // build test dynamic array
 
             // test LastIndexOf with one item in dynamic array

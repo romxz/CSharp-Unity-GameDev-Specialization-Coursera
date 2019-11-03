@@ -4,13 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Exercise1
-{
+namespace Exercise1 {
     /// <remarks>
     /// Provides a dynamically-sized array of integers
     /// </remarks>
-    abstract class IntDynamicArray
-    {
+    abstract class IntDynamicArray {
         const int ExpandMultiplyFactor = 2;
         protected int[] items;
         protected int count;
@@ -20,8 +18,7 @@ namespace Exercise1
         /// <summary>
         /// Constructor
         /// </summary>
-        protected IntDynamicArray()
-        {
+        protected IntDynamicArray() {
             items = new int[4];
             count = 0;
         }
@@ -33,8 +30,7 @@ namespace Exercise1
         /// <summary>
         /// Gets the number of elements
         /// </summary>
-        public int Count
-        {
+        public int Count {
             get { return count; }
         }
 
@@ -49,8 +45,7 @@ namespace Exercise1
         /// <summary>
         /// Removes all the items from the IntDynamicArray
         /// </summary>
-        public void Clear()
-        {
+        public void Clear() {
             count = 0;
         }
 
@@ -59,14 +54,11 @@ namespace Exercise1
         /// values
         /// </summary>
         /// <returns>the comma-separated string of values</returns>
-        public override String ToString()
-        {
+        public override String ToString() {
             StringBuilder builder = new StringBuilder();
-            for (int i = 0; i < count; i++)
-            {
+            for (int i = 0; i < count; i++) {
                 builder.Append(items[i]);
-                if (i < count - 1)
-                {
+                if (i < count - 1) {
                     builder.Append(",");
                 }
             }
@@ -80,13 +72,11 @@ namespace Exercise1
         /// <summary>
         /// Expands the array
         /// </summary>
-        protected void Expand()
-        {
+        protected void Expand() {
             int[] newItems = new int[items.Length * ExpandMultiplyFactor];
 
             // copy elements from old array into new array
-            for (int i = 0; i < items.Length; i++)
-            {
+            for (int i = 0; i < items.Length; i++) {
                 newItems[i] = items[i];
             }
 

@@ -4,18 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DynamicArrays
-{
+namespace DynamicArrays {
     /// <remarks>
     /// Test class for OrderedDynamicArray 
     /// </remarks>
-    static class TestOrderedDynamicArray
-    {
+    static class TestOrderedDynamicArray {
         /// <summary>
         /// Driver method for test cases
         /// </summary>
-        public static void RunTestCases()
-        {
+        public static void RunTestCases() {
             Console.WriteLine("------------------------------");
             Console.WriteLine("OrderedDynamicArray Test Cases");
             Console.WriteLine("------------------------------");
@@ -48,19 +45,15 @@ namespace DynamicArrays
         /// <summary>
         /// Test adding an item to an empty array
         /// </summary>
-        static void TestAddEmptyDynamicArray()
-        {
+        static void TestAddEmptyDynamicArray() {
             OrderedDynamicArray<String> array = new OrderedDynamicArray<String>();
             array.Add("Foxtrot");
             System.Console.Write("TestAddEmptyDynamicArray: ");
             String arrayString = array.ToString();
             if (arrayString.Equals("Foxtrot") &&
-                array.Count == 1)
-            {
+                array.Count == 1) {
                 System.Console.WriteLine("Passed");
-            }
-            else
-            {
+            } else {
                 System.Console.WriteLine("FAILED!!! Expected: Foxtrot Actual: " + arrayString);
             }
         }
@@ -69,8 +62,7 @@ namespace DynamicArrays
         /// Test adding an item to an array that needs to be expanded. Also tests adding an item at
         /// the beginning of the array
         /// </summary>
-        static void TestAddExpandDynamicArray()
-        {
+        static void TestAddExpandDynamicArray() {
             OrderedDynamicArray<String> array = new OrderedDynamicArray<String>();
             array.Add("Foxtrot");
             array.Add("Echo");
@@ -81,12 +73,9 @@ namespace DynamicArrays
             System.Console.Write("TestAddExpandedDynamicArray: ");
             String arrayString = array.ToString();
             if (arrayString.Equals("Alpha,Bravo,Charlie,Delta,Echo,Foxtrot") &&
-                array.Count == 6)
-            {
+                array.Count == 6) {
                 System.Console.WriteLine("Passed");
-            }
-            else
-            {
+            } else {
                 System.Console.WriteLine("FAILED!!! Expected: Alpha,Bravo,Charlie,Delta,Echo,Foxtrot Actual: " + arrayString);
             }
         }
@@ -94,8 +83,7 @@ namespace DynamicArrays
         /// <summary>
         /// Test adding an item to the back of the array
         /// </summary>
-        static void TestAddBackOfDynamicArray()
-        {
+        static void TestAddBackOfDynamicArray() {
             OrderedDynamicArray<String> array = new OrderedDynamicArray<String>();
             array.Add("Delta");
             array.Add("Echo");
@@ -103,12 +91,9 @@ namespace DynamicArrays
             System.Console.Write("TestAddBackOfDynamicArray: ");
             String arrayString = array.ToString();
             if (arrayString.Equals("Delta,Echo,Foxtrot") &&
-                array.Count == 3)
-            {
+                array.Count == 3) {
                 System.Console.WriteLine("Passed");
-            }
-            else
-            {
+            } else {
                 System.Console.WriteLine("FAILED!!! Expected: Delta,Echo,Foxtrot Actual: " + arrayString);
             }
         }
@@ -116,8 +101,7 @@ namespace DynamicArrays
         /// <summary>
         /// Test adding an item to the iterior of the array
         /// </summary>
-        static void TestAddInteriorOfDynamicArray()
-        {
+        static void TestAddInteriorOfDynamicArray() {
             OrderedDynamicArray<String> array = new OrderedDynamicArray<String>();
             array.Add("Delta");
             array.Add("Foxtrot");
@@ -125,12 +109,9 @@ namespace DynamicArrays
             System.Console.Write("TestAddInteriorOfDynamicArray: ");
             String arrayString = array.ToString();
             if (arrayString.Equals("Delta,Echo,Foxtrot") &&
-                array.Count == 3)
-            {
+                array.Count == 3) {
                 System.Console.WriteLine("Passed");
-            }
-            else
-            {
+            } else {
                 System.Console.WriteLine("FAILED!!! Expected: Delta,Echo,Foxtrot Actual: " + arrayString);
             }
         }
@@ -142,16 +123,12 @@ namespace DynamicArrays
         /// <summary>
         /// Test removing an item from an empty array
         /// </summary>
-        static void TestRemoveEmptyDynamicArray()
-        {
+        static void TestRemoveEmptyDynamicArray() {
             OrderedDynamicArray<String> array = new OrderedDynamicArray<String>();
             System.Console.Write("TestRemoveEmptyDynamicArray: ");
-            if (!array.Remove("Foxtrot"))
-            {
+            if (!array.Remove("Foxtrot")) {
                 System.Console.WriteLine("Passed");
-            }
-            else
-            {
+            } else {
                 System.Console.WriteLine("FAILED!!! Expected: false Actual: true");
             }
         }
@@ -159,8 +136,7 @@ namespace DynamicArrays
         /// <summary>
         /// Test removing an item at the front of the array
         /// </summary>
-        static void TestRemoveItemFrontOfDynamicArray()
-        {
+        static void TestRemoveItemFrontOfDynamicArray() {
             OrderedDynamicArray<String> array = new OrderedDynamicArray<String>();
             array.Add("Delta");
             array.Add("Echo");
@@ -170,12 +146,9 @@ namespace DynamicArrays
             String arrayString = array.ToString();
             if (removed &&
                 arrayString.Equals("Echo,Foxtrot") &&
-                array.Count == 2)
-            {
+                array.Count == 2) {
                 System.Console.WriteLine("Passed");
-            }
-            else
-            {
+            } else {
                 System.Console.WriteLine("FAILED!!! Expected: Echo,Foxtrot Actual: " + arrayString);
             }
         }
@@ -183,8 +156,7 @@ namespace DynamicArrays
         /// <summary>
         /// Test removing an item at the back of the array
         /// </summary>
-        static void TestRemoveItemBackOfDynamicArray()
-        {
+        static void TestRemoveItemBackOfDynamicArray() {
             OrderedDynamicArray<String> array = new OrderedDynamicArray<String>();
             array.Add("Delta");
             array.Add("Echo");
@@ -194,12 +166,9 @@ namespace DynamicArrays
             String arrayString = array.ToString();
             if (removed &&
                 arrayString.Equals("Delta,Echo") &&
-                array.Count == 2)
-            {
+                array.Count == 2) {
                 System.Console.WriteLine("Passed");
-            }
-            else
-            {
+            } else {
                 System.Console.WriteLine("FAILED!!! Expected: Delta,Echo Actual: " + arrayString);
             }
         }
@@ -207,8 +176,7 @@ namespace DynamicArrays
         /// <summary>
         /// Test removing an item in the interior of the array
         /// </summary>
-        static void TestRemoveItemInteriorOfDynamicArray()
-        {
+        static void TestRemoveItemInteriorOfDynamicArray() {
             OrderedDynamicArray<String> array = new OrderedDynamicArray<String>();
             array.Add("Delta");
             array.Add("Echo");
@@ -218,12 +186,9 @@ namespace DynamicArrays
             String arrayString = array.ToString();
             if (removed &&
                 arrayString.Equals("Delta,Foxtrot") &&
-                array.Count == 2)
-            {
+                array.Count == 2) {
                 System.Console.WriteLine("Passed");
-            }
-            else
-            {
+            } else {
                 System.Console.WriteLine("FAILED!!! Expected: Delta,Foxtrot Actual: " + arrayString);
             }
         }
@@ -231,17 +196,13 @@ namespace DynamicArrays
         /// <summary>
         /// Test removing an item not in the array
         /// </summary>
-        static void TestRemoveItemNotInDynamicArray()
-        {
+        static void TestRemoveItemNotInDynamicArray() {
             OrderedDynamicArray<String> array = new OrderedDynamicArray<String>();
             array.Add("Foxtrot");
             System.Console.Write("TestRemoveItemNotInDynamicArray: ");
-            if (!array.Remove("Golf"))
-            {
+            if (!array.Remove("Golf")) {
                 System.Console.WriteLine("Passed");
-            }
-            else
-            {
+            } else {
                 System.Console.WriteLine("FAILED!!! Expected: false Actual: true");
             }
         }
@@ -253,17 +214,13 @@ namespace DynamicArrays
         /// <summary>
         /// Test finding the index of an item in an empty array
         /// </summary>
-        static void TestIndexOfEmptyDynamicArray()
-        {
+        static void TestIndexOfEmptyDynamicArray() {
             OrderedDynamicArray<String> array = new OrderedDynamicArray<String>();
             System.Console.Write("TestIndexOfEmptyDynamicArray: ");
             int actualIndex = array.IndexOf("Foxtrot");
-            if (actualIndex == -1)
-            {
+            if (actualIndex == -1) {
                 System.Console.WriteLine("Passed");
-            }
-            else
-            {
+            } else {
                 System.Console.WriteLine("FAILED!!! Expected: -1 Actual: " + actualIndex);
             }
         }
@@ -271,20 +228,16 @@ namespace DynamicArrays
         /// <summary>
         /// Test finding the index of an item at the front of the array
         /// </summary>
-        static void TestIndexOfFrontOfDynamicArray()
-        {
+        static void TestIndexOfFrontOfDynamicArray() {
             OrderedDynamicArray<String> array = new OrderedDynamicArray<String>();
             array.Add("Delta");
             array.Add("Echo");
             array.Add("Foxtrot");
             System.Console.Write("TestIndexOfFrontOfDynamicArray: ");
             int actualIndex = array.IndexOf("Delta");
-            if (actualIndex == 0)
-            {
+            if (actualIndex == 0) {
                 System.Console.WriteLine("Passed");
-            }
-            else
-            {
+            } else {
                 System.Console.WriteLine("FAILED!!! Expected: 0 Actual: " + actualIndex);
             }
         }
@@ -292,20 +245,16 @@ namespace DynamicArrays
         /// <summary>
         /// Test finding the index of an item at the back of the array
         /// </summary>
-        static void TestIndexOfBackOfDynamicArray()
-        {
+        static void TestIndexOfBackOfDynamicArray() {
             OrderedDynamicArray<String> array = new OrderedDynamicArray<String>();
             array.Add("Delta");
             array.Add("Echo");
             array.Add("Foxtrot");
             System.Console.Write("TestIndexOfBackOfDynamicArray: ");
             int actualIndex = array.IndexOf("Foxtrot");
-            if (actualIndex == 2)
-            {
+            if (actualIndex == 2) {
                 System.Console.WriteLine("Passed");
-            }
-            else
-            {
+            } else {
                 System.Console.WriteLine("FAILED!!! Expected: 2 Actual: " + actualIndex);
             }
         }

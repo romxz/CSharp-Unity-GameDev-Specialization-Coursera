@@ -4,13 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ImplementingAnInterface
-{
+namespace ImplementingAnInterface {
     /// <summary>
     /// A rectangle
     /// </summary>
-    class Rectangle
-    {
+    class Rectangle {
         #region Fields
 
         int width;
@@ -25,8 +23,7 @@ namespace ImplementingAnInterface
         /// </summary>
         /// <param name="width">width</param>
         /// <param name="height">height</param>
-        public Rectangle(int width, int height)
-        {
+        public Rectangle(int width, int height) {
             this.width = width;
             this.height = height;
         }
@@ -39,8 +36,7 @@ namespace ImplementingAnInterface
         /// Gets the width of the rectangle
         /// </summary>
         /// <value>width</value>
-        public int Width
-        {
+        public int Width {
             get { return width; }
         }
 
@@ -48,8 +44,7 @@ namespace ImplementingAnInterface
         /// Gets the height of the rectangle
         /// </summary>
         /// <value>height</value>
-        public int Height
-        {
+        public int Height {
             get { return height; }
         }
 
@@ -61,8 +56,7 @@ namespace ImplementingAnInterface
         /// Converts the rectangle to a string
         /// </summary>
         /// <returns>string for the rectangle</returns>
-        public override string ToString()
-        {
+        public override string ToString() {
             return string.Format("[Rectangle: Width={0}, Height={1}]", Width, Height);
         }
 

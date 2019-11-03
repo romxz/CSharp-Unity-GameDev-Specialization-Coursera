@@ -4,18 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DynamicArrays
-{
+namespace DynamicArrays {
     /// <remarks>
     /// Test class for UnorderedIntDynamicArray 
     /// </remarks>
-    static class TestUnorderedIntDynamicArray
-    {
+    static class TestUnorderedIntDynamicArray {
         /// <summary>
         /// Driver method for test cases
         /// </summary>
-        public static void RunTestCases()
-        {
+        public static void RunTestCases() {
             Console.WriteLine("-----------------------------------");
             Console.WriteLine("UnorderedIntDynamicArray Test Cases");
             Console.WriteLine("-----------------------------------");
@@ -55,19 +52,15 @@ namespace DynamicArrays
         /// <summary>
         /// Test adding an item to an empty array
         /// </summary>
-        static void TestAddEmptyDynamicArray()
-        {
+        static void TestAddEmptyDynamicArray() {
             UnorderedIntDynamicArray array = new UnorderedIntDynamicArray();
             array.Add(42);
             System.Console.Write("TestAddEmptyDynamicArray: ");
             String arrayString = array.ToString();
             if (arrayString.Equals("42") &&
-                array.Count == 1)
-            {
+                array.Count == 1) {
                 System.Console.WriteLine("Passed");
-            }
-            else
-            {
+            } else {
                 System.Console.WriteLine("FAILED!!! Expected: 42 Actual: " + arrayString);
             }
         }
@@ -75,8 +68,7 @@ namespace DynamicArrays
         /// <summary>
         /// Test adding an item to an array that needs to be expanded
         /// </summary>
-        static void TestAddExpandDynamicArray()
-        {
+        static void TestAddExpandDynamicArray() {
             UnorderedIntDynamicArray array = new UnorderedIntDynamicArray();
             array.Add(42);
             array.Add(41);
@@ -87,12 +79,9 @@ namespace DynamicArrays
             System.Console.Write("TestAddExpandedDynamicArray: ");
             String arrayString = array.ToString();
             if (arrayString.Equals("42,41,40,39,38,37") &&
-                array.Count == 6)
-            {
+                array.Count == 6) {
                 System.Console.WriteLine("Passed");
-            }
-            else
-            {
+            } else {
                 System.Console.WriteLine("FAILED!!! Expected: 42,41,40,39,38,37 Actual: " + arrayString);
             }
         }
@@ -104,16 +93,12 @@ namespace DynamicArrays
         /// <summary>
         /// Test removing an item from an empty array
         /// </summary>
-        static void TestRemoveEmptyDynamicArray()
-        {
+        static void TestRemoveEmptyDynamicArray() {
             UnorderedIntDynamicArray array = new UnorderedIntDynamicArray();
             System.Console.Write("TestRemoveEmptyDynamicArray: ");
-            if (!array.Remove(42))
-            {
+            if (!array.Remove(42)) {
                 System.Console.WriteLine("Passed");
-            }
-            else
-            {
+            } else {
                 System.Console.WriteLine("FAILED!!! Expected: false Actual: true");
             }
         }
@@ -121,8 +106,7 @@ namespace DynamicArrays
         /// <summary>
         /// Test removing an item at the front of the array
         /// </summary>
-        static void TestRemoveItemFrontOfDynamicArray()
-        {
+        static void TestRemoveItemFrontOfDynamicArray() {
             UnorderedIntDynamicArray array = new UnorderedIntDynamicArray();
             array.Add(42);
             array.Add(41);
@@ -132,12 +116,9 @@ namespace DynamicArrays
             String arrayString = array.ToString();
             if (removed &&
                 arrayString.Equals("40,41") &&
-                array.Count == 2)
-            {
+                array.Count == 2) {
                 System.Console.WriteLine("Passed");
-            }
-            else
-            {
+            } else {
                 System.Console.WriteLine("FAILED!!! Expected: 40,41 Actual: " + arrayString);
             }
         }
@@ -145,8 +126,7 @@ namespace DynamicArrays
         /// <summary>
         /// Test removing an item at the back of the array
         /// </summary>
-        static void TestRemoveItemBackOfDynamicArray()
-        {
+        static void TestRemoveItemBackOfDynamicArray() {
             UnorderedIntDynamicArray array = new UnorderedIntDynamicArray();
             array.Add(42);
             array.Add(41);
@@ -156,12 +136,9 @@ namespace DynamicArrays
             String arrayString = array.ToString();
             if (removed &&
                 arrayString.Equals("42,41") &&
-                array.Count == 2)
-            {
+                array.Count == 2) {
                 System.Console.WriteLine("Passed");
-            }
-            else
-            {
+            } else {
                 System.Console.WriteLine("FAILED!!! Expected: 42,41 Actual: " + arrayString);
             }
         }
@@ -169,8 +146,7 @@ namespace DynamicArrays
         /// <summary>
         /// Test removing an item in the interior of the array
         /// </summary>
-        static void TestRemoveItemInteriorOfDynamicArray()
-        {
+        static void TestRemoveItemInteriorOfDynamicArray() {
             UnorderedIntDynamicArray array = new UnorderedIntDynamicArray();
             array.Add(42);
             array.Add(41);
@@ -180,12 +156,9 @@ namespace DynamicArrays
             String arrayString = array.ToString();
             if (removed &&
                 arrayString.Equals("42,40") &&
-                array.Count == 2)
-            {
+                array.Count == 2) {
                 System.Console.WriteLine("Passed");
-            }
-            else
-            {
+            } else {
                 System.Console.WriteLine("FAILED!!! Expected: 42,40 Actual: " + arrayString);
             }
         }
@@ -193,17 +166,13 @@ namespace DynamicArrays
         /// <summary>
         /// Test removing an item not in the array
         /// </summary>
-        static void TestRemoveItemNotInDynamicArray()
-        {
+        static void TestRemoveItemNotInDynamicArray() {
             UnorderedIntDynamicArray array = new UnorderedIntDynamicArray();
             array.Add(42);
             System.Console.Write("TestRemoveItemNotInDynamicArray: ");
-            if (!array.Remove(8))
-            {
+            if (!array.Remove(8)) {
                 System.Console.WriteLine("Passed");
-            }
-            else
-            {
+            } else {
                 System.Console.WriteLine("FAILED!!! Expected: false Actual: true");
             }
         }
@@ -215,17 +184,13 @@ namespace DynamicArrays
         /// <summary>
         /// Test finding the index of an item in an empty array
         /// </summary>
-        static void TestIndexOfEmptyDynamicArray()
-        {
+        static void TestIndexOfEmptyDynamicArray() {
             UnorderedIntDynamicArray array = new UnorderedIntDynamicArray();
             System.Console.Write("TestIndexOfEmptyDynamicArray: ");
             int actualIndex = array.IndexOf(42);
-            if (actualIndex == -1)
-            {
+            if (actualIndex == -1) {
                 System.Console.WriteLine("Passed");
-            }
-            else
-            {
+            } else {
                 System.Console.WriteLine("FAILED!!! Expected: -1 Actual: " + actualIndex);
             }
         }
@@ -233,20 +198,16 @@ namespace DynamicArrays
         /// <summary>
         /// Test finding the index of an item at the front of the array
         /// </summary>
-        static void TestIndexOfFrontOfDynamicArray()
-        {
+        static void TestIndexOfFrontOfDynamicArray() {
             UnorderedIntDynamicArray array = new UnorderedIntDynamicArray();
             array.Add(42);
             array.Add(41);
             array.Add(40);
             System.Console.Write("TestIndexOfFrontOfDynamicArray: ");
             int actualIndex = array.IndexOf(42);
-            if (actualIndex == 0)
-            {
+            if (actualIndex == 0) {
                 System.Console.WriteLine("Passed");
-            }
-            else
-            {
+            } else {
                 System.Console.WriteLine("FAILED!!! Expected: 0 Actual: " + actualIndex);
             }
         }
@@ -254,20 +215,16 @@ namespace DynamicArrays
         /// <summary>
         /// Test finding the index of an item at the back of the array
         /// </summary>
-        static void TestIndexOfBackOfDynamicArray()
-        {
+        static void TestIndexOfBackOfDynamicArray() {
             UnorderedIntDynamicArray array = new UnorderedIntDynamicArray();
             array.Add(42);
             array.Add(41);
             array.Add(40);
             System.Console.Write("TestIndexOfBackOfDynamicArray: ");
             int actualIndex = array.IndexOf(40);
-            if (actualIndex == 2)
-            {
+            if (actualIndex == 2) {
                 System.Console.WriteLine("Passed");
-            }
-            else
-            {
+            } else {
                 System.Console.WriteLine("FAILED!!! Expected: 2 Actual: " + actualIndex);
             }
         }
@@ -279,16 +236,12 @@ namespace DynamicArrays
         /// <summary>
         /// Test getting the count for an empty array
         /// </summary>
-        static void TestCountEmptyDynamicArray()
-        {
+        static void TestCountEmptyDynamicArray() {
             UnorderedIntDynamicArray array = new UnorderedIntDynamicArray();
             System.Console.Write("TestCountEmptyDynamicArray: ");
-            if (array.Count == 0)
-            {
+            if (array.Count == 0) {
                 System.Console.WriteLine("Passed");
-            }
-            else
-            {
+            } else {
                 System.Console.WriteLine("FAILED!!! Expected: 0 Actual: " + array.Count);
             }
         }
@@ -300,17 +253,13 @@ namespace DynamicArrays
         /// <summary>
         /// Test clearing an empty array
         /// </summary>
-        static void TestClearEmptyDynamicArray()
-        {
+        static void TestClearEmptyDynamicArray() {
             UnorderedIntDynamicArray array = new UnorderedIntDynamicArray();
             System.Console.Write("TestClearEmptyDynamicArray: ");
             array.Clear();
-            if (array.Count == 0)
-            {
+            if (array.Count == 0) {
                 System.Console.WriteLine("Passed");
-            }
-            else
-            {
+            } else {
                 System.Console.WriteLine("FAILED!!! Expected: 0 Actual: " + array.Count);
             }
         }
@@ -318,8 +267,7 @@ namespace DynamicArrays
         /// <summary>
         /// Test clearing a non-empty array
         /// </summary>
-        static void TestClearNonemptyDynamicArray()
-        {
+        static void TestClearNonemptyDynamicArray() {
             UnorderedIntDynamicArray array = new UnorderedIntDynamicArray();
             array.Add(42);
             array.Add(41);
@@ -329,12 +277,9 @@ namespace DynamicArrays
             array.Add(37);
             System.Console.Write("TestClearNonemptyDynamicArray: ");
             array.Clear();
-            if (array.Count == 0)
-            {
+            if (array.Count == 0) {
                 System.Console.WriteLine("Passed");
-            }
-            else
-            {
+            } else {
                 System.Console.WriteLine("FAILED!!! Expected: 0 Actual: " + array.Count);
             }
         }

@@ -4,21 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Exercise1
-{
+namespace Exercise1 {
     /// <remarks>
     /// An unordered IntDynamicArray
     /// </remarks>
-    class UnorderedIntDynamicArray : IntDynamicArray
-    {
+    class UnorderedIntDynamicArray : IntDynamicArray {
         #region Constructor
 
         /// <summary>
         /// Constructor
         /// </summary>
         public UnorderedIntDynamicArray()
-            : base()
-        {
+            : base() {
         }
 
         #endregion
@@ -29,11 +26,9 @@ namespace Exercise1
         /// Adds the given item to the IntDynamicArray
         /// </summary>
         /// <param name="item">the item to add</param>
-        public override void Add(int item)
-        {
+        public override void Add(int item) {
             // expand array if necessary
-            if (count == items.Length)
-            {
+            if (count == items.Length) {
                 Expand();
             }
 
@@ -49,16 +44,12 @@ namespace Exercise1
         /// <param name="item">the item to remove</param>
         /// <returns>true if the item is successfully removed, false
         ///     otherwise</returns>
-        public override bool Remove(int item)
-        {
+        public override bool Remove(int item) {
             // check for given item in array
             int itemLocation = IndexOf(item);
-            if (itemLocation == -1)
-            {
+            if (itemLocation == -1) {
                 return false;
-            }
-            else
-            {
+            } else {
                 // move last element in array here and change count
                 items[itemLocation] = items[count - 1];
                 count--;
@@ -71,13 +62,10 @@ namespace Exercise1
         /// </summary>
         /// <param name="item">the item to find</param>
         /// <returns>the index of the item or -1 if it's not found</returns>
-        public override int IndexOf(int item)
-        {
+        public override int IndexOf(int item) {
             // look for first occurrence of item in array
-            for (int i = 0; i < count; i++)
-            {
-                if (items[i] == item)
-                {
+            for (int i = 0; i < count; i++) {
+                if (items[i] == item) {
                     return i;
                 }
             }
@@ -86,7 +74,40 @@ namespace Exercise1
             return -1;
         }
 
+        /// <summary>
+        /// Determines the last index of the given item
+        /// </summary>
+        /// <param name="item">the item to find</param>
+        /// <returns>the index of the last item or -1 if it's not found</returns>
+        public int LastIndexOf(int item) {
+            // look for first occurrence of item in array
+            for (int i = count - 1; i >= 0; i--) {
+                if (items[i] == item) {
+                    return i;
+                }
+            }
 
+            // didn't find the item in the array
+            return -1;
+        }
+
+        /// <summary>
+        /// Determines all the indexes of the given item
+        /// </summary>
+        /// <param name="item">the item to find</param>
+        /// <returns>the indexes of the item or -1 if it's not found</returns>
+        public List<int> AllIndexesOf(int item) {
+            List<int> indexes = new List<int>();
+            // look for first occurrence of item in array
+            for (int i = 0; i < count; i++) {
+                if (items[i] == item) {
+                    indexes.Add(i);
+                }
+            }
+
+            // didn't find the item in the array
+            return indexes;
+        }
         #endregion
     }
 }
