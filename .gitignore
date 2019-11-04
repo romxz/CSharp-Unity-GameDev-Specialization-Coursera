@@ -353,7 +353,7 @@ healthchecksdb
 *.meta
 # But not source file with postfix. which is everything but a folder
 !*.*.meta
-**/ProgrammingAssignments/
+**/Programming_Assignments/
 *.zip
 Intermediate_OOP_for_Unity/Week_2/3_Destruction/Exercise7_Get_Rich/Exercise7_Old/App.config
 Intermediate_OOP_for_Unity/Week_2/3_Destruction/Exercise7_Get_Rich/Exercise7_Old/EmployerSponsoredAccount.cs
