@@ -8,7 +8,7 @@ namespace ImplementingAnInterface {
     /// <summary>
     /// A rectangle
     /// </summary>
-    class Rectangle {
+    class Rectangle : IComparable {
         #region Fields
 
         int width;
@@ -60,6 +60,23 @@ namespace ImplementingAnInterface {
             return string.Format("[Rectangle: Width={0}, Height={1}]", Width, Height);
         }
 
+        /// <summary>
+        /// Compares this rectangle to the parameter
+        /// </summary>
+        /// <param name="obj">other rectangle to compare to</param>
+        /// <returns>Relative order</returns>
+        public int CompareTo(Object obj) {
+            // always greater than null
+            if (obj == null) return 1;
+
+            Rectangle otherRectangle = obj as Rectangle;
+            if (otherRectangle != null) {
+                int diff = width * height - otherRectangle.Width * otherRectangle.Height;
+                if (diff > 0) return 1;
+                else if (diff < 0) return -1;
+                else return 0;
+            } else throw new ArgumentException("Object is not a Rectangle");
+        }
         #endregion
     }
 }
