@@ -4,17 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LinkedLists
-{
+namespace LinkedLists {
     /// <summary>
     /// A linked list node
     /// </summary>
-    class LinkedListNode<T>
-    {
+    class LinkedListNode<T> {
         #region Fields
 
-        T value;
-        LinkedListNode<T> next;
+        // Note: Autoproperties
+        //T value;
+        //LinkedListNode<T> next;
 
         #endregion
 
@@ -25,10 +24,9 @@ namespace LinkedLists
         /// </summary>
         /// <param name="value">value</param>
         /// <param name="next">next node</param>
-        public LinkedListNode(T value, LinkedListNode<T> next)
-        {
-            this.value = value;
-            this.next = next;
+        public LinkedListNode(T value, LinkedListNode<T> next) {
+            this.Value = value;
+            this.Next = next;
         }
 
         #endregion
@@ -39,20 +37,13 @@ namespace LinkedLists
         /// Gets the node value
         /// </summary>
         /// <value>node value</value>
-        public T Value
-        {
-            get { return value; }
-        }
+        public T Value { get; private set; }
 
         /// <summary>
         /// Gets and sets the next node
         /// </summary>
         /// <value>next node</value>
-        public LinkedListNode<T> Next
-        {
-            get { return next; }
-            set { next = value; }
-        }
+        public LinkedListNode<T> Next { get; set; }
 
         #endregion
     }

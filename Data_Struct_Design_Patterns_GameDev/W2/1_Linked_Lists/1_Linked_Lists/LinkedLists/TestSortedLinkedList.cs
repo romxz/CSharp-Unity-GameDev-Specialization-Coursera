@@ -4,18 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LinkedLists
-{
+namespace LinkedLists {
     /// <remarks>
     /// Test class for SortedLinkedList 
     /// </remarks>
-    static class TestSortedLinkedList
-    {
+    static class TestSortedLinkedList {
         /// <summary>
         /// Driver method for test cases
         /// </summary>
-        public static void RunTestCases()
-        {
+        public static void RunTestCases() {
             Console.WriteLine("------------------------------");
             Console.WriteLine("SortedLinkedList Test Cases");
             Console.WriteLine("------------------------------");
@@ -34,20 +31,16 @@ namespace LinkedLists
         /// <summary>
         /// Test adding an item to an empty list
         /// </summary>
-        static void TestAddEmptyLinkedList()
-        {
+        static void TestAddEmptyLinkedList() {
             SortedLinkedList<string> list = new SortedLinkedList<string>();
             list.Add("Foxtrot");
             Console.Write("TestAddEmptyLinkedList: ");
             string listString = list.ToString();
             if (listString.Equals("Foxtrot") &&
-                list.Count == 1)
-            {
+                list.Count == 1) {
                 Console.WriteLine("Passed");
-            }
-            else
-            {
-                Console.WriteLine("FAILED!!! Expected: Foxtrot  and 1 Actual: " + 
+            } else {
+                Console.WriteLine("FAILED!!! Expected: Foxtrot  and 1 Actual: " +
                     listString + " and " + list.Count);
             }
         }
@@ -55,21 +48,17 @@ namespace LinkedLists
         /// <summary>
         /// Test adding an item to the front of a list
         /// </summary>
-        static void TestAddFrontOfLinkedList()
-        {
+        static void TestAddFrontOfLinkedList() {
             SortedLinkedList<string> list = new SortedLinkedList<string>();
             list.Add("Foxtrot");
             list.Add("Echo");
             Console.Write("TestAddFrontOfLinkedList: ");
             string listString = list.ToString();
             if (listString.Equals("Echo,Foxtrot") &&
-                list.Count == 2)
-            {
+                list.Count == 2) {
                 Console.WriteLine("Passed");
-            }
-            else
-            {
-                Console.WriteLine("FAILED!!! Expected: Echo,Foxtrot and 2 Actual: " + 
+            } else {
+                Console.WriteLine("FAILED!!! Expected: Echo,Foxtrot and 2 Actual: " +
                     listString + " and " + list.Count);
             }
         }
@@ -77,21 +66,17 @@ namespace LinkedLists
         /// <summary>
         /// Test adding an item to the back of the list
         /// </summary>
-        static void TestAddBackOfLinkedList()
-        {
+        static void TestAddBackOfLinkedList() {
             SortedLinkedList<string> list = new SortedLinkedList<string>();
             list.Add("Delta");
             list.Add("Echo");
             Console.Write("TestAddBackOfLinkedList: ");
             string listString = list.ToString();
             if (listString.Equals("Delta,Echo") &&
-                list.Count == 2)
-            {
+                list.Count == 2) {
                 Console.WriteLine("Passed");
-            }
-            else
-            {
-                Console.WriteLine("FAILED!!! Expected: Delta,Echo and 2 Actual: " + 
+            } else {
+                Console.WriteLine("FAILED!!! Expected: Delta,Echo and 2 Actual: " +
                     listString + " and " + list.Count);
             }
         }
@@ -99,8 +84,7 @@ namespace LinkedLists
         /// <summary>
         /// Test adding an item to the iterior of the list
         /// </summary>
-        static void TestAddInteriorOfLinkedList()
-        {
+        static void TestAddInteriorOfLinkedList() {
             SortedLinkedList<string> list = new SortedLinkedList<string>();
             list.Add("Delta");
             list.Add("Foxtrot");
@@ -108,13 +92,10 @@ namespace LinkedLists
             Console.Write("TestAddInteriorOfLinkedList: ");
             string listString = list.ToString();
             if (listString.Equals("Delta,Echo,Foxtrot") &&
-                list.Count == 3)
-            {
+                list.Count == 3) {
                 Console.WriteLine("Passed");
-            }
-            else
-            {
-                Console.WriteLine("FAILED!!! Expected: Delta,Echo,Foxtrot and 3 Actual: " + 
+            } else {
+                Console.WriteLine("FAILED!!! Expected: Delta,Echo,Foxtrot and 3 Actual: " +
                     listString + " and " + list.Count);
             }
         }
