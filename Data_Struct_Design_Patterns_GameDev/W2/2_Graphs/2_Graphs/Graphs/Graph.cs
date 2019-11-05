@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GraphSearching {
+namespace Graphs {
     /// <summary>
     /// A graph
     /// </summary>
@@ -121,9 +121,14 @@ namespace GraphSearching {
                 // need to remove as neighor for all nodes
                 // in graph
                 nodes.Remove(removeNode);
-                foreach (GraphNode<T> node in nodes) {
+                
+                // Only need to remove from neighbours in an unweighted undirected graph
+                foreach (GraphNode<T> node in removeNode.Neighbors) {
                     node.RemoveNeighbor(removeNode);
                 }
+                /*foreach (GraphNode<T> node in nodes) {
+                    node.RemoveNeighbor(removeNode);
+                }*/
                 return true;
             }
         }

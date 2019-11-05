@@ -4,19 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GraphSearching
-{
+namespace GraphSearching {
     /// <summary>
     /// Searches a graph for a path from one value to another
     /// </summary>
-    class Program
-    {
+    class Program {
         /// <summary>
         /// Searches the graph
         /// </summary>
         /// <param name="args">command-line arguments</param>
-        static void Main(string[] args)
-        {
+        static void Main(string[] args) {
             Graph<int> graph = BuildGraph();
 
             // search type-independent tests
@@ -52,8 +49,7 @@ namespace GraphSearching
         /// Builds the graph to search
         /// </summary>
         /// <returns></returns>
-        static Graph<int> BuildGraph()
-        {
+        static Graph<int> BuildGraph() {
             Graph<int> graph = new Graph<int>();
 
             graph.AddNode(1);
@@ -89,24 +85,18 @@ namespace GraphSearching
         /// <param name="graph">graph to search</param>
         /// <returns>string for path or empty string if there is no path</returns>
         static string Search(int start, int finish,
-            Graph<int> graph, SearchType searchType)
-        {
+            Graph<int> graph, SearchType searchType) {
             LinkedList<GraphNode<int>> searchList =
                 new LinkedList<GraphNode<int>>();
 
             // special case for start and finish the same
-            if (start == finish)
-            {
+            if (start == finish) {
                 return start.ToString();
-            }
-            else if (graph.Find(start) == null ||
-                graph.Find(finish) == null)
-            {
+            } else if (graph.Find(start) == null ||
+                  graph.Find(finish) == null) {
                 // start or finish not in graph
                 return "";
-            }
-            else
-            {
+            } else {
                 // add start node to dictionary and search list
                 GraphNode<int> startNode = graph.Find(start);
                 Dictionary<GraphNode<int>, PathNodeInfo<int>> pathNodes =
@@ -115,38 +105,28 @@ namespace GraphSearching
                 searchList.AddFirst(startNode);
 
                 // loop until we exhaust all possible paths
-                while (searchList.Count > 0)
-                {
+                while (searchList.Count > 0) {
                     // extract front of search list
                     GraphNode<int> currentNode = searchList.First.Value;
                     searchList.RemoveFirst();
 
                     // explore each neighbor of this node
-                    foreach (GraphNode<int> neighbor in currentNode.Neighbors)
-                    {
+                    foreach (GraphNode<int> neighbor in currentNode.Neighbors) {
                         // check for found finish
-                        if (neighbor.Value == finish)
-                        {
+                        if (neighbor.Value == finish) {
                             pathNodes.Add(neighbor, new PathNodeInfo<int>(currentNode));
                             return ConvertPathToString(neighbor, pathNodes);
-                        }
-                        else if (pathNodes.ContainsKey(neighbor))
-                        {
+                        } else if (pathNodes.ContainsKey(neighbor)) {
                             // found a cycle, so skip this neighbor
                             continue;
-                        }
-                        else
-                        {
+                        } else {
                             // link neighbor to current node in path
                             pathNodes.Add(neighbor, new PathNodeInfo<int>(currentNode));
 
                             // add neighbor to front or back of search list
-                            if (searchType == SearchType.DepthFirst)
-                            {
+                            if (searchType == SearchType.DepthFirst) {
                                 searchList.AddFirst(neighbor);
-                            }
-                            else
-                            {
+                            } else {
                                 searchList.AddLast(neighbor);
                             }
                             Console.WriteLine("Just added " + neighbor.Value + " to search list");
@@ -166,14 +146,12 @@ namespace GraphSearching
         /// <param name="path">path to convert</param>
         /// <returns>string for path</returns>
         static string ConvertPathToString(GraphNode<int> endNode,
-            Dictionary<GraphNode<int>, PathNodeInfo<int>> pathNodes)
-        {
+            Dictionary<GraphNode<int>, PathNodeInfo<int>> pathNodes) {
             // build linked list for path in correct order
             LinkedList<GraphNode<int>> path = new LinkedList<GraphNode<int>>();
             path.AddFirst(endNode);
             GraphNode<int> previous = pathNodes[endNode].Previous;
-            while (previous != null)
-            {
+            while (previous != null) {
                 path.AddFirst(previous);
                 previous = pathNodes[previous].Previous;
             }
@@ -182,12 +160,10 @@ namespace GraphSearching
             StringBuilder pathString = new StringBuilder();
             LinkedListNode<GraphNode<int>> currentNode = path.First;
             int nodeCount = 0;
-            while (currentNode != null)
-            {
+            while (currentNode != null) {
                 nodeCount++;
                 pathString.Append(currentNode.Value.Value);
-                if (nodeCount < path.Count)
-                {
+                if (nodeCount < path.Count) {
                     pathString.Append(" ");
                 }
                 currentNode = currentNode.Next;

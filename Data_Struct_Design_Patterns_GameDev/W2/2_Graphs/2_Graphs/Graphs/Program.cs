@@ -4,19 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Graphs
-{
+namespace Graphs {
     /// <summary>
     /// Tests Graph and GraphNode classes
     /// </summary>
-    class Program
-    {
+    class Program {
         /// <summary>
         /// Tests classes
         /// </summary>
         /// <param name="args">command-line arguments</param>
-        static void Main(string[] args)
-        {
+        static void Main(string[] args) {
             TestGraphNode.RunTestCases();
             TestGraph.RunTestCases();
             Console.WriteLine();

@@ -4,18 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Graphs
-{
+namespace Graphs {
     /// <summary>
     /// Tests the Graph class
     /// </summary>
-    static class TestGraph
-    {
+    static class TestGraph {
         /// <summary>
         /// Driver method for test cases
         /// </summary>
-        public static void RunTestCases()
-        {
+        public static void RunTestCases() {
             Console.WriteLine("----------------");
             Console.WriteLine("Graph Test Cases");
             Console.WriteLine("----------------");
@@ -63,17 +60,13 @@ namespace Graphs
         /// <summary>
         /// Test properties for a new graph
         /// </summary>
-        static void TestPropertiesNewGraph()
-        {
+        static void TestPropertiesNewGraph() {
             Graph<int> graph = new Graph<int>();
             Console.Write("TestPropertiesNewGraph: ");
             if (graph.Count == 0 &&
-                graph.Nodes.Count == 0)
-            {
+                graph.Nodes.Count == 0) {
                 Console.WriteLine("Passed");
-            }
-            else
-            {
+            } else {
                 Console.WriteLine("FAILED!!! Expected: 0 and 0 Actual: " +
                     graph.Count + " and " + graph.Nodes.Count);
             }
@@ -86,8 +79,7 @@ namespace Graphs
         /// <summary>
         /// Test clearing a graph
         /// </summary>
-        static void TestClear()
-        {
+        static void TestClear() {
             Graph<int> graph = new Graph<int>();
             graph.AddNode(4);
             graph.AddNode(5);
@@ -96,12 +88,9 @@ namespace Graphs
             Console.Write("TestClear: ");
             string graphString = graph.ToString();
             if (graphString.Equals("") &&
-                graph.Count == 0)
-            {
+                graph.Count == 0) {
                 Console.WriteLine("Passed");
-            }
-            else
-            {
+            } else {
                 Console.WriteLine("FAILED!!! Expected: empty string" +
                     " and 0 Actual: " +
                     graphString + " and " + graph.Count);
@@ -115,20 +104,16 @@ namespace Graphs
         /// <summary>
         /// Test adding a node to an empty graph
         /// </summary>
-        static void TestAddNodeEmptyGraph()
-        {
+        static void TestAddNodeEmptyGraph() {
             Graph<int> graph = new Graph<int>();
             bool success = graph.AddNode(4);
             Console.Write("TestAddNodeEmptyGraph: ");
             string graphString = graph.ToString();
             if (graphString.Equals("[Node Value: 4 Neighbors: ]") &&
                 graph.Count == 1 &&
-                success)
-            {
+                success) {
                 Console.WriteLine("Passed");
-            }
-            else
-            {
+            } else {
                 Console.WriteLine("FAILED!!! Expected: [Node Value: 4  " +
                     "Neighbors: ], 1, and true Actual: " + graphString +
                     ", " + graph.Count + " and " +
@@ -139,8 +124,7 @@ namespace Graphs
         /// <summary>
         /// Test adding a graph with multiple nodes
         /// </summary>
-        static void TestAddNodeMultipleNodes()
-        {
+        static void TestAddNodeMultipleNodes() {
             Graph<int> graph = new Graph<int>();
             graph.AddNode(4);
             graph.AddNode(5);
@@ -151,12 +135,9 @@ namespace Graphs
                     "[Node Value: 5 Neighbors: ]," +
                     "[Node Value: 6 Neighbors: ]") &&
                 graph.Count == 3 &&
-                success)
-            {
+                success) {
                 Console.WriteLine("Passed");
-            }
-            else
-            {
+            } else {
                 Console.WriteLine("FAILED!!! Expected: " +
                     "[Node Value: 4 Neighbors: ]," +
                     "[Node Value: 5 Neighbors: ]," +
@@ -170,8 +151,7 @@ namespace Graphs
         /// <summary>
         /// Test adding a duplicate node to a node in the graph
         /// </summary>
-        static void TestAddNodeDuplicateNode()
-        {
+        static void TestAddNodeDuplicateNode() {
             Graph<int> graph = new Graph<int>();
             graph.AddNode(4);
             graph.AddNode(5);
@@ -181,12 +161,9 @@ namespace Graphs
             if (graphString.Equals("[Node Value: 4 Neighbors: ]," +
                     "[Node Value: 5 Neighbors: ]") &&
                 graph.Count == 2 &&
-                !success)
-            {
+                !success) {
                 Console.WriteLine("Passed");
-            }
-            else
-            {
+            } else {
                 Console.WriteLine("FAILED!!! Expected: [Node Value: 4 Neighbors: ]," +
                     "[Node Value: 5 Neighbors: ], 1, and false Actual: " + graphString +
                     ", " + graph.Count + " and " +
@@ -201,8 +178,7 @@ namespace Graphs
         /// <summary>
         /// Test adding a valid edge between two nodes
         /// </summary>
-        static void TestAddEdgeValid()
-        {
+        static void TestAddEdgeValid() {
             Graph<int> graph = new Graph<int>();
             graph.AddNode(4);
             graph.AddNode(5);
@@ -211,12 +187,9 @@ namespace Graphs
             string graphString = graph.ToString();
             if (graphString.Equals("[Node Value: 4 Neighbors: 5 ]," +
                     "[Node Value: 5 Neighbors: 4 ]") &&
-                success)
-            {
+                success) {
                 Console.WriteLine("Passed");
-            }
-            else
-            {
+            } else {
                 Console.WriteLine("FAILED!!! Expected: " +
                     "[Node Value: 4 Neighbors: 5 ]," +
                     "[Node Value: 5 Neighbors: 4 ] and true Actual: " +
@@ -227,8 +200,7 @@ namespace Graphs
         /// <summary>
         /// Test adding a duplicate edge between two nodes
         /// </summary>
-        static void TestAddEdgeDuplicate()
-        {
+        static void TestAddEdgeDuplicate() {
             Graph<int> graph = new Graph<int>();
             graph.AddNode(4);
             graph.AddNode(5);
@@ -238,12 +210,9 @@ namespace Graphs
             string graphString = graph.ToString();
             if (graphString.Equals("[Node Value: 4 Neighbors: 5 ]," +
                     "[Node Value: 5 Neighbors: 4 ]") &&
-                !success)
-            {
+                !success) {
                 Console.WriteLine("Passed");
-            }
-            else
-            {
+            } else {
                 Console.WriteLine("FAILED!!! Expected: " +
                     "[Node Value: 4 Neighbors: 5 ]," +
                     "[Node Value: 5 Neighbors: 4 ] and false Actual: " +
@@ -254,8 +223,7 @@ namespace Graphs
         /// <summary>
         /// Test adding an edge to a non-existent node
         /// </summary>
-        static void TestAddEdgeNodeNotFound()
-        {
+        static void TestAddEdgeNodeNotFound() {
             Graph<int> graph = new Graph<int>();
             graph.AddNode(4);
             graph.AddNode(5);
@@ -264,12 +232,9 @@ namespace Graphs
             string graphString = graph.ToString();
             if (graphString.Equals("[Node Value: 4 Neighbors: ]," +
                     "[Node Value: 5 Neighbors: ]") &&
-                !success)
-            {
+                !success) {
                 Console.WriteLine("Passed");
-            }
-            else
-            {
+            } else {
                 Console.WriteLine("FAILED!!! Expected: " +
                     "[Node Value: 4 Neighbors: ]," +
                     "[Node Value: 5 Neighbors: ] and false Actual: " +
@@ -284,8 +249,7 @@ namespace Graphs
         /// <summary>
         /// Test removing a node with no neighbors from the graph
         /// </summary>
-        static void TestRemoveNodeNoNeighbors()
-        {
+        static void TestRemoveNodeNoNeighbors() {
             Graph<int> graph = new Graph<int>();
             graph.AddNode(4);
             graph.AddNode(5);
@@ -294,12 +258,9 @@ namespace Graphs
             string graphString = graph.ToString();
             if (graphString.Equals("[Node Value: 5 Neighbors: ]") &&
                 graph.Count == 1 &&
-                success)
-            {
+                success) {
                 Console.WriteLine("Passed");
-            }
-            else
-            {
+            } else {
                 Console.WriteLine("FAILED!!! Expected: " +
                     "[Node Value: 5 Neighbors: ], 1, and true Actual: " +
                     graphString +
@@ -311,8 +272,7 @@ namespace Graphs
         /// <summary>
         /// Test removing a node with multiple neighbors from the graph
         /// </summary>
-        static void TestRemoveNodeMultipleNeighbors()
-        {
+        static void TestRemoveNodeMultipleNeighbors() {
             Graph<int> graph = new Graph<int>();
             graph.AddNode(4);
             graph.AddNode(5);
@@ -326,12 +286,9 @@ namespace Graphs
             if (graphString.Equals("[Node Value: 5 Neighbors: 6 ]," +
                     "[Node Value: 6 Neighbors: 5 ]") &&
                 graph.Count == 2 &&
-                success)
-            {
+                success) {
                 Console.WriteLine("Passed");
-            }
-            else
-            {
+            } else {
                 Console.WriteLine("FAILED!!! Expected: " +
                     "[Node Value: 5 Neighbors: 6 ]," +
                     "[Node Value: 6 Neighbors: 5 ], 2 and true Actual: " +
@@ -342,8 +299,7 @@ namespace Graphs
         /// <summary>
         /// Test removing a node that's not in the graph
         /// </summary>
-        static void TestRemoveNodeNotInGraph()
-        {
+        static void TestRemoveNodeNotInGraph() {
             Graph<int> graph = new Graph<int>();
             graph.AddNode(4);
             graph.AddNode(5);
@@ -353,12 +309,9 @@ namespace Graphs
             if (graphString.Equals("[Node Value: 4 Neighbors: ]," +
                     "[Node Value: 5 Neighbors: ]") &&
                 graph.Count == 2 &&
-                !success)
-            {
+                !success) {
                 Console.WriteLine("Passed");
-            }
-            else
-            {
+            } else {
                 Console.WriteLine("FAILED!!! Expected: " +
                     "[Node Value: 4 Neighbors: ]," +
                     "[Node Value: 5 Neighbors: ], 2, and false Actual: " +
@@ -375,8 +328,7 @@ namespace Graphs
         /// <summary>
         /// Test removing a valid edge between two nodes
         /// </summary>
-        static void TestRemoveEdgeValid()
-        {
+        static void TestRemoveEdgeValid() {
             Graph<int> graph = new Graph<int>();
             graph.AddNode(4);
             graph.AddNode(5);
@@ -386,12 +338,9 @@ namespace Graphs
             string graphString = graph.ToString();
             if (graphString.Equals("[Node Value: 4 Neighbors: ]," +
                     "[Node Value: 5 Neighbors: ]") &&
-                success)
-            {
+                success) {
                 Console.WriteLine("Passed");
-            }
-            else
-            {
+            } else {
                 Console.WriteLine("FAILED!!! Expected: " +
                     "[Node Value: 4 Neighbors: ]," +
                     "[Node Value: 5 Neighbors: ] and true Actual: " +
@@ -402,8 +351,7 @@ namespace Graphs
         /// <summary>
         /// Test removing an edge to a node not in the graph
         /// </summary>
-        static void TestRemoveEdgeNodeNotFound()
-        {
+        static void TestRemoveEdgeNodeNotFound() {
             Graph<int> graph = new Graph<int>();
             graph.AddNode(4);
             graph.AddNode(5);
@@ -413,12 +361,9 @@ namespace Graphs
             string graphString = graph.ToString();
             if (graphString.Equals("[Node Value: 4 Neighbors: 5 ]," +
                     "[Node Value: 5 Neighbors: 4 ]") &&
-                !success)
-            {
+                !success) {
                 Console.WriteLine("Passed");
-            }
-            else
-            {
+            } else {
                 Console.WriteLine("FAILED!!! Expected: " +
                     "[Node Value: 4 Neighbors: 5 ]," +
                     "[Node Value: 5 Neighbors: 4 ] and false Actual: " +
@@ -429,8 +374,7 @@ namespace Graphs
         /// <summary>
         /// Test removing a non-existent edge from the graph
         /// </summary>
-        static void TestRemoveEdgeEdgeNotFound()
-        {
+        static void TestRemoveEdgeEdgeNotFound() {
             Graph<int> graph = new Graph<int>();
             graph.AddNode(4);
             graph.AddNode(5);
@@ -442,12 +386,9 @@ namespace Graphs
             if (graphString.Equals("[Node Value: 4 Neighbors: 5 ]," +
                     "[Node Value: 5 Neighbors: 4 ]," +
                     "[Node Value: 6 Neighbors: ]") &&
-                !success)
-            {
+                !success) {
                 Console.WriteLine("Passed");
-            }
-            else
-            {
+            } else {
                 Console.WriteLine("FAILED!!! Expected: " +
                     "[Node Value: 4 Neighbors: 5 ]," +
                     "[Node Value: 5 Neighbors: 4 ]," +
@@ -463,20 +404,16 @@ namespace Graphs
         /// <summary>
         /// Test finding a node that's in the graph
         /// </summary>
-        static void TestFindNodeInGraph()
-        {
+        static void TestFindNodeInGraph() {
             Graph<int> graph = new Graph<int>();
             graph.AddNode(4);
             graph.AddNode(5);
             GraphNode<int> node = graph.Find(4);
             Console.Write("TestFindNodeInGraph: ");
             if (node != null &&
-                node.Value == 4)
-            {
+                node.Value == 4) {
                 Console.WriteLine("Passed");
-            }
-            else
-            {
+            } else {
                 Console.WriteLine("FAILED!!! Expected to find node 4");
             }
         }
@@ -484,19 +421,15 @@ namespace Graphs
         /// <summary>
         /// Test finding a node that's not in the graph
         /// </summary>
-        static void TestFindNodeNotInGraph()
-        {
+        static void TestFindNodeNotInGraph() {
             Graph<int> graph = new Graph<int>();
             graph.AddNode(4);
             graph.AddNode(5);
             GraphNode<int> node = graph.Find(6);
             Console.Write("TestFindNodeInGraph: ");
-            if (node == null)
-            {
+            if (node == null) {
                 Console.WriteLine("Passed");
-            }
-            else
-            {
+            } else {
                 Console.WriteLine("FAILED!!! Didn't expect to find node 6");
             }
         }

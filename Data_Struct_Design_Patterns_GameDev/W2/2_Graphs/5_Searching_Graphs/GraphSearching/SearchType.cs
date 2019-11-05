@@ -4,10 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GraphSearching
-{
-    enum SearchType
-    {
+namespace GraphSearching {
+    enum SearchType {
         BreadthFirst,
         DepthFirst
     }

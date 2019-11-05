@@ -4,18 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Graphs
-{
+namespace Graphs {
     /// <summary>
     /// Tests the GraphNode class
     /// </summary>
-    static class TestGraphNode
-    {
+    static class TestGraphNode {
         /// <summary>
         /// Driver method for test cases
         /// </summary>
-        public static void RunTestCases()
-        {
+        public static void RunTestCases() {
             Console.WriteLine("--------------------");
             Console.WriteLine("GraphNode Test Cases");
             Console.WriteLine("--------------------");
@@ -46,18 +43,14 @@ namespace Graphs
         /// <summary>
         /// Test properties for a new graph node
         /// </summary>
-        static void TestPropertiesNewGraphNode()
-        {
+        static void TestPropertiesNewGraphNode() {
             GraphNode<int> node = new GraphNode<int>(4);
             Console.Write("TestPropertiesNewGraphNode: ");
             if (node.Value == 4 &&
-                node.Neighbors.Count == 0)
-            {
+                node.Neighbors.Count == 0) {
                 Console.WriteLine("Passed");
-            }
-            else
-            {
-                Console.WriteLine("FAILED!!! Expected: 4 and 0 Actual: " + 
+            } else {
+                Console.WriteLine("FAILED!!! Expected: 4 and 0 Actual: " +
                     node.Value + " and " + node.Neighbors.Count);
             }
         }
@@ -69,20 +62,16 @@ namespace Graphs
         /// <summary>
         /// Test adding a neighbor to an empty list of neighbors
         /// </summary>
-        static void TestAddNeighborEmptyNeighbors()
-        {
+        static void TestAddNeighborEmptyNeighbors() {
             GraphNode<int> node = new GraphNode<int>(4);
             bool success = node.AddNeighbor(new GraphNode<int>(5));
             Console.Write("TestAddNeighborEmptyNeighbors: ");
             string nodeString = node.ToString();
             if (nodeString.Equals("[Node Value: 4 Neighbors: 5 ]") &&
                 node.Neighbors.Count == 1 &&
-                success)
-            {
+                success) {
                 Console.WriteLine("Passed");
-            }
-            else
-            {
+            } else {
                 Console.WriteLine("FAILED!!! Expected: [Node Value: 4  " +
                     "Neighbors: 5 ], 1, and true Actual: " + nodeString +
                     ", " + node.Neighbors.Count + " and " +
@@ -93,8 +82,7 @@ namespace Graphs
         /// <summary>
         /// Test adding a neighbor to a list of multiple neighbors
         /// </summary>
-        static void TestAddNeighborMultipleNeighbors()
-        {
+        static void TestAddNeighborMultipleNeighbors() {
             GraphNode<int> node = new GraphNode<int>(4);
             node.AddNeighbor(new GraphNode<int>(5));
             bool success = node.AddNeighbor(new GraphNode<int>(6));
@@ -102,12 +90,9 @@ namespace Graphs
             string nodeString = node.ToString();
             if (nodeString.Equals("[Node Value: 4 Neighbors: 5 6 ]") &&
                 node.Neighbors.Count == 2 &&
-                success)
-            {
+                success) {
                 Console.WriteLine("Passed");
-            }
-            else
-            {
+            } else {
                 Console.WriteLine("FAILED!!! Expected: [Node Value: 4  " +
                     "Neighbors: 5 6 ], 2, and true Actual: " + nodeString +
                     ", " + node.Neighbors.Count + " and " +
@@ -118,8 +103,7 @@ namespace Graphs
         /// <summary>
         /// Test adding a duplicate neighbor to a list of neighbors
         /// </summary>
-        static void TestAddNeighborDuplicateNeighbor()
-        {
+        static void TestAddNeighborDuplicateNeighbor() {
             GraphNode<int> node = new GraphNode<int>(4);
             GraphNode<int> duplicateNode = new GraphNode<int>(5);
             node.AddNeighbor(duplicateNode);
@@ -128,12 +112,9 @@ namespace Graphs
             string nodeString = node.ToString();
             if (nodeString.Equals("[Node Value: 4 Neighbors: 5 ]") &&
                 node.Neighbors.Count == 1 &&
-                !success)
-            {
+                !success) {
                 Console.WriteLine("Passed");
-            }
-            else
-            {
+            } else {
                 Console.WriteLine("FAILED!!! Expected: [Node Value: 4  " +
                     "Neighbors: 5 ], 1, and false Actual: " + nodeString +
                     ", " + node.Neighbors.Count + " and " +
@@ -148,8 +129,7 @@ namespace Graphs
         /// <summary>
         /// Test removing a neighbor from a list of multiple neighbors
         /// </summary>
-        static void TestRemoveNeighborMultipleNeighbors()
-        {
+        static void TestRemoveNeighborMultipleNeighbors() {
             GraphNode<int> node = new GraphNode<int>(4);
             GraphNode<int> removeNode = new GraphNode<int>(5);
             node.AddNeighbor(removeNode);
@@ -159,12 +139,9 @@ namespace Graphs
             string nodeString = node.ToString();
             if (nodeString.Equals("[Node Value: 4 Neighbors: 6 ]") &&
                 node.Neighbors.Count == 1 &&
-                success)
-            {
+                success) {
                 Console.WriteLine("Passed");
-            }
-            else
-            {
+            } else {
                 Console.WriteLine("FAILED!!! Expected: [Node Value: 4  " +
                     "Neighbors: 6 ], 1, and true Actual: " + nodeString +
                     ", " + node.Neighbors.Count + " and " +
@@ -175,8 +152,7 @@ namespace Graphs
         /// <summary>
         /// Test removing a neighbor not in the list of neighbors
         /// </summary>
-        static void TestRemoveNeighborNeighborNotFound()
-        {
+        static void TestRemoveNeighborNeighborNotFound() {
             GraphNode<int> node = new GraphNode<int>(4);
             node.AddNeighbor(new GraphNode<int>(5));
             bool success = node.RemoveNeighbor(new GraphNode<int>(6));
@@ -184,12 +160,9 @@ namespace Graphs
             string nodeString = node.ToString();
             if (nodeString.Equals("[Node Value: 4 Neighbors: 5 ]") &&
                 node.Neighbors.Count == 1 &&
-                !success)
-            {
+                !success) {
                 Console.WriteLine("Passed");
-            }
-            else
-            {
+            } else {
                 Console.WriteLine("FAILED!!! Expected: [Node Value: 4  " +
                     "Neighbors: 5 ], 1, and false Actual: " + nodeString +
                     ", " + node.Neighbors.Count + " and " +
@@ -204,8 +177,7 @@ namespace Graphs
         /// <summary>
         /// Test removing all neighbor from a list of multiple neighbors
         /// </summary>
-        static void TestRemoveAllNeighborsMultipleNeighbors()
-        {
+        static void TestRemoveAllNeighborsMultipleNeighbors() {
             GraphNode<int> node = new GraphNode<int>(4);
             node.AddNeighbor(new GraphNode<int>(5));
             node.AddNeighbor(new GraphNode<int>(6));
@@ -214,12 +186,9 @@ namespace Graphs
             string nodeString = node.ToString();
             if (nodeString.Equals("[Node Value: 4 Neighbors: ]") &&
                 node.Neighbors.Count == 0 &&
-                success)
-            {
+                success) {
                 Console.WriteLine("Passed");
-            }
-            else
-            {
+            } else {
                 Console.WriteLine("FAILED!!! Expected: [Node Value: 4  " +
                     "Neighbors: ], 0, and true Actual: " + nodeString +
                     ", " + node.Neighbors.Count + " and " +
