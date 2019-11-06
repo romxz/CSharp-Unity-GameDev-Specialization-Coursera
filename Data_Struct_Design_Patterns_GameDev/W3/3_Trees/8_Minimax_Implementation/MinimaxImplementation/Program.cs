@@ -45,8 +45,9 @@ namespace MinimaxImplementation {
         static MinimaxTree<Configuration> BuildTree() {
             // build root node
             binContents.Clear();
-            binContents.Add(2);
-            binContents.Add(1);
+            binContents.Add(3);//3,2;2,1;1,0
+            binContents.Add(2);//2,2;2,2;0,0
+            binContents.Add(1);//1,1;0,0;0,0
             Configuration rootConfiguration =
                 new Configuration(binContents);
 

@@ -4,19 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Exercise10
-{
+namespace Exercise10 {
     /// <summary>
     /// Exercise 10 solution
     /// </summary>
-    class Program
-    {
+    class Program {
         /// <summary>
         /// Selects best first move using minimax
         /// </summary>
         /// <param name="args">command-line arguments</param>
-        static void Main(string[] args)
-        {
+        static void Main(string[] args) {
             // build and mark the tree with minimax scores
             MinimaxTree<char> tree = BuildTree();
 
@@ -31,8 +28,7 @@ namespace Exercise10
         /// Builds the tree
         /// </summary>
         /// <returns>tree</returns>
-        static MinimaxTree<char> BuildTree()
-        {
+        static MinimaxTree<char> BuildTree() {
             MinimaxTree<char> tree = new MinimaxTree<char>('A');
             MinimaxTreeNode<char> bNode = new MinimaxTreeNode<char>('B', tree.Root);
             tree.AddNode(bNode);
