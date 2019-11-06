@@ -9,6 +9,8 @@ namespace Exercise10 {
     /// Exercise 10 solution
     /// </summary>
     class Program {
+
+        static Dictionary<char, int> scores;
         /// <summary>
         /// Selects best first move using minimax
         /// </summary>
@@ -16,10 +18,27 @@ namespace Exercise10 {
         static void Main(string[] args) {
             // build and mark the tree with minimax scores
             MinimaxTree<char> tree = BuildTree();
+            InitializeLeafScores();
+            bool maximizing = true;
+            Minimax(tree.Root, maximizing);
 
-            // find child node with maximum score
+            // find optimal minimax path
+            StringBuilder optimalPath = new StringBuilder();
+            optimalPath.Append("Optimal Path: ");
+
+            MinimaxTreeNode<char> currentNode = tree.Root;
+            optimalPath.Append($"[{currentNode.Value}={currentNode.MinimaxScore}]");
+            
+            MinimaxTreeNode<char> nextNode = GetBestChild(currentNode, maximizing);
+            while (nextNode != null) {
+                currentNode = nextNode;
+                optimalPath.Append($"=>[{currentNode.Value}], [{currentNode.Value}={currentNode.MinimaxScore}]");
+                maximizing = !maximizing;
+                nextNode = GetBestChild(currentNode, maximizing);
+            }
 
             // print best move
+            Console.WriteLine(optimalPath.ToString());
 
             Console.WriteLine();
         }
@@ -79,6 +98,61 @@ namespace Exercise10 {
             MinimaxTreeNode<char> yNode = new MinimaxTreeNode<char>('Y', kNode);
             tree.AddNode(yNode);
             return tree;
+        }
+     
+        static void InitializeLeafScores() {
+            scores = new Dictionary<char, int>() {
+                {'L', 7}, {'M', 6}, {'N', 8}, {'O', 5}, {'P', 2}, {'Q', 3}, {'R', 0},
+                {'S', -2}, {'T', 6}, {'U', 2}, {'V', 5}, {'W', 8}, {'X', 9}, {'Y', 2}
+            };
+        }
+
+        static void Minimax(MinimaxTreeNode<char> node, bool maximizing) {
+            IList<MinimaxTreeNode<char>> children = node.Children;
+            // recurse on children
+            if (children.Count > 0) {
+                // obtain score on children while toggling minmaxing
+                foreach (MinimaxTreeNode<char> child in children) Minimax(child, !maximizing);
+
+                // initialize default
+                if (maximizing) node.MinimaxScore = int.MinValue;
+                else node.MinimaxScore = int.MaxValue;
+                
+                // find max or min from children
+                foreach (MinimaxTreeNode<char> child in children) {
+                    if (maximizing) 
+                        node.MinimaxScore = Math.Max(node.MinimaxScore, child.MinimaxScore);
+                    else 
+                        node.MinimaxScore = Math.Min(node.MinimaxScore, child.MinimaxScore);
+                }
+            } else {
+                // leaf nodes as base case
+                AssignMinimaxScore(node, maximizing);
+            }
+        }
+
+        static bool AssignMinimaxScore(MinimaxTreeNode<char> node, bool maximizing) {
+            if (scores.ContainsKey(node.Value)) {
+                node.MinimaxScore = scores[node.Value];
+                return true;
+            } else {
+                // not initialized, set worst possible as default
+                if (maximizing) node.MinimaxScore = int.MinValue;
+                else node.MinimaxScore = int.MaxValue;
+                return false;
+            }
+        }
+
+        static MinimaxTreeNode<char> GetBestChild(MinimaxTreeNode<char> parent, bool maximizing) {
+            IList<MinimaxTreeNode<char>> children = parent.Children;
+            if (children.Count == 0) return null;
+            MinimaxTreeNode<char> bestChild = children[0];
+            for (int i = 1; i < children.Count; i++) {
+                if ((maximizing && children[i].MinimaxScore > bestChild.MinimaxScore) ||
+                    (!maximizing && children[i].MinimaxScore < bestChild.MinimaxScore))
+                    bestChild = children[i];
+            }
+            return bestChild;
         }
     }
 }
