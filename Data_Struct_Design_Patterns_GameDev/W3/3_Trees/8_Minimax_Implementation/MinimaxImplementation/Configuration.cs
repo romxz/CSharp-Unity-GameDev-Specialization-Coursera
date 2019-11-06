@@ -4,13 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MinimaxImplementation
-{
+namespace MinimaxImplementation {
     /// <summary>
     /// A configuration of the game "board"
     /// </summary>
-    class Configuration
-    {
+    class Configuration {
         #region Fields
 
         List<int> bins = new List<int>();
@@ -23,8 +21,7 @@ namespace MinimaxImplementation
         /// Constructor
         /// </summary>
         /// <param name="binContents">contents of each bin</param>
-        public Configuration(List<int> binContents)
-        {
+        public Configuration(List<int> binContents) {
             // copy bin contents into bins
             bins.AddRange(binContents);
         }
@@ -36,22 +33,17 @@ namespace MinimaxImplementation
         /// <summary>
         /// Gets a read-only list of the bin contents
         /// </summary>
-        public IList<int> Bins
-        {
+        public IList<int> Bins {
             get { return bins.AsReadOnly(); }
         }
 
         /// <summary>
         /// Gets whether all the bins in the configuration are empty
         /// </summary>
-        public bool Empty
-        {
-            get
-            {
-                foreach (int bin in bins)
-                {
-                    if (bin > 0)
-                    {
+        public bool Empty {
+            get {
+                foreach (int bin in bins) {
+                    if (bin > 0) {
                         return false;
                     }
                 }
@@ -67,15 +59,12 @@ namespace MinimaxImplementation
         /// Converts the configuration to a string
         /// </summary>
         /// <returns>configuration string</returns>
-        public override string ToString()
-        {
+        public override string ToString() {
             StringBuilder builder = new StringBuilder();
             builder.Append('[');
-            for (int i = 0; i < bins.Count; i++)
-            {
+            for (int i = 0; i < bins.Count; i++) {
                 builder.Append(bins[i].ToString());
-                if (i < bins.Count - 1)
-                {
+                if (i < bins.Count - 1) {
                     builder.Append(" ");
                 }
             }

@@ -4,14 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Queues
-{
+namespace Queues {
     /// <summary>
     /// A priority queue
     /// </summary>
     /// <typeparam name="T">type for queue elements</typeparam>
-    class PriorityQueue<T> where T : IComparable
-    {
+    class PriorityQueue<T> where T : IComparable {
         List<T> contents = new List<T>();
 
         #region Constructor
@@ -19,8 +17,7 @@ namespace Queues
         /// <summary>
         /// Constructor
         /// </summary>
-        public PriorityQueue()
-        {
+        public PriorityQueue() {
         }
 
         #endregion
@@ -30,8 +27,7 @@ namespace Queues
         /// <summary>
         /// Gets the number of items in the queue
         /// </summary>
-        public int Count
-        {
+        public int Count {
             get { return contents.Count; }
         }
 
@@ -43,13 +39,11 @@ namespace Queues
         /// Adds an item to the the queue
         /// </summary>
         /// <param name="item">the item to add to the queue</param>
-        public void Enqueue(T item)
-        {
+        public void Enqueue(T item) {
             // find location at which to add the item
             int addLocation = 0;
             while ((addLocation < Count) &&
-                (contents[addLocation].CompareTo(item) < 0))
-            {
+                (contents[addLocation].CompareTo(item) < 0)) {
                 addLocation++;
             }
 
@@ -61,15 +55,11 @@ namespace Queues
         /// Removes the item from the front of the queue
         /// </summary>
         /// <returns>the removed item</returns>
-        public T Dequeue()
-        {
+        public T Dequeue() {
             // throw exception if try to dequeue from an empty queue
-            if (contents.Count == 0)
-            {
+            if (contents.Count == 0) {
                 throw new InvalidOperationException("Can't dequeue from an empty queue");
-            }
-            else
-            {
+            } else {
                 // retrieve front of queue, remove, and return
                 T item = contents[0];
                 contents.RemoveAt(0);
@@ -81,15 +71,11 @@ namespace Queues
         /// Peeks at the front item on the queue
         /// </summary>
         /// <returns>the front item</returns>
-        public T Peek()
-        {
+        public T Peek() {
             // throw exception if try to peek at an empty queue
-            if (contents.Count == 0)
-            {
+            if (contents.Count == 0) {
                 throw new InvalidOperationException("Can't peek at an empty queue");
-            }
-            else
-            {
+            } else {
                 // return front of queue
                 return contents[0];
             }
@@ -99,14 +85,11 @@ namespace Queues
         /// Converts the queue to a string
         /// </summary>
         /// <returns>the string</returns>
-        public override string ToString()
-        {
+        public override string ToString() {
             StringBuilder contentsString = new StringBuilder();
-            for (int i = 0; i < contents.Count; i++)
-            {
+            for (int i = 0; i < contents.Count; i++) {
                 contentsString.Append(contents[i]);
-                if (i < contents.Count - 1)
-                {
+                if (i < contents.Count - 1) {
                     contentsString.Append(",");
                 }
             }

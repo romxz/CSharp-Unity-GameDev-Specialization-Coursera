@@ -4,13 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MinimaxImplementation
-{
+namespace MinimaxImplementation {
     /// <summary>
     /// Minimax Implementation lecture code
     /// </summary>
-    class Program
-    {
+    class Program {
         // saved for efficiency
         static List<int> binContents = new List<int>();
         static List<Configuration> newConfigurations =
@@ -20,25 +18,22 @@ namespace MinimaxImplementation
         /// Executes minimax search
         /// </summary>
         /// <param name="args">command-line arguments</param>
-        static void Main(string[] args)
-        {
+        static void Main(string[] args) {
             // build and mark the tree with minimax scores
             MinimaxTree<Configuration> tree = BuildTree();
             Minimax(tree.Root, true);
 
             // find child node with maximum score
-            IList<MinimaxTreeNode<Configuration>> children = 
+            IList<MinimaxTreeNode<Configuration>> children =
                 tree.Root.Children;
             MinimaxTreeNode<Configuration> maxChildNode = children[0];
-            for (int i = 1; i < children.Count; i++)
-            {
-                if (children[i].MinimaxScore > maxChildNode.MinimaxScore)
-                {
+            for (int i = 1; i < children.Count; i++) {
+                if (children[i].MinimaxScore > maxChildNode.MinimaxScore) {
                     maxChildNode = children[i];
                 }
             }
 
-            Console.WriteLine("Best move is to configuration " + 
+            Console.WriteLine("Best move is to configuration " +
                 maxChildNode.Value);
             Console.WriteLine();
         }
@@ -47,8 +42,7 @@ namespace MinimaxImplementation
         /// Builds the tree
         /// </summary>
         /// <returns>tree</returns>
-        static MinimaxTree<Configuration> BuildTree()
-        {
+        static MinimaxTree<Configuration> BuildTree() {
             // build root node
             binContents.Clear();
             binContents.Add(2);
@@ -62,15 +56,13 @@ namespace MinimaxImplementation
             LinkedList<MinimaxTreeNode<Configuration>> nodeList =
                 new LinkedList<MinimaxTreeNode<Configuration>>();
             nodeList.AddLast(tree.Root);
-            while (nodeList.Count > 0)
-            {
+            while (nodeList.Count > 0) {
                 MinimaxTreeNode<Configuration> currentNode =
                     nodeList.First.Value;
                 nodeList.RemoveFirst();
                 List<Configuration> children =
                     GetNextConfigurations(currentNode.Value);
-                foreach (Configuration child in children)
-                {
+                foreach (Configuration child in children) {
                     MinimaxTreeNode<Configuration> childNode =
                         new MinimaxTreeNode<Configuration>(
                             child, currentNode);
@@ -88,15 +80,12 @@ namespace MinimaxImplementation
         /// <param name="currentConfiguration">current configuration</param>
         /// <returns>list of next configurations</returns>
         static List<Configuration> GetNextConfigurations(
-            Configuration currentConfiguration)
-        {
+            Configuration currentConfiguration) {
             newConfigurations.Clear();
             IList<int> currentBins = currentConfiguration.Bins;
-            for (int i = 0; i < currentBins.Count; i++)
-            {
+            for (int i = 0; i < currentBins.Count; i++) {
                 int currentBinCount = currentBins[i];
-                while (currentBinCount > 0)
-                {
+                while (currentBinCount > 0) {
                     // take one teddy from current bin
                     currentBinCount--;
 
@@ -117,51 +106,37 @@ namespace MinimaxImplementation
         /// <param name="tree">tree to mark with scores</param>
         /// <param name="maximizing">whether or not we're maximizing</param>
         static void Minimax(MinimaxTreeNode<Configuration> tree,
-            bool maximizing)
-        {
+            bool maximizing) {
             // recurse on children
             IList<MinimaxTreeNode<Configuration>> children = tree.Children;
-            if (children.Count > 0)
-            {
-                foreach (MinimaxTreeNode<Configuration> child in children)
-                {
+            if (children.Count > 0) {
+                foreach (MinimaxTreeNode<Configuration> child in children) {
                     // toggle maximizing as we move down
                     Minimax(child, !maximizing);
                 }
 
                 // set default node minimax score
-                if (maximizing)
-                {
+                if (maximizing) {
                     tree.MinimaxScore = int.MinValue;
-                }
-                else
-                {
+                } else {
                     tree.MinimaxScore = int.MaxValue;
                 }
 
                 // find maximum or minimum value in children
-                foreach (MinimaxTreeNode<Configuration> child in children)
-                {
-                    if (maximizing)
-                    {
+                foreach (MinimaxTreeNode<Configuration> child in children) {
+                    if (maximizing) {
                         // check for higher minimax score
-                        if (child.MinimaxScore > tree.MinimaxScore)
-                        {
+                        if (child.MinimaxScore > tree.MinimaxScore) {
                             tree.MinimaxScore = child.MinimaxScore;
                         }
-                    }
-                    else
-                    {
+                    } else {
                         // minimizing, check for lower minimax score
-                        if (child.MinimaxScore < tree.MinimaxScore)
-                        {
+                        if (child.MinimaxScore < tree.MinimaxScore) {
                             tree.MinimaxScore = child.MinimaxScore;
                         }
                     }
                 }
-            }
-            else
-            {
+            } else {
                 // leaf nodes are the base case
                 AssignMinimaxScore(tree, maximizing);
             }
@@ -172,19 +147,14 @@ namespace MinimaxImplementation
         /// </summary>
         /// <param name="node">node to mark with score</param>
         static void AssignMinimaxScore(
-            MinimaxTreeNode<Configuration> node, 
-            bool maximizing)
-        {
+            MinimaxTreeNode<Configuration> node,
+            bool maximizing) {
             // for the lecture, only score end-of-game configurations
-            if (node.Value.Empty)
-            {
-                if (maximizing)
-                {
+            if (node.Value.Empty) {
+                if (maximizing) {
                     // player 2 took the last teddy
                     node.MinimaxScore = 1;
-                }
-                else
-                {
+                } else {
                     // player 1 took the last teddy
                     node.MinimaxScore = 0;
                 }

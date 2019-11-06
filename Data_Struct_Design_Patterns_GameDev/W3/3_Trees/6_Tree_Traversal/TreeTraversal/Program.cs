@@ -4,19 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TreeTraversal
-{
+namespace TreeTraversal {
     /// <summary>
     /// Tree Traversal lecture code
     /// </summary>
-    class Program
-    {
+    class Program {
         /// <summary>
         /// Demonstrates traversing a tree
         /// </summary>
         /// <param name="args">command-line arguments</param>
-        static void Main(string[] args)
-        {
+        static void Main(string[] args) {
             BinaryTree<char> tree = BuildTree();
 
             // depth-first traversals
@@ -52,8 +49,7 @@ namespace TreeTraversal
         /// Reference: https://en.wikipedia.org/wiki/Tree_traversal
         /// </summary>
         /// <returns>tree</returns>
-        static BinaryTree<char> BuildTree()
-        {
+        static BinaryTree<char> BuildTree() {
             BinaryTree<char> tree = new BinaryTree<char>('F');
             BinaryTreeNode<char> nodeB = new BinaryTreeNode<char>('B', tree.Root);
             tree.AddNode(nodeB, ChildSide.Left);
@@ -79,17 +75,13 @@ namespace TreeTraversal
         /// rooted at the given node
         /// </summary>
         /// <param name="tree">tree to traverse</param>
-        static void PreOrderTraversal(BinaryTreeNode<char> tree)
-        {
-            if (tree != null)
-            {
+        static void PreOrderTraversal(BinaryTreeNode<char> tree) {
+            if (tree != null) {
                 Console.Write(tree.Value + " ");
-                if (tree.Left != null)
-                {
+                if (tree.Left != null) {
                     PreOrderTraversal(tree.Left);
                 }
-                if (tree.Right != null)
-                {
+                if (tree.Right != null) {
                     PreOrderTraversal(tree.Right);
                 }
             }
@@ -100,17 +92,13 @@ namespace TreeTraversal
         /// rooted at the given node
         /// </summary>
         /// <param name="tree">tree to traverse</param>
-        static void InOrderTraversal(BinaryTreeNode<char> tree)
-        {
-            if (tree != null)
-            {
-                if (tree.Left != null)
-                {
+        static void InOrderTraversal(BinaryTreeNode<char> tree) {
+            if (tree != null) {
+                if (tree.Left != null) {
                     InOrderTraversal(tree.Left);
                 }
                 Console.Write(tree.Value + " ");
-                if (tree.Right != null)
-                {
+                if (tree.Right != null) {
                     InOrderTraversal(tree.Right);
                 }
             }
@@ -121,16 +109,12 @@ namespace TreeTraversal
         /// rooted at the given node
         /// </summary>
         /// <param name="tree">tree to traverse</param>
-        static void PostOrderTraversal(BinaryTreeNode<char> tree)
-        {
-            if (tree != null)
-            {
-                if (tree.Left != null)
-                {
+        static void PostOrderTraversal(BinaryTreeNode<char> tree) {
+            if (tree != null) {
+                if (tree.Left != null) {
                     PostOrderTraversal(tree.Left);
                 }
-                if (tree.Right != null)
-                {
+                if (tree.Right != null) {
                     PostOrderTraversal(tree.Right);
                 }
                 Console.Write(tree.Value + " ");
@@ -142,24 +126,19 @@ namespace TreeTraversal
         /// rooted at the given node
         /// </summary>
         /// <param name="tree">tree to traverse</param>
-        static void BreadthFirstTraversal(BinaryTreeNode<char> tree)
-        {
-            if (tree != null)
-            {
+        static void BreadthFirstTraversal(BinaryTreeNode<char> tree) {
+            if (tree != null) {
                 LinkedList<BinaryTreeNode<char>> searchList =
                     new LinkedList<BinaryTreeNode<char>>();
                 searchList.AddLast(tree);
-                while (searchList.Count > 0)
-                {
+                while (searchList.Count > 0) {
                     BinaryTreeNode<char> node = searchList.First.Value;
                     searchList.RemoveFirst();
                     Console.Write(node.Value + " ");
-                    if (node.Left != null)
-                    {
+                    if (node.Left != null) {
                         searchList.AddLast(node.Left);
                     }
-                    if (node.Right != null)
-                    {
+                    if (node.Right != null) {
                         searchList.AddLast(node.Right);
                     }
                 }

@@ -4,13 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TreeTraversal
-{
+namespace TreeTraversal {
     /// <summary>
     /// An enumeration of the child sides
     /// </summary>
-    enum ChildSide
-    {
+    enum ChildSide {
         Left,
         Right
     }

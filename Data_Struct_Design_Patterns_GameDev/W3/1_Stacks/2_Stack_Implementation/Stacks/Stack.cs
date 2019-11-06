@@ -4,13 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Stacks
-{
+namespace Stacks {
     /// <remarks>
     /// A stack
     /// </remarks>
-    class Stack<T>
-    {
+    class Stack<T> {
         List<T> contents = new List<T>();
 
         #region Constructor
@@ -18,8 +16,7 @@ namespace Stacks
         /// <summary>
         /// Constructor
         /// </summary>
-        public Stack()
-        {
+        public Stack() {
         }
 
         #endregion
@@ -29,8 +26,7 @@ namespace Stacks
         /// <summary>
         /// Gets the number of items in the stack
         /// </summary>
-        public int Count
-        {
+        public int Count {
             get { return contents.Count; }
         }
 
@@ -42,8 +38,7 @@ namespace Stacks
         /// Pushes the item on the stack
         /// </summary>
         /// <param name="item"></param>
-        public void Push(T item)
-        {
+        public void Push(T item) {
             contents.Add(item);
         }
 
@@ -51,15 +46,11 @@ namespace Stacks
         /// Pops the top item from the stack
         /// </summary>
         /// <returns>the popped item</returns>
-        public T Pop()
-        {
+        public T Pop() {
             // throw exception if try to pop from an empty stack
-            if (contents.Count == 0)
-            {
+            if (contents.Count == 0) {
                 throw new InvalidOperationException("Can't pop from an empty stack");
-            }
-            else
-            {
+            } else {
                 // retrieve top of stack, remove, and return
                 T item = contents[contents.Count - 1];
                 contents.RemoveAt(contents.Count - 1);
@@ -71,15 +62,11 @@ namespace Stacks
         /// Peeks at the top item on the stack
         /// </summary>
         /// <returns>the top item</returns>
-        public T Peek()
-        {
+        public T Peek() {
             // throw exception if try to peek at an empty stack
-            if (contents.Count == 0)
-            {
+            if (contents.Count == 0) {
                 throw new InvalidOperationException("Can't peek at an empty stack");
-            }
-            else
-            {
+            } else {
                 // return top of stack
                 return contents[contents.Count - 1];
             }
@@ -89,14 +76,11 @@ namespace Stacks
         /// Converts the stack to a string
         /// </summary>
         /// <returns>the string</returns>
-        public override string ToString()
-        {
+        public override string ToString() {
             StringBuilder contentsString = new StringBuilder();
-            for (int i = 0; i < contents.Count; i++)
-            {
+            for (int i = 0; i < contents.Count; i++) {
                 contentsString.Append(contents[i]);
-                if (i < contents.Count - 1)
-                {
+                if (i < contents.Count - 1) {
                     contentsString.Append(",");
                 }
             }

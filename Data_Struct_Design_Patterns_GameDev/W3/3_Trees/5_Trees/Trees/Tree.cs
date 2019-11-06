@@ -4,14 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Trees
-{
+namespace Trees {
     /// <summary>
     /// A tree
     /// </summary>
     /// <typeparam name="T">type of values stored in tree</typeparam>
-    class Tree<T>
-    {
+    class Tree<T> {
         #region Fields
 
         TreeNode<T> root = null;
@@ -25,8 +23,7 @@ namespace Trees
         /// Constructor
         /// </summary>
         /// <param name="value">value of the root node</param>
-        public Tree(T value)
-        {
+        public Tree(T value) {
             root = new TreeNode<T>(value, null);
             nodes.Add(root);
         }
@@ -38,16 +35,14 @@ namespace Trees
         /// <summary>
         /// Gets the number of nodes in the tree
         /// </summary>
-        public int Count
-        {
+        public int Count {
             get { return nodes.Count; }
         }
 
         /// <summary>
         /// Gets the root of the tree
         /// </summary>
-        public TreeNode<T> Root
-        {
+        public TreeNode<T> Root {
             get { return root; }
         }
 
@@ -58,19 +53,16 @@ namespace Trees
         /// <summary>
         /// Clears all the nodes from the tree
         /// </summary>
-        void Clear()
-        {
+        void Clear() {
             // remove all the children from each node
             // so nodes can be garbage collected
-            foreach (TreeNode<T> node in nodes)
-            {
+            foreach (TreeNode<T> node in nodes) {
                 node.Parent = null;
                 node.RemoveAllChildren();
             }
 
             // now remove all the nodes from the tree and set root to null
-            for (int i = nodes.Count - 1; i >= 0; i--)
-            {
+            for (int i = nodes.Count - 1; i >= 0; i--) {
                 nodes.RemoveAt(i);
             }
             root = null;
@@ -85,21 +77,15 @@ namespace Trees
         /// </summary>
         /// <param name="node">node to add</param>
         /// <returns>true if the node is added, false otherwise</returns>
-        public bool AddNode(TreeNode<T> node)
-        {
+        public bool AddNode(TreeNode<T> node) {
             if (node == null ||
                 node.Parent == null ||
-                !nodes.Contains(node.Parent))
-            {
+                !nodes.Contains(node.Parent)) {
                 return false;
-            }
-            else if (node.Parent.Children.Contains(node))
-            {
+            } else if (node.Parent.Children.Contains(node)) {
                 // node already a child of parent
                 return false;
-            }
-            else
-            {
+            } else {
                 // add child as tree node and as a child to parent
                 nodes.Add(node);
                 return node.Parent.AddChild(node);
@@ -115,41 +101,31 @@ namespace Trees
         /// </summary>
         /// <param name="removeNode">node to remove</param>
         /// <returns>true if the node is removed, false otherwise</returns>
-        public bool RemoveNode(TreeNode<T> removeNode)
-        {
-            if (removeNode == null)
-            {
+        public bool RemoveNode(TreeNode<T> removeNode) {
+            if (removeNode == null) {
                 return false;
-            }
-            else if (removeNode == root)
-            {
+            } else if (removeNode == root) {
                 // removing the root clears the tree
                 Clear();
                 return true;
-            }
-            else
-            {
+            } else {
                 // remove as child of parent
                 bool success = removeNode.Parent.RemoveChild(removeNode);
-                if (!success)
-                {
+                if (!success) {
                     return false;
                 }
 
                 // remove node from tree
                 success = nodes.Remove(removeNode);
-                if (!success)
-                {
+                if (!success) {
                     return false;
                 }
 
                 // check for branch node
-                if (removeNode.Children.Count > 0)
-                {
+                if (removeNode.Children.Count > 0) {
                     // recursively prune subtree
                     IList<TreeNode<T>> children = removeNode.Children;
-                    for (int i = children.Count - 1; i >= 0; i--)
-                    {
+                    for (int i = children.Count - 1; i >= 0; i--) {
                         RemoveNode(children[i]);
                     }
                 }
@@ -165,12 +141,9 @@ namespace Trees
         /// </summary>
         /// <param name="value">value to find</param>
         /// <returns>tree node or null if not found</returns>
-        public TreeNode<T> Find(T value)
-        {
-            foreach (TreeNode<T> node in nodes)
-            {
-                if (node.Value.Equals(value))
-                {
+        public TreeNode<T> Find(T value) {
+            foreach (TreeNode<T> node in nodes) {
+                if (node.Value.Equals(value)) {
                     return node;
                 }
             }
@@ -181,23 +154,17 @@ namespace Trees
         /// Converts the tree to a comma-separated string of nodes
         /// </summary>
         /// <returns>comma-separated string of nodes</returns>
-        public override String ToString()
-        {
+        public override String ToString() {
             StringBuilder builder = new StringBuilder();
             builder.Append("Root: ");
-            if (root != null)
-            {
+            if (root != null) {
                 builder.Append(root.Value + " ");
-            }
-            else
-            {
+            } else {
                 builder.Append("null");
             }
-            for (int i = 0; i < Count; i++)
-            {
+            for (int i = 0; i < Count; i++) {
                 builder.Append(nodes[i].ToString());
-                if (i < Count - 1)
-                {
+                if (i < Count - 1) {
                     builder.Append(",");
                 }
             }

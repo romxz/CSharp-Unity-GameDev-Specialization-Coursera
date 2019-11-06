@@ -4,13 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Stacks
-{
+namespace Stacks {
     /// <remarks>
     /// Tests the Stack class
     /// </remarks>
-    class TestStack
-    {
+    class TestStack {
         // stack to use for testing
         static Stack<int> stack = new Stack<int>();
 
@@ -18,8 +16,7 @@ namespace Stacks
         /// Tests the Stack methods
         /// </summary>
         /// <param name="args">arguments</param>
-        static void Main(string[] args)
-        {
+        static void Main(string[] args) {
             // confirm new stack has 0 items
             Console.WriteLine("New stack should have 0 items");
             TestCount(0);
@@ -61,15 +58,11 @@ namespace Stacks
         /// Tests to make sure the number of items in the stack matches the expected value
         /// </summary>
         /// <param name="expected">the expected value</param>
-        static void TestCount(int expected)
-        {
+        static void TestCount(int expected) {
             int actual = stack.Count;
-            if (actual == expected)
-            {
+            if (actual == expected) {
                 Console.WriteLine("TestCount passed");
-            }
-            else
-            {
+            } else {
                 Console.WriteLine("TestCount FAILED! Expected: " + expected +
                     ", actual: " + actual);
             }
@@ -79,15 +72,11 @@ namespace Stacks
         /// Test to make sure the stack contents match the expected contents
         /// </summary>
         /// <param name="expected">the expected contents</param>
-        static void TestContents(string expected)
-        {
+        static void TestContents(string expected) {
             string actual = stack.ToString();
-            if (actual == expected)
-            {
+            if (actual == expected) {
                 Console.WriteLine("TestContents passed");
-            }
-            else
-            {
+            } else {
                 Console.WriteLine("TestContents FAILED! Expected: " + expected +
                     ", actual: " + actual);
             }
@@ -97,8 +86,7 @@ namespace Stacks
         /// Tests pushing 42 onto the stack as the first item
         /// </summary>
         /// <param name="item">the item to push on the stack</param>
-        static void TestPush42First()
-        {
+        static void TestPush42First() {
             // build expected results
             string expected = "42";
             int expectedCount = stack.Count + 1;
@@ -113,8 +101,7 @@ namespace Stacks
         /// Tests pushing 15 onto the stack as the second item
         /// </summary>
         /// <param name="item">the item to push on the stack</param>
-        static void TestPush15Second()
-        {
+        static void TestPush15Second() {
             // build expected results
             string expected = "42,15";
             int expectedCount = stack.Count + 1;
@@ -128,8 +115,7 @@ namespace Stacks
         /// <summary>
         /// Tests that pop pops from the top of the stack
         /// </summary>
-        static void TestPop()
-        {
+        static void TestPop() {
             // build expected results
             int expected = 15;
             int expectedCount = stack.Count - 1;
@@ -137,12 +123,9 @@ namespace Stacks
 
             // pop item and check results
             int actual = stack.Pop();
-            if (actual == expected)
-            {
+            if (actual == expected) {
                 Console.WriteLine("TestPop passed");
-            }
-            else
-            {
+            } else {
                 Console.WriteLine("TestPop FAILED! Expected: " + expected +
                     ", actual: " + actual);
             }
@@ -153,15 +136,11 @@ namespace Stacks
         /// <summary>
         /// Tests that an exception is thrown when popping from an empty stack
         /// </summary>
-        static void TestPopException()
-        {
-            try
-            {
+        static void TestPopException() {
+            try {
                 int item = stack.Pop();
                 Console.WriteLine("TestPopException FAILED! InvalidOperationException not thrown");
-            }
-            catch (InvalidOperationException ioe)
-            {
+            } catch (InvalidOperationException ioe) {
                 Console.WriteLine("TestPopException passed");
             }
         }
@@ -169,20 +148,16 @@ namespace Stacks
         /// <summary>
         /// Tests that peek returns the top of the stack
         /// </summary>
-        static void TestPeek()
-        {
+        static void TestPeek() {
             // build expected results
             int expected = 15;
             int expectedCount = stack.Count;
             string stackContents = "42,15";
 
             int actual = stack.Peek();
-            if (actual == expected)
-            {
+            if (actual == expected) {
                 Console.WriteLine("TestPeek passed");
-            }
-            else
-            {
+            } else {
                 Console.WriteLine("TestPeek FAILED! Expected: " + expected +
                     ", actual: " + actual);
             }
@@ -193,15 +168,11 @@ namespace Stacks
         /// <summary>
         /// Tests that an exception is thrown when peeking at an empty stack
         /// </summary>
-        static void TestPeekException()
-        {
-            try
-            {
+        static void TestPeekException() {
+            try {
                 int item = stack.Peek();
                 Console.WriteLine("TestPeekException FAILED! InvalidOperationException not thrown");
-            }
-            catch (InvalidOperationException ioe)
-            {
+            } catch (InvalidOperationException ioe) {
                 Console.WriteLine("TestPeekException passed");
             }
         }
