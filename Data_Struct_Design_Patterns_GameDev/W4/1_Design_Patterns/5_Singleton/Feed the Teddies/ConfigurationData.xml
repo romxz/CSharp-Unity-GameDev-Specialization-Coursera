@@ -1,0 +1,37 @@
+<ConfigurationData xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/">
+	<totalGameSeconds>30</totalGameSeconds>
+	<burgerMoveUnitsPerSecond>5</burgerMoveUnitsPerSecond>
+	<easyMinSpawnDelay>1</easyMinSpawnDelay>
+	<mediumMinSpawnDelay>0.5</mediumMinSpawnDelay>
+	<hardMinSpawnDelay>0.25</hardMinSpawnDelay>
+	<easyMaxSpawnDelay>3</easyMaxSpawnDelay>
+	<mediumMaxSpawnDelay>2</mediumMaxSpawnDelay>
+	<hardMaxSpawnDelay>1</hardMaxSpawnDelay>
+	<easyMinImpulseForce>2</easyMinImpulseForce>
+	<mediumMinImpulseForce>2.5</mediumMinImpulseForce>
+	<hardMinImpulseForce>3</hardMinImpulseForce>
+	<easyMaxImpulseForce>4</easyMaxImpulseForce>
+	<mediumMaxImpulseForce>5</mediumMaxImpulseForce>
+	<hardMaxImpulseForce>6</hardMaxImpulseForce>
+	<easyMaxNumBears>5</easyMaxNumBears>
+	<mediumMaxNumBears>7</mediumMaxNumBears>
+	<hardMaxNumBears>10</hardMaxNumBears>
+	<bearDamage>10</bearDamage>
+	<frenchFriesImpulseForce>10</frenchFriesImpulseForce>
+	<burgerCooldownSeconds>0.5</burgerCooldownSeconds>
+	<bearPoints>10</bearPoints>
+	<teddyBearProjectileImpulseForce>5</teddyBearProjectileImpulseForce>
+	<easyBearMinShotDelay>1.5</easyBearMinShotDelay>
+	<mediumBearMinShotDelay>1</mediumBearMinShotDelay>
+	<hardBearMinShotDelay>0.5</hardBearMinShotDelay>
+	<easyBearMaxShotDelay>2.5</easyBearMaxShotDelay>
+	<mediumBearMaxShotDelay>2</mediumBearMaxShotDelay>
+	<hardBearMaxShotDelay>1.5</hardBearMaxShotDelay>
+	<bearProjectileDamage>5</bearProjectileDamage>
+	<easyBearHomingDelay>2</easyBearHomingDelay>
+	<mediumBearHomingDelay>1.25</mediumBearHomingDelay>
+	<hardBearHomingDelay>0.5</hardBearHomingDelay>
+	<easyBearProjectileHomingDelay>0.5</easyBearProjectileHomingDelay>
+	<mediumBearProjectileHomingDelay>0.35</mediumBearProjectileHomingDelay>
+	<hardBearProjectileHomingDelay>0.2</hardBearProjectileHomingDelay>
+</ConfigurationData>
